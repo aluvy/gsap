@@ -147,19 +147,72 @@
         <div class="sample__ttl">
             <h2>scrollTrigger toggleActions</h2>
             <p>
-                <span></span>
+                <span>해당 요소가 화면에 보이는 지점에서 애니메이션 효과가 시작된다.</span>
+                <span>스크롤을 움직여 화면에 요소가 보일때마다 실행된다.</span>
+                <span>
+                    <a href="./toggleactions.html" target="blank">toggleActions는 스크롤 방향에 따라 onEnter, onLeave, onEnterBack, onLeaveBack 네가지로 구성된다.</a>
+                </span>
+                <span>
+                    <a href="./toggleactions-startend.html">시작/종료지점을 선택하려면 start 메서드를 사용한다.</a>
+                </span>
             </p>
         </div>
         <section class="sample__content">
             <div class="emoji"><img src="./assets/images/emoji.png" /></div>
         </section>
         <script>
-            gsap.registerPlugin(ScrollTrigger);
+            // gsap.registerPlugin(ScrollTrigger);
             gsap.to(".gsap-scrolltrigger-toggleaction .emoji", {
-                // scrollTrigger : {},
-                // ".gsap-scrolltrigger .emoji", x:400, duration:2
+                scrollTrigger : {
+                    trigger: ".gsap-scrolltrigger-toggleaction .emoji",
+                    toggleActions: "restart none reverse none"
+                    // toggleActions value
+                    // play, pause, resume, reverse, restart, reset, complete, none
+                },
+                x:400, duration:2
             })
         </script>
+    </article>
+
+
+    <a name="scrolltrigger-scrub"></a>
+    <article class="sample__wrap gsap-scrolltrigger-scrub">
+        <div class="sample__ttl">
+            <h2>Scrub</h2>
+            <p>
+                <span>스크롤이 요소 이전으로 돌아가면 애니메이션 역시 되돌아가는 기능</span>
+                <span>scrub은 '문질러 닦다'라는 의미인데, 크게 와닿지 않고 되감기가 더 적절하지 않을까</span>
+                <span>scrub: true 또는 수치를 입력한다.</span>
+                <span>
+                    <a href="./scrolltrigger-scrub.html" target="blank">demo</a>
+                </span>
+            </p>
+        </div>
+        <section class="sample__content">
+        </section>
+    </article>
+
+
+    <a name="scrolltrigger-pinning"></a>
+    <article class="sample__wrap gsap-scrolltrigger-pinning">
+        <div class="sample__ttl">
+            <h2>Pinning</h2>
+            <p>
+                <span>pinning도 scrub만큼 자주 쓰이는 기능으로 핀으로 화면에 고정하는 기능이라고 이해하면 쉽다</span>
+                <span>사용범은 pin:true 혹은 pin:"요소의 class,id명" 이다.</span>
+                <span>
+                    <a href="./scrolltrigger-pinning.html" target="blank">demo</a>
+                </span>
+                <span>
+                    <a href="./scrolltrigger-pinning-onepage.html" target="blank">Pinning은 원페이지 스크롤에 쓰인다.</a>
+                </span>
+                <span>
+                    <a href="./scrolltrigger-pinning-onepage-app.html" target="blank">Pinning과 gsap.utils를 이용해 만든 원페이지 스크롤</a>
+                </span>
+            </p>
+        </div>
+        <section class="sample__content">
+        </section>
     </article>
 
 </body>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinning</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <style>
+        #container{position:relative; height:100vh; overflow: hidden;}
+        section{position:absolute; width: 100%; height: 100vh;}
+        .section01{background-color:sandybrown}
+        .section02{background-color:teal}
+        .section03{background-color:cornflowerblue}
+        .section04{background-color:palevioletred}
+        .section05{background-color:lightsalmon}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <section class="section01"></section>
+        <section class="section02"></section>
+        <section class="section03"></section>
+        <section class="section04"></section>
+        <section class="section05"></section>
+    </div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger)
+        gsap.defaults({ ease: "power1", duration: 3})
+
+        const tl = gsap.timeline();
+        tl.from(".section02", { xPercent: -100 })
+        .from(".section03", { xPercent: 100 })
+        .from(".section04", { yPercent: -100 })
+        .from(".section05", { yPercent: 100 })
+
+        ScrollTrigger.create({
+            animation: tl,
+            trigger: "#container",
+            start : "top top",
+            end: "+=4000",
+            pin: true,
+            scrub: true,
+            anticipatePin: 1
+        })
+    </script>
+</body>
+</html>

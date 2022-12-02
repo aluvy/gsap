@@ -2,10 +2,11 @@ html{scroll-behavior: smooth; overflow-x: hidden;}
 body{padding-left:12.5rem;}
 
 nav{position:fixed; left:0; top:0; display:block; width:11.5rem; height:100vh; padding:1.5rem; background:#000; box-sizing:border-box;}
-nav ul{display:flex; flex-direction: column; gap:.5rem 0;}
-nav ul + ul{border-top:1px solid #ffffff10; padding-top:1rem; margin-top:1rem;}
-/* nav ul li{} */
-nav ul li a{display: block; color:#ffffff70; font-size:.85rem; line-height:1.4; transition:color .3s;}
+nav section{border-top:1px solid #ffffff10; padding:1.25rem 0; margin: 1.25rem 0;}
+nav section:nth-of-type(1){border:0 none; padding:0; margin: 0;}
+nav section h2{color:#fff; font-weight:700; font-size:.75rem;}
+nav ul{display:flex; flex-direction: column; gap:.5rem 0; margin:1rem 0 0;}
+nav ul li a{display: block; color:#ffffff60; font-size:.85rem; line-height:1.4; transition:color .3s;}
 nav ul li a:hover{color:#ffffffbb;}
 nav ul li.active a{color:aquamarine;}
 
@@ -14,10 +15,11 @@ nav ul li.active a{color:aquamarine;}
 
 /* .sample__ttl{} */
 .sample__ttl h2{font-weight: 700; font-size:1.25rem;}
-.sample__ttl p{font-size:.85rem; color:#666; margin:.75rem 0 0; letter-spacing:-0.045rem;}
+.sample__ttl p{font-size:.85rem; color:#666; margin:.75rem 0 0;}
 .sample__ttl p span{display: flex; align-items:flex-start; justify-content:flex-start; gap:0 1rem;}
 .sample__ttl p span + span{margin:.5rem 0 0;}
 .sample__ttl p b{color:#333; font-weight:700; flex:0 0 10rem;}
+.sample__ttl p a{color:dodgerblue}
 .sample__content{margin:1rem 0 0;}
 .sample__btn{margin:2rem 0 0;}
 .sample__btn button{padding:.25rem 1rem; font-size:.75rem;}
