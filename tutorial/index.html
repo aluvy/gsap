@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gsap</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/common.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <script src="./assets/js/lnb.js"></script>
+    <script src="./assets/js/script.js"></script>
+</head>
+<body>
+    <a name="gsap-to"></a>
+    <article class="sample__wrap gsap-to">
+        <div class="sample__ttl">
+            <h2>gsap.to()</h2>
+            <p>
+                <span><b>gsap.to()</b>종료값 셋팅</span>
+            </p>
+        </div>
+        <section class="sample__content">
+            <div class="box box1">to</div>
+            <div class="box box2">to</div>
+            <div class="box box3">to</div>
+            <div class="box box4">button</div>
+        </section>
+        <section class="sample__btn">
+            <button class="btn-play">play</button>
+            <button class="btn-pause">pause</button>
+            <button class="btn-resume">resume</button>
+            <button class="btn-reverse">reverse</button>
+            <button class="btn-restart">restart</button>
+            <button class="btn-seek">seek</button>
+            <button class="btn-progress">progress</button>
+        </section>
+        <script>
+            gsap.to(".gsap-to .box1", { x: 200, duration:1 });
+            gsap.to(".gsap-to .box2", { x:200, rotate:720, scale:1.3, duration:3,});
+            gsap.to(".gsap-to .box3", { x:100, ease:'elastic', backgroundColor:'#46b477', width:300, duration:3 });
+            let gsapTo = gsap.to(".gsap-to .box4", { duration:4, x:750, rotation:360, ease:"none", paused:true})
+
+            document.querySelector(".gsap-to .btn-play").addEventListener("click", ()=>{ gsapTo.play() })
+            document.querySelector(".gsap-to .btn-pause").addEventListener("click", ()=>{ gsapTo.pause() })
+            document.querySelector(".gsap-to .btn-resume").addEventListener("click", ()=>{ gsapTo.resume() })
+            document.querySelector(".gsap-to .btn-reverse").addEventListener("click", ()=>{ gsapTo.reverse() })
+            document.querySelector(".gsap-to .btn-restart").addEventListener("click", ()=>{ gsapTo.restart() })
+            document.querySelector(".gsap-to .btn-seek").addEventListener("click", ()=>{ gsapTo.seek(2) })
+            document.querySelector(".gsap-to .btn-progress").addEventListener("click", ()=>{ gsapTo.progress(0.5) })
+        </script>
+    </article>
+    
+    <a name="gsap-from"></a>
+    <article class="sample__wrap gsap-from">
+        <div class="sample__ttl">
+            <h2>gsap.from(), fromTo(), set()</h2>
+            <p>
+                <span><b>gsap.from()</b>시작값 셋팅</span>
+                <span><b>gsap.fromTo()</b>시작,종료값 셋팅</span>
+                <span><b>gsap.set()</b>애니메이션 효과없이 즉시 변경</span>
+            </p>
+        </div>
+        <section class="sample__content">
+            <div class="box box1">from</div>
+            <div class="box box2">fromTo</div>
+            <div class="box box3">set</div>
+        </section>
+        <script>
+            gsap.from(".gsap-from .box1", { x:100, duration:3, opacity:0, width:400, ease:'step(10)' })
+            gsap.fromTo(".gsap-from .box2", { x:300 }, {duration:4, x:-50, rotate:180})
+            gsap.set(".gsap-to .box3", {x:100, width:200, duration:3})
+        </script>
+    </article>
+
+    <a name="gsap-timeline-delay"></a>
+    <article class="sample__wrap gsap-timeline-delay">
+        <div class="sample__ttl">
+            <h2>gsap-timeline (delay)</h2>
+            <p>
+                <span>delay를 사용해서 애니메이션을 순차적으로 실행할 수 있다.</span>
+            </p>
+        </div>
+        <section class="sample__content">
+            <div class="box box1">delay</div>
+        </section>
+        <script>
+            gsap.to(".gsap-timeline-delay .box1", { duration:3, x:200, opacity:.2, ease: 'step(10)'});
+            gsap.to(".gsap-timeline-delay .box1", { delay:3, duration:3, y:200, opacity:1 });
+            gsap.to(".gsap-timeline-delay .box1", { delay:6, duration:3, x:0, width:200, backgroundColor:'skyblue'});
+            gsap.to(".gsap-timeline-delay .box1", { delay:9, duration:3, y:0, height:200});
+        </script>
+    </article>
+
+    <a name="gsap-timeline"></a>
+    <article class="sample__wrap gsap-timeline">
+        <div class="sample__ttl">
+            <h2>gsap.timeline()</h2>
+            <p>
+                <span>애니메이션을 순차적으로 실행하려면 delay보다는 gsap.timeline()을 사용해야 한다.</span>
+            </p>
+        </div>
+        <section class="sample__content">
+            <div class="box box1">delay</div>
+        </section>
+        <script>
+            const timeline = gsap.timeline();
+
+            timeline.to(".gsap-timeline .box1", {duration:3, x:200, opacity:.2, ease: 'step(10)'})
+            timeline.to(".gsap-timeline .box1", {duration:3, y:200, opacity:1})
+            timeline.to(".gsap-timeline .box1", {duration:3, x:0, width:200, backgroundColor:'skyblue'})
+            timeline.to(".gsap-timeline .box1", {duration:3, y:0, height:200})
+        </script>
+    </article>
+
+
+
+
+
+
+    <a name="scrolltrigger"></a>
+    <article class="sample__wrap gsap-scrolltrigger">
+        <div class="sample__ttl">
+            <h2>scrollTrigger</h2>
+            <p>
+                <span>해당 요소가 화면에 보이는 지점에서 애니메이션 효과가 시작된다.</span>
+                <span>페이지 로드 후 단 한번만 실행된다.</span>
+                <span>1. 먼저 gsap.registerPlugin(ScrollTrigger); 로 스크롤트리거 플러그인 추가</span>
+                <span>2. gsap.to 내부에 코드를 작성한다.</span>
+            </p>
+        </div>
+        <section class="sample__content">
+            <div class="emoji"><img src="./assets/images/emoji.png" /></div>
+        </section>
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.to(".gsap-scrolltrigger .emoji", {
+                scrollTrigger : ".gsap-scrolltrigger .emoji", x:400, duration:2
+            })
+        </script>
+    </article>
+
+
+    <a name="scrolltrigger-toggleactions"></a>
+    <article class="sample__wrap gsap-scrolltrigger-toggleaction">
+        <div class="sample__ttl">
+            <h2>scrollTrigger toggleActions</h2>
+            <p>
+                <span></span>
+            </p>
+        </div>
+        <section class="sample__content">
+            <div class="emoji"><img src="./assets/images/emoji.png" /></div>
+        </section>
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.to(".gsap-scrolltrigger-toggleaction .emoji", {
+                // scrollTrigger : {},
+                // ".gsap-scrolltrigger .emoji", x:400, duration:2
+            })
+        </script>
+    </article>
+
+</body>
+</html>
