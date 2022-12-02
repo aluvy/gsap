@@ -16,6 +16,7 @@ window.addEventListener("load", ()=>{
                 <li><a href="#scrolltrigger-toggleactions">toggleActions</a></li>
                 <li><a href="#scrolltrigger-scrub">Scrub</a></li>
                 <li><a href="#scrolltrigger-pinning">Pinning</a></li>
+                <li><a href="#scrolltrigger-spinning">Spinning</a></li>
             </ul>
         </section>
     `;
