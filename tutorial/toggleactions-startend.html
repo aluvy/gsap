@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <title>toggleActions start,end</title>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
@@ -28,6 +29,7 @@
                 // 첫번째 값은 트리거 요소와 관련되고, 두번째 값은 뷰포트인 스크롤러 자체와 관련됨
                 // top center bottom 값을 사용할 수도 있지만 픽셀, 백분율을 사용할 수 도 있다.
 
+                endTrigger: ".emoji",
                 end : "bottom center"
                 // start와 동일하게 사용 가능하고,
                 // end: "+=300",         // "+=300px"를 사용하여 상대인 값을 잡을 수도 있다.
