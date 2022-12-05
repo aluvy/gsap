@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <title>Flip scale</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/Flip.min.js"></script>
+    <style>
+        * {padding:0; margin: 0;}
+        body{background:#000; color:#fff;}
+        #wrap{position:relative; margin:3rem;}
+        #wrap h1{font-size:2rem; font-weight:700;}
+        #wrap section{display:block; height: 23rem; margin:5rem 0 0; display:flex; align-items:flex-start; justify-content:space-between;}
+        #wrap section .container1{margin-right:auto;}
+        #wrap section h2{margin:0 0 1rem;}
+        #wrap section .container2{width:15rem; height:15rem; border:2px solid red; transform:scale(1.5); transform-origin:top right;}
+        #wrap section .card{width:15rem; height: 15rem; padding:1rem; background-color:royalblue; color:#fff; box-sizing:border-box; border:2px solid rgb(13, 47, 148);}
+        #wrap section .card h3{font-size:1.5rem; font-weight:700;}
+        #wrap section .card p{margin:1rem 0 0; line-height:1.4;}
+        #wrap section button{color:#000; padding:.5rem 1rem; font-weight:700; font-size:.75rem; margin:1rem 0 0;}
+    </style>
+</head>
+<body>
+    <article id="wrap">
+        <h1>GSAP Flip plugin Demo</h1>
+        <section class="section1">
+            <div class="container1">
+                <h2>Width / Height (default)</h2>
+                <div class="card">
+                    <h3>Card Title</h3>
+                    <p>Animates the width and height of the element, along width x and y.</p>
+                </div>
+                <button>FLIP</button>
+            </div>
+            <div class="container2"></div>
+        </section>
+        <section class="section2">
+            <div class="container1">
+                <h2>Scale</h2>
+                <div class="card">
+                    <h3>Card Title</h3>
+                    <p>Animates the width and height of the element, along width x and y.</p>
+                </div>
+                <button>FLIP</button>
+            </div>
+            <div class="container2"></div>
+        </section>
+    </article>
+
+    <script>
+        gsap.registerPlugin(Flip);
+
+        const card = document.querySelector(".section1 .card"),
+            originalContainer = document.querySelector(".section1 .container1"),
+            newContainer = document.querySelector(".section1 .container2");
+
+        document.querySelector(".section1 button").addEventListener("click", ()=>{
+            const state = Flip.getState(card);
+            (card.parentNode === originalContainer ? newContainer : originalContainer).appendChild(card);
+            Flip.from(state, {
+                duration:2,
+                ease: "power1.inOut",
+                scale: true,
+            })
+        })
+
+
+        const card2 = document.querySelector(".section2 .card"),
+            originalContainer2 = document.querySelector(".section2 .container1"),
+            newContainer2 = document.querySelector(".section2 .container2");
+
+        document.querySelector(".section2 button").addEventListener("click", ()=>{
+            const state = Flip.getState(card2);
+            (card2.parentNode === originalContainer2 ? newContainer2 : originalContainer2).appendChild(card2);
+            Flip.from(state, {
+                duration:2,
+                ease: "power1.inOut",
+                scale: false,
+            })
+        })
+    </script>
+</body>
+</html>

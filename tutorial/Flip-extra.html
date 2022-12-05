@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <title>Flip extra</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/Flip.min.js"></script>
+    <style>
+        * {padding:0; margin: 0;}
+        body{background:#000; color:#fff;}
+        #wrap{width:100%; max-width:800px; display:flex; flex-direction: column; align-items:center; justify-content: center; gap:1rem; margin:0 auto; padding:2rem; box-sizing:border-box;}
+        #wrap img{width: 100%;}
+        #wrap img.active{transform:scale(1.5); transform-origin:center}
+
+        #wrap .stage__wrap{position:fixed; left:0; top:0; width:100%; height:100%; background-color: aliceblue; display:flex; align-items: center; justify-content: center; display:none;}
+        #wrap .stage{}
+    </style>
+</head>
+<body>
+    <article id="wrap">
+        <div><img src="https://placeimg.com/800/400/anymals" class="test" /></div>
+        <div><img src="https://placeimg.com/800/400/architecture" /></div>
+        <div><img src="https://placeimg.com/800/400/people" /></div>
+        <div><img src="https://placeimg.com/800/400/tech" /></div>
+
+        <div class="stage__wrap">
+            <div class="stage"></div>
+        </div>
+    </article>
+
+    <script>
+
+        gsap.registerPlugin(Flip);
+
+        const img = document.querySelectorAll("#wrap div img");
+        
+        const stageWrap = document.querySelector("#wrap .stage__wrap")
+        const stage = document.querySelector("#wrap .stage")
+
+        const items = gsap.utils.toArray("#wrap div img");
+
+
+        items.forEach((item)=>{
+            item.addEventListener("click", ()=>{
+                const state = Flip.getState(item);
+                console.log(state)
+
+                // console.log('dd')
+                // item.classList.toggle("active");
+
+                // console.log(item)
+
+                Flip.from(item, {
+                    duration:1,
+                    scale: true,
+                    absolute:true,
+                    ease: "power1.inOut",
+                    onEnter : elements => gsap.fromTo(elements, {opacity:0, scale:0}, {opacity:1, scale:1, duration:1}),
+                    onLeave : elements => gsap.to(elements, {opacity:0, scale:0})
+                })
+
+            })
+        })
+        
+    </script>
+</body>
+</html>

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./assets/css/common.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/Flip.min.js"></script>
     <script src="./assets/js/lnb.js"></script>
     <script src="./assets/js/script.js"></script>
 </head>
@@ -317,6 +318,466 @@ ScrollTrigger.create({
         <section class="sample__content">
         </section>
     </article>
+
+
+    <a name="Flip"></a>
+    <article class="sample__wrap gsap-Flip">
+        <div class="sample__ttl">
+            <h2>Flip</h2>
+            <p>
+                <span>레이아웃 요소의 위치나 크기의 상태 전환을 애니메이션으로 표현</span>
+                <span>
+                    <a href="./Flip.html" target="blank">Flip demo</a>
+                </span>
+            </p>
+        </div>
+        <section class="sample__content">
+            <div class="flip-group final">
+                <div class="letter F">F</div>
+                <div class="letter l">l</div>
+                <div class="letter i">i</div>
+                <div class="letter p">p</div>
+                <div class="for">for</div>
+                <div class="GSAP">GSAP</div>
+            </div>
+        </section>
+        <script>
+            
+        </script>
+    </article>
+
+    <a name="Flip-scale"></a>
+    <article class="sample__wrap gsap-Flip-scale">
+        <div class="sample__ttl">
+            <h2>Flip scale</h2>
+            <p>
+                <span>
+                    <a href="Flip-scale.html" target="blank">demo</a>
+                </span>
+            </p>
+        </div>
+        <div class="sample__content">
+            <div class="flip-scale">
+                <div class="originalContainer">
+                    <div class="box">Flip</div>
+                    <div class="newContainer">new container</div>
+                </div>
+                <button>Change containers</button>
+            </div>
+        </div>
+        <script>
+            window.addEventListener("load", ()=>{
+                gsap.registerPlugin(Flip);
+                const box = document.querySelector(".gsap-Flip-scale .box"),
+                    originalContainer = document.querySelector(".gsap-Flip-scale .originalContainer"),
+                    newContainer = document.querySelector(".gsap-Flip-scale .newContainer");
+                document.querySelector(".gsap-Flip-scale button").addEventListener("click", ()=>{
+                    const state = Flip.getState(box);
+                    // 초기 상태를 기록
+                    // 뷰포트의 크기 회전 및 위치가 모두 여기에 기록됨
+
+                    (box.parentNode === originalContainer ? newContainer : originalContainer).appendChild(box);
+
+                    Flip.from(state, {
+                        // paused: true,
+                        duration:2,
+                        ease: "power1.inOut",
+                        scale: true,
+                    })
+
+                    // Flip.from() returns a timeline
+                    // Flip.from() 은 타임라인을 반환하므로 안에 다른 애니메이션을 중첩하거나
+                    // 재생 또는 일시정지와 같은 방법으로 제어할 수 있다.
+                    // play(), pause(), resume(), timeScale()
+                })
+
+                // first, last, invert, play
+            })
+        </script>
+    </article>
+    
+    <a name="Flip-fit"></a>
+    <article class="sample__wrap gsap-Flip-fit">
+        <div class="sample__ttl">
+            <h2>Flip fit</h2>
+            <p>
+                <span>container가 target의 사이즈와 위치로 변형되는 애니메이션</span>
+            </p>
+        </div>
+        <div class="sample__content">
+
+            <button class="button1">Flip.fit()</button>
+            <button class="button2">state</button>
+            <div class="wrap">
+                <div class="target">target</div>
+                <div class="container">
+                    <p>container</p>
+                    <ul>
+                        <li class="child1">child1</li>
+                        <li class="child2">child2</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        <script>
+            window.addEventListener("load", ()=>{
+
+                const state = Flip.getState(".gsap-Flip-fit .target");  // 상태 기억
+
+                gsap.to(".gsap-Flip-fit .container", { scaleY: 0.8, rotation:25 });
+                gsap.to(".gsap-Flip-fit .target", { scale: 1.2, rotation:-18, x:60 });
+
+                document.querySelector(".gsap-Flip-fit .button1").addEventListener("click", ()=>{
+                    Flip.fit(".gsap-Flip-fit .container", ".gsap-Flip-fit .target", {
+                        duration:0.7,
+                        fitChild: ".child1",    // 이 메서드는 tween을 반환하므로..?
+                        ease: "power1.inOut",
+                        scale:true,
+                    })
+                })
+
+                document.querySelector(".gsap-Flip-fit .button2").addEventListener("click", ()=>{
+                    Flip.fit(".gsap-Flip-fit .target", state, { // 기억되어 있는 target의 상태값
+                        duration:0.7,
+                        ease: "power1.inOut",
+                        scale:true,
+                    })
+                })
+                
+            })
+        </script>
+    </article>
+
+    <a name="Flip-absolute"></a>
+    <article class="sample__wrap gsap-Flip-absolute">
+        <div class="sample__ttl">
+            <h2>Flip absolute</h2>
+            <p>
+                <span>애니메이션이 되는 동안 위치를 절대값으로 잡는다.</span>
+            </p>
+        </div>
+        <div class="sample__content">
+
+            <button>change</button>
+            <div class="group">
+                <div class="box">Common "FLIP" techniques employed by other tools won't work with flex elements because of the way browsers handle width/height.</div>
+                <div class="box">Simply set abolute: true to have GSAP's Flip plugin make the elements position:absolute during the flip to work around challenges width flex and grid layouts.</div>
+                <div class="box">When the flip animation is done, elements get reverted back to their normal positioning and everything appears seamless.</div>
+                <div class="box">Happy flipping!</div>
+            </div>
+            
+        </div>
+        <script>
+            window.addEventListener("load", ()=>{
+                const state = Flip.getState(".gsap-Flip-absolute .group, .gsap-Flip-absolute .box");
+
+                document.querySelector(".gsap-Flip-absolute button").addEventListener("click", ()=>{
+                    document.querySelector(".gsap-Flip-absolute .group").classList.toggle("reorder");
+                    Flip.from(state, {
+                        ease: "power1.inOut",
+                        duration: 0.8,
+                        absolute: true, // 애니메이션 되는 동안 위치를 절대값으로 잡는다.
+                    })
+                    // .pause(0.4)
+                    // 타임라인 애니메이션을 반환하기 때문에 중간에 일시 정지를 할수있다.
+                })
+                
+            })
+        </script>
+    </article>
+
+    <a name="Flip-nested"></a>
+    <article class="sample__wrap gsap-Flip-nested">
+        <div class="sample__ttl">
+            <h2>Flip nested</h2>
+            <p>
+                <span>애니메이션의 정렬, 순서</span>
+            </p>
+        </div>
+        <div class="sample__content">
+            <button>change</button>
+            <div class="group">
+                <section class="section1">
+                    <div class="box">The Flip plugin lets you seamlessly transition between two states even if there are sweeping changes to the structure of the DOM like re-parenting of elements whitch would normally cause them to jump to a new position/size. Maybe it's a thumbnail image that should transition to fill the screen, or a grid of elements that get filtered and the remaining elements smoothly move the their new positions rather than suddenly jumping there. It makes complex UI transitions remarkably straightforward.</div>
+                    <div class="box">All you need to do is get the initial state using Flip.getState(targets), make whatever changes you'd like to the DOM or styling, and then call Flip.from(state). GSAP will handle the rest!</div>
+                </section>
+                <section class="section2">
+                    <div class="box">"FLIP" is an animation technique that stands for "First", "Last", "Invert", "Play" and was coined by Paul Lewis.</div>
+                    <div class="box">Now go "flip out" and have some fun with the new plugin.</div>
+                </section>
+            </div>
+        </div>
+        <script>
+            window.addEventListener("load", ()=>{
+                const state = Flip.getState(".gsap-Flip-nested .group, .gsap-Flip-nested section, .gsap-Flip-nested section .box");
+
+                document.querySelector(".gsap-Flip-nested button").addEventListener("click", ()=>{
+                    document.querySelector(".gsap-Flip-nested .group").classList.toggle("reverse");
+                    Flip.from(state, {
+                        absolute: true,
+                        nested: true,
+                        duration: 1,
+                        ease: "power1.inOut"
+                    })
+                })
+            })
+        </script>
+    </article>
+
+
+    <a name="Flip-target"></a>
+    <article class="sample__wrap gsap-Flip-target">
+        <div class="sample__ttl">
+            <h2>Flip targets</h2>
+            <p>
+                <span>특정 요소만 지정해 Flip.from() 을 할 수 있다.</span>
+            </p>
+        </div>
+        <div class="sample__content">
+            <button>SHUFFLE</button>
+            <div class="group">
+                <div class="container1">
+                    <div>container1</div>
+                    <div class="box orange">1</div>
+                    <div class="box orange">2</div>
+                    <div class="box orange">3</div>
+                    <div class="box purple">4</div>
+                    <div class="box purple">5</div>
+                </div>
+                <div class="container2">
+                    <div>container2</div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.addEventListener("load", ()=>{
+
+                const container1 = document.querySelector(".gsap-Flip-target .container1");
+                const container2 = document.querySelector(".gsap-Flip-target .container2");
+                const boxes = Array.from(document.querySelectorAll(".gsap-Flip-target .box"));
+
+                document.querySelector(".gsap-Flip-target button").addEventListener("click", ()=>{
+                    const state = Flip.getState(".gsap-Flip-target .orange, .gsap-Flip-target .purple");
+
+                    // shuffle & swap containers
+                    const newContainer = boxes[0].parentNode === container1 ? container2 : container1;
+                    gsap.utils.shuffle(boxes).forEach(box=>newContainer.appendChild(box))
+
+                    Flip.from(state, {
+                        targets: ".purple", // 특정 요소만 지정할 수도 있다.
+                        duration: 1,
+                        ease: "power1.inOut"
+                    })
+                })
+            })
+        </script>
+    </article>
+
+    <a name="Flip-id"></a>
+    <article class="sample__wrap gsap-Flip-id">
+        <div class="sample__ttl">
+            <h2>Flip data-flip-id</h2>
+            <p>
+                <span>html에 직접 data-flip-id를 부여할 수 있다.</span>
+            </p>
+        </div>
+        <div class="sample__content">
+            <img src="https://via.placeholder.com/300/09f/fff.png" data-flip-id="img" class="thumbnail">
+            <div class="container">
+                <img src="https://via.placeholder.com/600/008000/fff.png" data-flip-id="img" class="fullsize">
+            </div>
+        </div>
+        <script>
+            window.addEventListener("load", ()=>{
+                const fullSize = document.querySelector(".gsap-Flip-id .fullsize");
+                const thumbnail = document.querySelector(".gsap-Flip-id .thumbnail");
+
+                document.querySelector(".gsap-Flip-id .thumbnail").addEventListener("click", ()=>{
+                const state = Flip.getState(".gsap-Flip-id .thumbnail, .gsap-Flip-id .fullsize");
+                    thumbnail.style.display = "none";
+                    fullSize.style.display = "block";
+
+                    Flip.from(state, {
+                        // targets: fullSize,
+                        duration: 2,
+                        fade: true,
+                        absolute: true,
+                        ease : "power1.inOut"
+                    })
+                })
+
+                document.querySelector(".gsap-Flip-id .fullsize").addEventListener("click", ()=>{
+                const state = Flip.getState(".gsap-Flip-id .thumbnail, .gsap-Flip-id .fullsize");
+                    fullSize.style.display = "none";
+                    thumbnail.style.display = "block";
+
+                    Flip.from(state, {
+                        // targets: fullSize,
+                        duration: 2,
+                        fade: true,
+                        absolute: true,
+                        ease : "power1.inOut"
+                    })
+                })
+            })
+        </script>
+    </article>
+
+    <a name="Flip-onEnter"></a>
+    <article class="sample__wrap gsap-Flip-onEnter">
+        <div class="sample__ttl">
+            <h2>Flip onEnter onLeave</h2>
+            <p>
+                <span></span>
+            </p>
+        </div>
+        <div class="sample__content">
+            <div class="check__group">
+                <input type="checkbox" id="all" checked>
+                <label for="all">All</label>
+
+                <input type="checkbox" id="green" class="filter" checked>
+                <label for="green">green</label>
+
+                <input type="checkbox" id="orange" class="filter" checked>
+                <label for="orange">orange</label>
+
+                <input type="checkbox" id="purple" class="filter" checked>
+                <label for="purple">purple</label>
+            </div>
+            <div class="group">
+                <div class="gsap-onEnter item green"></div>
+                <div class="gsap-onEnter item orange"></div>
+                <div class="gsap-onEnter item purple"></div>
+                <div class="gsap-onEnter item orange"></div>
+                <div class="gsap-onEnter item green"></div>
+                <div class="gsap-onEnter item purple"></div>
+                <div class="gsap-onEnter item green"></div>
+                <div class="gsap-onEnter item purple"></div>
+                <div class="gsap-onEnter item orange"></div>
+            </div>
+        </div>
+        <script>
+            window.addEventListener("load", ()=>{
+
+                const allCheckbox = document.querySelector('.gsap-Flip-onEnter #all')
+                const filters = gsap.utils.toArray('.gsap-Flip-onEnter .filter')
+                const items = gsap.utils.toArray('.gsap-Flip-onEnter .item')
+
+                function updateFilters() {
+                    const state = Flip.getState(items); // get the current state
+                    const classes = filters.filter(checkbox => checkbox.checked).map(checkbox => ".gsap-onEnter.item." + checkbox.id);
+                    const matches = classes.length ? gsap.utils.toArray(classes.join(",")) : classes;
+                    // adjust the display property of each item ("none" for filtered ones, "inline-flex" for matching ones)
+                    items.forEach(item => item.style.display = matches.indexOf(item) === -1 ? "none" : "inline-flex");
+                
+                    // animate from the previous state
+                    Flip.from(state, {
+                        duration: 1,
+                        scale: true,
+                        absolute: true,
+                        ease: "power1.inOut",
+                        onEnter: elements => gsap.fromTo(elements, {opacity: 0, scale: 0}, {opacity: 1, scale: 1, duration: 1}),
+                        onLeave: elements => gsap.to(elements, {opacity: 0, scale: 0, duration: 1})
+                    });
+                
+                    // Update the all checkbox:
+                    allCheckbox.checked = matches.length === items.length;
+                }
+
+                filters.forEach(btn => btn.addEventListener('click', updateFilters));
+                
+                allCheckbox.addEventListener('click', () => {
+                    filters.forEach(checkbox => checkbox.checked = allCheckbox.checked);
+                    updateFilters();
+                });
+
+            })
+        </script>
+    </article>
+
+    <a name="Flip-props"></a>
+    <article class="sample__wrap gsap-Flip-props">
+        <div class="sample__ttl">
+            <h2>Flip props</h2>
+            <p>
+                <span>Flip.getState() 2번째 파라미터로 props를 전달할 수 있다.</span>
+            </p>
+        </div>
+        <div class="sample__content">
+            <button>SHUFFLE</button>
+            <div class="group">
+                <div class="container1">
+                    <div>container1</div>
+                    <div class="box orange">1</div>
+                    <div class="box orange">2</div>
+                    <div class="box orange">3</div>
+                    <div class="box purple">4</div>
+                    <div class="box purple">5</div>
+                </div>
+                <div class="container2">
+                    <div>container2</div>
+                </div>
+            </div>
+        </div>
+        <script>
+            window.addEventListener("load", ()=>{
+
+                const container1 = document.querySelector(".gsap-Flip-props .container1");
+                const container2 = document.querySelector(".gsap-Flip-props .container2");
+                const boxes = Array.from(document.querySelectorAll(".gsap-Flip-props .box"));
+
+                document.querySelector(".gsap-Flip-props button").addEventListener("click", ()=>{
+                    const state = Flip.getState(".gsap-Flip-props .orange, .gsap-Flip-props .purple", {
+                        props: "backgroundColor, color"
+                    });
+
+                    // shuffle & swap containers
+                    const newContainer = boxes[0].parentNode === container1 ? container2 : container1;
+                    gsap.utils.shuffle(boxes).forEach(box=>newContainer.appendChild(box))
+
+                    Flip.from(state, {
+                        // targets: ".purple", // 특정 요소만 지정할 수도 있다.
+                        duration: 1,
+                        stagger: 0.2,  // between start times
+                        spin: true,
+                        ease: "power1.inOut"
+                    })
+                })
+            })
+        </script>
+    </article>
+
+    <a name="Flip-extra"></a>
+    <article class="sample__wrap gsap-Flip-extra">
+        <div class="sample__ttl">
+            <h2>Flip Extra features</h2>
+            <p>
+                <span>
+                    <a href="flip-extra.html" target="blank">demo</a>
+                </span>
+            </p>
+        </div>
+        <div class="sample__code">
+<pre>
+Flip.from(state, {
+    // targets: ".purple", // 특정 요소만 지정할 수도 있다.
+    duration: 1,
+    stagger: 0.2,   // 순차적으로 실행
+    spin: true,     // 회전 애니메이션 (1, -1 로 방향 설정 가능)
+    toggleClass: "flipping",
+    ease: "power1.inOut"
+})
+</pre>
+        </div>
+        <script>
+            window.addEventListener("load", ()=>{
+            })
+        </script>
+    </article>
+
+
 
 </body>
 </html>

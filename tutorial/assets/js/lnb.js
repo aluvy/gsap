@@ -19,6 +19,21 @@ window.addEventListener("load", ()=>{
                 <li><a href="#scrolltrigger-spinning">Spinning</a></li>
             </ul>
         </section>
+        <section>
+            <h2>Flip</h2>
+            <ul>
+                <li><a href="#Flip">Flip</a></li>
+                <li><a href="#Flip-scale">Flip-scale</a></li>
+                <li><a href="#Flip-fit">Flip-fit</a></li>
+                <li><a href="#Flip-absolute">Flip-absolute</a></li>
+                <li><a href="#Flip-nested">Flip-nested</a></li>
+                <li><a href="#Flip-target">Flip-targets</a></li>
+                <li><a href="#Flip-id">Flip-id</a></li>
+                <li><a href="#Flip-onEnter">Flip onEnter onLeave</a></li>
+                <li><a href="#Flip-props">Flip props</a></li>
+                <li><a href="#Flip-extra">Flip Extra features</a></li>
+            </ul>
+        </section>
     `;
     let lnb = document.createElement("nav");
     lnb.innerHTML = lnbHTML;
