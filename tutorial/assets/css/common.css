@@ -13,6 +13,8 @@ nav ul li.active a{color:aquamarine;}
 .sample__wrap{margin:10rem 2rem 2rem;}
 .sample__wrap:nth-of-type(1){margin-top:2rem}
 
+.sample__code{background-color:#444; padding:1rem; border-radius:.75rem; color:#ffffff90; font-size:.85rem; line-height:1.5}
+
 /* .sample__ttl{} */
 .sample__ttl h2{font-weight: 700; font-size:1.25rem;}
 .sample__ttl p{font-size:.85rem; color:#666; margin:.75rem 0 0;}

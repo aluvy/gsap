@@ -161,6 +161,88 @@
         <section class="sample__content">
             <div class="emoji"><img src="./assets/images/emoji.png" /></div>
         </section>
+        <section class="sample__code">
+<pre>
+gsap.registerPlugin(ScrollTrigger);
+gsap.to(".c", {
+    scrollTrigger: {
+        trigger: ".c",
+        start: "top center",
+        end: "top 100px",
+        markers: true
+    },
+    x: 400,
+    rotation: 360,
+    ease: "none",
+    duration: 3
+})
+
+위 코드에서 " gsap.to~~ scrollTrigger: {0 "
+부분을 가져와 아래와 같이 사용할 수 있다.
+ScrollTrigger.create({
+    trigger: ".c",
+    start: "top center",
+    end: "top 100px",
+    markers: true
+})
+
+이 자체로는 아무 작업도 수행하지 않고, 우리가 콜백을 입력하여 동작을 추가할 수 있다.
+
+ScrollTrigger.create({
+    trigger: ".c",
+    start: "top center",
+    end: "top 100px",
+    onEnter: () => console.log("enter"),
+    onLeave: () => console.log("leave"),
+    onEnterBack: () => console.log("enter back"),
+    onLeaveBack: () => console.log("all the way back"),
+    
+    onUpdate : (self) => console.log("update", self.progress.toFixed(3)),
+    // 스크롤 트리거가 있을 때마다 실행됨
+    // self는 0과 1사이의 숫자가 나온다. (스크롤,타임라인과 관련)
+
+    onToggle : (self) => console.log("toggle", self.isActive),
+    // 토글이 활성화 되어있는지 확인할 수 있다.
+
+    toggleClass : "active",
+    // 클래스를 토글할 수 있는 유용한 기능
+    // 해당 요소가 시작과 끝 사이에 있을 때마다 해당 클래스를 가져오고,
+    // 원하는 경우 트리거 뿐만 아니라 여러 요소에 해당 클래스를 추가할 수 있다.
+
+    id : "my-id",
+    // markers에 ID를 추가할 수 있다.
+    // 해당 id가 모든 곳의 마커에 추가된다.
+    // 여러 스크롤 트리거가 있는 경우 어떤 마커가 어떤 것과 함께 가는지 체크 가능
+
+    markers: true
+})
+
+// 또한 해당 인스턴스를 참조하고 스크롤 트리거로 가져올 수 있지만 ID 메서드로 트리거 할 수 있다.
+let trigger = ScrollTrigger.getById("my-id");
+
+
+- 기본 값을 설정하는 기능.
+// 페이지에서 많은 스크롤 트리거가 기본적으로 동일한 종류의 토글 동작을 사용하도록 할때 사용
+ScrollTrigger.defaults({
+    toggleActions: "restart pause resume none",
+    markers: true
+});
+
+
+// ID가 있는 div가 있다고 가정하면 스크롤트리거가 뷰포트 대신 해당 요소의 스크롤 위치를 알고
+// 마지막으로 기본적으로 세로 스크롤을 찾지만, 원하는 경우 수평으로 전환하려면 horizontal옵션 추가
+ScrollTrigger.create({
+    trigger: ".c",
+    start: "top center",
+    end: "top 100px",
+    horizontal: true,   // 수평스크롤로 전환
+    scroller: "#container",
+    id: "my-id",
+    toggleClass: "active",
+    markers: true
+})
+</pre>
+        </section>
         <script>
             // gsap.registerPlugin(ScrollTrigger);
             gsap.to(".gsap-scrolltrigger-toggleaction .emoji", {
