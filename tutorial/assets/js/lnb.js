@@ -34,6 +34,12 @@ window.addEventListener("load", ()=>{
                 <li><a href="#Flip-extra">Flip Extra features</a></li>
             </ul>
         </section>
+        <section>
+            <h2>Observer</h2>
+            <ul>
+                <li><a href="#Observer">Observer</a></li>
+            </ul>
+        </section>
     `;
     let lnb = document.createElement("nav");
     lnb.innerHTML = lnbHTML;

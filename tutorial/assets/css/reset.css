@@ -55,3 +55,8 @@ table {
 	border-spacing: 0;
 }
 img{vertical-align: top;}
+
+
+::-webkit-scrollbar{width:7px}
+::-webkit-scrollbar-thumb{height:30%; background:#000000aa; border-radius:10px}
+::-webkit-scrollbar-track{background:#00000020}

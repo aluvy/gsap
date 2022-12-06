@@ -1,7 +1,7 @@
 html{scroll-behavior: smooth; overflow-x: hidden;}
-body{padding-left:12.5rem;}
+body{padding-left:13rem;}
 
-nav{position:fixed; left:0; top:0; display:block; width:11.5rem; height:100vh; padding:1.5rem; background:#000; box-sizing:border-box;}
+nav{position:fixed; left:0; top:0; display:block; width:12rem; height:100vh; padding:1.5rem; background:#000; box-sizing:border-box; overflow-y:scroll}
 nav section{border-top:1px solid #ffffff10; padding:1.25rem 0; margin: 1.25rem 0;}
 nav section:nth-of-type(1){border:0 none; padding:0; margin: 0;}
 nav section h2{color:#fff; font-weight:700; font-size:.75rem;}
@@ -162,4 +162,9 @@ nav ul li.active a{color:aquamarine;}
 .gsap-Flip-props .container2 .orange{background-color: violet;}
 .gsap-Flip-props .container2 .purple{background-color:teal}
 
-/* gsap-Flip-extra */
+
+/* observer */
+.Observer .sample__content .observer-wrap{display:flex; width:100%; height:30rem; overflow-x: hidden; background:#000; display:flex; align-items: center; justify-content: center;}
+.Observer .sample__content .observer-wrap .circle{position:relative; width:15rem; height:15rem; border-radius:10rem; border:5px solid #ffffff50}
+.Observer .sample__content .observer-wrap .circle::after{position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); content:''; display:block; width:1rem; height: 1rem; background-color:tomato; opacity: .5; border-radius:1rem;}
+.Observer .sample__content .observer-wrap .arrow{display:block; position:absolute; left:50%; bottom:50%; margin:0 0 0 -5px; width:10px; height:7rem; border-radius:10px; background-color: yellowgreen; transform:rotate(0deg); transform-origin: bottom center;}

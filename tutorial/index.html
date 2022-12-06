@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/Flip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/Observer.min.js"></script>
     <script src="./assets/js/lnb.js"></script>
     <script src="./assets/js/script.js"></script>
 </head>
@@ -771,8 +772,55 @@ Flip.from(state, {
 })
 </pre>
         </div>
+    </article>
+
+
+    <a name="Observer"></a>
+    <article class="sample__wrap Observer">
+        <div class="sample__ttl">
+            <h2>Observer</h2>
+            <p>
+                <span>옵서버는 사용자의 의도된 스크롤, 터치 등의 방향을 감지한다.</span>
+                <span>델타 값을 반환한다.</span>
+                <span>
+                    <a href="observer.html" target="blank">demo(CodePen)</a>
+                    <a href="https://codepen.io/GreenSock/pen/gOeQdyV" target="blank">CodePen</a>
+                </span>
+            </p>
+        </div>
+        <div class="sample__content">
+            <article class="observer-wrap">
+                <div class="circle"><div class="arrow"></div></div>
+            </article>
+        </div>
         <script>
             window.addEventListener("load", ()=>{
+                gsap.registerPlugin(Observer);
+
+                function rotate(value){
+                    gsap.to(".Observer .arrow", {
+                        rotate: `${value}_short`,
+                        ease: 'black.out',
+                        duration: 0.2,
+                        overwrite: true,
+                        // transformOrigin: 'center bottom'
+                    })
+                }
+
+                Observer.create({
+                    target: window,
+                    type: "wheel, touch, scroll, pointer",
+                    ignore: ".ignore-me", // 무시 영역을 설정한다.
+                    onPress: () => { console.log("onPress") },  // 마우스 누름에서 호출, 터치 장치에서도 호출된다.
+
+                    // press 상태에서 특정 방향으로 움직임이 있을 때 호출된다.
+                    onUp: () => { console.log("onUp"); rotate(0) },
+                    onDown: () => { console.log("onDown"); rotate(180) },
+                    onLeft: () => { console.log("onLeft"); rotate(270) },
+                    onRight: () => { console.log("onRight"); rotate(90) },
+
+                    onChange: (self) => { console.log(self.deltaY, self.velocityY) }
+                })
             })
         </script>
     </article>
