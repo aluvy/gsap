@@ -148,8 +148,6 @@ nav ul li.active a{color:aquamarine;}
 .gsap-Flip-onEnter .group .orange{background-color:orange}
 
 /* gsap Flip props */
-.gsap-Flip-props{}
-/* gsap flip targets */
 .gsap-Flip-props button{font-size:.75rem; font-weight:700px; padding:.25rem 1rem;}
 .gsap-Flip-props .group{}
 .gsap-Flip-props .container1,
@@ -163,3 +161,5 @@ nav ul li.active a{color:aquamarine;}
 .gsap-Flip-props .purple{background-color:slateblue}
 .gsap-Flip-props .container2 .orange{background-color: violet;}
 .gsap-Flip-props .container2 .purple{background-color:teal}
+
+/* gsap-Flip-extra */

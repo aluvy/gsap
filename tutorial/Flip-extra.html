@@ -12,60 +12,64 @@
     <style>
         * {padding:0; margin: 0;}
         body{background:#000; color:#fff;}
-        #wrap{width:100%; max-width:800px; display:flex; flex-direction: column; align-items:center; justify-content: center; gap:1rem; margin:0 auto; padding:2rem; box-sizing:border-box;}
-        #wrap img{width: 100%;}
-        #wrap img.active{transform:scale(1.5); transform-origin:center}
+        #wrap{width:100%; max-width:800px; display:flex; flex-direction: column; align-items:center; justify-content: center; gap:1rem; margin:0 auto; padding:2rem 1rem; box-sizing:border-box;}
+        #wrap .gallery__item{cursor:pointer;}
+        #wrap img{width:100%;}
 
-        #wrap .stage__wrap{position:fixed; left:0; top:0; width:100%; height:100%; background-color: aliceblue; display:flex; align-items: center; justify-content: center; display:none;}
-        #wrap .stage{}
+        #wrap .stage__wrap{position:fixed; left:0; top:0; width:100%; background-color:#000000cb; height:100%; display:flex; align-items: center; justify-content: center; display:none;}
+        #wrap .stage{width:100%; box-sizing:border-box; padding:0 1rem}
+        #wrap .stage img{cursor: pointer;}
     </style>
 </head>
 <body>
     <article id="wrap">
-        <div><img src="https://placeimg.com/800/400/anymals" class="test" /></div>
-        <div><img src="https://placeimg.com/800/400/architecture" /></div>
-        <div><img src="https://placeimg.com/800/400/people" /></div>
-        <div><img src="https://placeimg.com/800/400/tech" /></div>
+        <div class="gallery__item"><img src="https://placeimg.com/800/400/anymals" /></div>
+        <div class="gallery__item"><img src="https://placeimg.com/800/400/architecture" /></div>
+        <div class="gallery__item"><img src="https://placeimg.com/800/400/people" /></div>
+        <div class="gallery__item"><img src="https://placeimg.com/800/400/tech" /></div>
 
-        <div class="stage__wrap">
-            <div class="stage"></div>
-        </div>
+        <div class="stage__wrap"><div class="stage"></div></div>
     </article>
 
     <script>
+        function getSize(){
+            const image = document.querySelector(".gallery__item img").height;
+            const galleryItem = Array.from(document.querySelectorAll(".gallery__item"));
+            galleryItem.forEach((item)=> item.style.height = `${image}px` );
+        }
 
-        gsap.registerPlugin(Flip);
+        window.addEventListener("load", ()=>{
+            
+            getSize();
+            window.addEventListener("resize", getSize);
 
-        const img = document.querySelectorAll("#wrap div img");
-        
-        const stageWrap = document.querySelector("#wrap .stage__wrap")
-        const stage = document.querySelector("#wrap .stage")
+            gsap.registerPlugin(Flip);
+            
+            let stageWrap = document.querySelector("#wrap .stage__wrap")
+            let stage = document.querySelector("#wrap .stage")
 
-        const items = gsap.utils.toArray("#wrap div img");
+            let items = gsap.utils.toArray("#wrap .gallery__item");
+            let images = gsap.utils.toArray("#wrap .gallery__item img");            
 
+            images.forEach( item => {
 
-        items.forEach((item)=>{
-            item.addEventListener("click", ()=>{
-                const state = Flip.getState(item);
-                console.log(state)
+                const itembox = item.parentNode;
 
-                // console.log('dd')
-                // item.classList.toggle("active");
+                item.addEventListener("click", () => {
+                    const state = Flip.getState(item, itembox, stageWrap);
 
-                // console.log(item)
+                    ( item.parentNode === itembox ? stage : itembox ).appendChild(item);
+                    stageWrap.style.display = ( item.parentNode !== itembox ? "flex" : "none ");
 
-                Flip.from(item, {
-                    duration:1,
-                    scale: true,
-                    absolute:true,
-                    ease: "power1.inOut",
-                    onEnter : elements => gsap.fromTo(elements, {opacity:0, scale:0}, {opacity:1, scale:1, duration:1}),
-                    onLeave : elements => gsap.to(elements, {opacity:0, scale:0})
+                    Flip.from(state, {
+                        duration: 0.5,
+                        absolute: true,
+                        ease: "power1.inOut",
+                        scale: true,
+                    })
                 })
-
             })
-        })
-        
+        })        
     </script>
 </body>
 </html>
