@@ -16,6 +16,166 @@
     <script src="./assets/js/script.js"></script>
 </head>
 <body>
+    <a name="#Dcoding"></a>
+    <article class="sample__wrap Dcoding">
+        <div class="sample__ttl">
+            <h2>D_coding tween 기초</h2>
+            <p>
+                <span><b>gsap.to()</b>도착점을 설정</span>
+                <span><b>gsap.from()</b>시작점을 설정</span>
+                <span><b>gsap.formTo()</b>시작점과 끝점을 설정 (duration은 도착점에 설정한다)</span>
+                <span><a href="https://www.youtube.com/watch?v=rZVA9s94-Do" target="blank">D_coding youtube</a></span>
+                <span><a href="https://greensock.com/docs/v3/GSAP/Tween" target="blank">GSAP docs</a></span>
+            </p>
+        </div>
+        <section class="sample__content">
+            <div class="box box1">to</div>
+            <div class="box box2">from</div>
+            <div class="box box3">fromTo</div>
+        </section>
+        <section class="sample__code">
+<pre>
+gsap.to(".box1", { rotation:27, x: 100, duration:1 })
+gsap.from(".box2", { rotation:27, x: 100, duration:1 })
+gsap.fromTo(".box3", { rotation:80, x:0 }, { rotation:27, x: 100, duration:1 })
+</pre>
+        </section>
+        <section class="sample__option">
+            <div class="sample__option-ttl">
+                <strong>tween option</strong>
+                <span>open</span>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="30%">Property</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>x, y</td>
+                        <td>
+                            좌표값, 임의값, 랜덤값, 콜백함수, 상대값 등을 사용할 수 있다<br>
+                            (ex) x: "random(-100, 100, 5)"// 임의 값<br>
+                            (ex) x: "randon([0, 100, 200, 500])"  // 랜덤<br>
+                            (ex) y: function(index, target, targets){ return index * 50 }<br>
+                            (ex) y: "+=50"
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>delay</td>
+                        <td>지연시간</td>
+                    </tr>
+                    <tr>
+                        <th>delay</td>
+                        <td>지연시간</td>
+                    </tr>
+                    <tr>
+                        <th>duration</td>
+                        <td>애니메이션 지속 시간 (기본값 0.5)</td>
+                    </tr>
+                    <tr>
+                        <th>ease</td>
+                        <td>
+                            애니베이션 변화율(속도) 제어 (power.inOut, elastic, strong.inOut, ease 등)
+                            <br><a href="https://greensock.com/docs/v3/Eases" target="blank">GreenSock Eases</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>paused</td>
+                        <td>일시정지 ( true / false )</td>
+                    </tr>
+                    <tr>
+                        <th>repeat</td>
+                        <td>애니메이션이 반복할 횟수 (기본값 0) (무한반복: repeat:1, repeat:-1 )</td>
+                    </tr>
+                    <tr>
+                        <th>repeatDelay</td>
+                        <td>반복 사이 대기할 시간 (기본값 0)</td>
+                    </tr>
+                    <tr>
+                        <th>reversed</td>
+                        <td>
+                            애니메이션의 시작값과 끝값을 반전시킨다.<br>
+                            (ex true, to(), from(), runBackWards:true)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>stagger</td>
+                        <td>
+                            애니메이션 대상이 여러개인 경우 순차적으로 실행된다 (stagger: 0.1)<br>
+                            <a href="https://greensock.com/docs/v3/Staggers" target="blank">gsap stagger</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>startAt</td>
+                        <td>
+                            모든 속성의 시작 값을 정의한다. (애니메이션이 적용되지 않는 경우에도)<br>
+                            (ex startAt: { x:-100, opacity:0 })
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>yoyo</td>
+                        <td>
+                            트윈이 앞뒤로 움직이는 것처럼 정방향, 반대방향이 번갈아 실행된다<br>
+                            (true, repeat, reversed, repeat, 2, yoyo, false, yoyo, true)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>yoyoEase</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>keyframes</td>
+                        <td>
+                            동일한 대상을 반복해서 애니메이션 하는 경우 사용한다.<br>
+                            <a href="https://greensock.com/understanding-keyframes/" target="blank">GSAP keyframes</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>callbackScope</th>
+                        <td>모든 콜백에 사용할 범위 (onStart, onUpdate, onComplete 등)</td>
+                    </tr>
+                    <tr>
+                        <th>onStart</td>
+                        <td>애니메이션이 시작될 때 호출할 함수</td>
+                    </tr>
+                    <tr>
+                        <th>onUpdate</td>
+                        <td>애니메이션이 업데이트될 때마다 호출할 함수</td>
+                    </tr>
+                    <tr>
+                        <th>onComplete</td>
+                        <td>애니메이션이 완료될 때 호출할 함수</td>
+                    </tr>
+                    <tr>
+                        <th>timeline</th>
+                        <td>
+                            애니메이션을 순차적으로 실행한다.<br>
+                            let tl = gsap.timeline();<br>
+                            tl.to(".box1", { x: 100 })<br>
+                            .to(".box2", { y:100, ease: "elastic"})<br>
+                            .to(".box3", { rotation:180 })
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <script>
+            window.addEventListener("load", ()=>{
+                const base = document.querySelector(".Dcoding");
+
+                base.querySelector(".box1").addEventListener("click", ()=>{ gsap.to(".box1", { rotation:27, x: 100, duration:1 }) })
+                base.querySelector(".box2").addEventListener("click", ()=>{ gsap.from(".box2", { rotation:27, x: 100, duration:1 }) })
+                base.querySelector(".box3").addEventListener("click", ()=>{
+                    gsap.fromTo(".box3", { rotation:80, x:0 }, { rotation:27, x: 100, duration:1 })
+                })
+                
+            })
+        </script>
+    </article>
+
     <a name="gsap-to"></a>
     <article class="sample__wrap gsap-to">
         <div class="sample__ttl">
@@ -826,6 +986,21 @@ Flip.from(state, {
     </article>
 
 
+    <script>
+        window.addEventListener("load", ()=>{
+
+            // option title toggle
+            let optionTTL = Array.from(document.querySelectorAll(".sample__option-ttl"));
+            optionTTL.forEach((item, idx)=>{
+                item.addEventListener("click", ()=>{
+                    item.parentNode.classList.toggle("active")
+                    let text =  item.parentNode.querySelector("span");
+                    item.parentNode.classList.contains("active") ? text.innerText="close" :  text.innerText="open"
+                })
+            })
+
+        })
+    </script>
 
 </body>
 </html>

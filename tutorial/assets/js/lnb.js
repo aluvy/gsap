@@ -1,6 +1,12 @@
 window.addEventListener("load", ()=>{
     const lnbHTML = `
         <section>
+            <h2>tween</h2>
+            <ul>
+                <li><a href="Dcoding">tween 기초</a></li>
+            </ul>
+        </section>
+        <section>
             <h2>Basic</h2>
             <ul>
                 <li class="active"><a href="#gsap-to">gsap.to()</a></li>
