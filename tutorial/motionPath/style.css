@@ -8,3 +8,8 @@ button { padding: 0.5rem 1rem; cursor: pointer; }
 .indicator input { margin: 0 1rem; }
 
 #time { display: flex; justify-content: center; align-items: center; color: #fff; font-size: 2rem; width: 100px; }
+
+#home,
+#mountain,
+#river,
+#company { cursor: pointer; }
