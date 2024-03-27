@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
   const tl = gsap.timeline();
 
-  tl.from("#page-1", { opacity: 0 });
+  tl.from("#page-1", { opacity: 0, autoAlpha: 1 });
 
   tl.from(".green_right", { x: 30, y: 30, opacity: 0 }, 0);
   tl.from(".green_left", { y: 30, opacity: 0 }, "-=0.25");
