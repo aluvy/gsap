@@ -1,7 +1,11 @@
 #gsap-wrap { width: 100%; min-height: var(--vh); background-color: #0e100f; color: #fff; }
 #gsap-wrap .inner { padding: 0 5rem; }
 
-#gsap-wrap h1 { font-size: 10rem; -webkit-text-fill-color: transparent; background: linear-gradient(180deg, #d6ffc3, rgba(214, 255, 195, 0)), #f3ffee; -webkit-background-clip: text; background-clip: text; padding-top: 7rem; }
+      
+#gsap-wrap .header { display: flex; align-items: center; gap: 2rem; padding-top: 7rem; }
+#gsap-wrap h1 { font-size: 8rem; -webkit-text-fill-color: transparent; background: linear-gradient(180deg, #d6ffc3, rgba(214, 255, 195, 0)), #f3ffee; -webkit-background-clip: text; background-clip: text; padding-bottom: 0.6rem; }
+#gsap-wrap .symbol { width: 7rem; }
+
 
 #gsap-wrap .content { padding: 5rem 0; }
 
