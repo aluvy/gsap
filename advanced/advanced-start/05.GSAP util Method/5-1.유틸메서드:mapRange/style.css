@@ -1,0 +1,75 @@
+
+
+#cursor{
+  width: 40px;
+  height: 40px;
+  background: white;
+  z-index: 9999;
+  border-radius: 50%;
+  pointer-events: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  mix-blend-mode: difference;
+
+}
+
+
+#intro{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background: rgba(0,0,0,0.7);
+  font-size: 100px;
+}
+
+
+.left{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  overflow: hidden;
+  background: black;
+  z-index: 10;
+}
+
+
+.left .holder{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.right{
+  width:100vw;
+  height:100vh;
+  background: #fff;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+

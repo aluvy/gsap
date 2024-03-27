@@ -1,0 +1,25 @@
+body{
+  /* background-color: #333; */
+  background-color: #000;
+}
+
+h1{
+  font-weight: normal;
+  /* letter-spacing: 1.5rem; */
+}
+.stage{
+  width: 100vw;
+  height: 350px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display:flex;
+  font-size:3vw;
+  color: #fff;
+  justify-content:center;
+  align-items:center;
+  overflow: hidden;
+
+}
+

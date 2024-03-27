@@ -1,0 +1,25 @@
+body{
+  background-color: #333;
+}
+
+
+.stage{
+  width: 90vw;
+  height: 350px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display:flex;
+  font-size:3rem;
+  color: #fff;
+  justify-content:center;
+  align-items:flex-end;
+  gap:0.5vw;
+}
+
+.stage > div{
+  flex:1;
+  height:0;
+  background:gray;
+}

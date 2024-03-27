@@ -1,0 +1,28 @@
+body{
+  background: black;
+}
+
+.stage{
+  width: 100vw;
+  height: 350px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display:flex;
+  font-size:3rem;
+  color: #fff;
+  justify-content:center;
+  align-items:center
+
+}
+.utils{
+  perspective:400px;
+}
+
+.utils > div{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}

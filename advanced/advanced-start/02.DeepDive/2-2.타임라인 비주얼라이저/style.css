@@ -1,0 +1,65 @@
+body{
+  background-color: #000;
+}
+
+
+body,
+html {
+ height: 100%;
+ width: 100%;
+ margin: 0;
+ padding: 0;
+}
+
+svg {
+ max-width: 100%;
+ height: 100%;
+ overflow:hidden;
+ visibility:hidden;
+}
+
+#play:hover, #pause:hover, #reverse:hover {
+	fill:#ffd32e;
+	cursor:pointer;
+}
+
+h1 {
+	font-family:Kanit;
+	font-weight:500;
+	font-size:48px;
+	color:white;
+	margin-top:30px;
+	margin-left:60px;
+	width:1200px;
+}
+
+.tween {
+	color: #00CCFF;
+}
+
+.timeline{
+	color:#0FFA2D;
+}
+
+.stage{
+  width: 500px;
+  height: 350px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display:flex;
+  justify-content:center;
+  align-items: center;
+
+}
+
+.orange{
+  width: 102px;
+  height: 90px;
+  background: url(https://simseonbeom.github.io/Final/assets/tiger/orange.png);
+  background-size: cover;
+
+
+}
+

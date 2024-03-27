@@ -1,0 +1,257 @@
+body{
+  background-color: #000;
+}
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+  color:inherit
+}
+
+img{
+  height: 100%;
+}
+
+
+
+section{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left:0;
+  top:0;
+  overflow: hidden;
+}
+
+
+.nav{
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  
+}
+
+.nav > ul{
+  display: flex;
+  color: #fff;
+  list-style: none;
+  gap:2rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+
+.nav > ul > li{
+  transition: all .5s;
+  position: relative;
+  font-family: 'Paytone One', sans-serif;
+  opacity: 0.6;
+  white-space: nowrap;
+  /* transform: scale(0.8) */
+}
+
+.nav > ul > li::after{
+  content: '';
+  width:0%;
+  height: 4px;
+  position: absolute;
+  left:0;
+  bottom: -5px;
+  background:yellow;
+  transition: all .5s;
+}
+
+.nav > ul > li.active::after{
+  width: 100%;
+}
+.nav > ul > li.active{
+  transform: translateY(20px);
+  opacity: 1;
+}
+
+.title{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-70%);
+  color: #fff;
+  z-index: 100;
+  text-align: center;
+}
+
+h1{
+  font-family: 'Paytone One', sans-serif;
+  font-size: 10rem;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+p{
+  font-size: 1.5rem;
+  margin-bottom: 5rem;
+  text-transform: uppercase;
+}
+
+button{
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+
+.bg{
+  width: 100%;
+  height: 100%;
+  background-size:cover !important;
+}
+
+#page01 .bg{
+  background: url(../assets/images/page01/bg.jpg) no-repeat center;
+  
+}
+
+#page02 .bg{
+  background: url(../assets/images/page02/bg_01.jpg) no-repeat center;
+  background-size:cover;
+}
+
+#page03 .bg{
+  background: url(../assets/images/page03/bg.jpg) no-repeat center;
+  background-size:cover;
+}
+
+
+
+#page01 .woody{
+  position: absolute;
+  right: 2vw;
+  bottom: 0;
+}
+
+
+#page01 .jessie{
+  position: absolute;
+  left: -3vw;
+  bottom: 0;
+  height: 100vh;
+  z-index: 10;
+}
+
+#page01 .chair{
+  position: absolute;
+  left: 15vw;
+  bottom: 20vh;
+}
+
+#page01 .bag{
+  position: absolute;
+  left:3vw;
+  bottom: 5vh;
+  z-index: 9;
+}
+
+#page01 .forky{
+  position: absolute;
+  right: 15vw;
+  bottom: 3vw;
+}
+
+
+#page01 .toy{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-40%);
+  bottom: -10px;
+  display: flex;
+  align-items: flex-end;
+  z-index: 10;
+}
+
+
+
+
+
+
+#page02 .floor{
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+}
+
+
+#page02 .left_bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+#page02 .right_bg{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+
+#page02 .friends{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  display:flex;
+  align-items: flex-end;
+}
+
+#page02 .forky{
+  max-height: 425px;
+  position: relative;
+  top:-114px;
+  left:-91px;
+
+}
+
+
+
+
+
+#page03 .toy{
+  width: 100vw;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -50px;
+  display:flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+#page03 .toy > div{
+  margin:0 -6rem;
+  position: relative;
+}
+
+#page03 .toy > div:nth-child(2){
+  z-index: 10;
+}
+
+#page03 .forky{
+  position: absolute;
+  right: 72px;
+  bottom: 148px;
+}
+
+
+

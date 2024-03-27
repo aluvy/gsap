@@ -1,0 +1,40 @@
+*{
+	margin:0;
+	padding:0;
+}
+body {
+	height:100vh;
+	background:#1d1d1d;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.stage {
+	width:70vw;
+	display:flex;
+	justify-content:center;
+	text-align: center;
+	color: #fff;
+	gap:3vw;
+	/* perspective: 600px; */
+	
+
+}
+
+.box{
+	width: 20vw;
+	height: 20vw;
+	max-width:100px;
+	max-height:100px;
+	background: dodgerblue;
+	border-radius: 10px;
+	/* perspective: 600px; */
+	
+}
+
+
+
+
+
+
