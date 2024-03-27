@@ -5,38 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./assets/css/common.css">
   <title>GSAP</title>
-  <style>
-    * { margin: 0; padding: 0; }
-    body { background: #262626; overflow: hidden; color:#fff; }
-    ul, li{ list-style: none; }
-    a { color: inherit; font-size: inherit; text-decoration: none; }
-    #wrap {width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; }
-    .wrap__inner { text-align: center; }
-    h1 { text-align: center; }
-    h1 a { display: block; }
-    h1 a img { width: 300px; max-width: 50vw; }
-    .wrap__inner ul { width: 100%; max-width: 480px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; }
-    .wrap__inner ul li a { display: block; opacity: .5; transition:opacity .3s; }
-    .wrap__inner ul li a:hover{ opacity: 1; }
-
-    @media screen and (max-width:480px) {
-        .wrap__inner ul li { width: 100%; }
-    }
-  </style>
 </head>
 <body>
-  <div id="wrap">
-    <div class="wrap__inner">
-      <h1><a href="#" target="blank" title="green sock"><img src="./greensock-logo.svg" alt="green sock logo"></a></h1>
+  <section id="gsap-wrap">
+    <div class="inner">
+    <h1>GSAP</h1>
+    <div class="content">
       <nav>
         <ul>
           <li><a href="https://codepen.io/GreenSock" target="blank">GreenSock Codepen</a></li>
           <li><a href="https://greensock.com/get-started/" target="blank">Getting Started</a></li>
           <li><a href="./tutorial/">Tutorial</a></li>
         </ul>
+        <ul>
+          <li><a href="./demo-timeline/" target="_blank">demo - timeline | Van Cleef & Arpels</a></li>
+        </ul>
       </nav>
     </div>
-  </div>
+    
+    </div>
+  </section>
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>

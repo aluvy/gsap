@@ -1,0 +1,35 @@
+#oneScroll { position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 900; perspective: 1000px; }
+#oneScroll .page { position: absolute; left: 0; top: 0; width: 100%; height: 100%; transform: translateZ(-500px); opacity: 0; transform-style: preserve-3d; }
+#oneScroll .page.on { opacity: 1; z-index: 10; transform: translateZ(0px); }
+
+#page-1 { background: darkseagreen; z-index: 10; }
+#page-1 img { width: 100%; }
+
+#page-1 .bg { position: absolute; left: 0; top:0; width: 100%; height: 100%; background:url(../images/top/sky.jpg) center no-repeat; background-size: cover;}
+
+#page-1 .cloud-big { position: absolute; right: 20%; top: 20%; width: 30%; }
+#page-1 .cloud-small { position: absolute; right: 10%; top: 10%; width: 20%; }
+
+#page-1 .flower_left { position: absolute; left: 0; top: 0; width: 30%; }
+#page-1 .flower_right { position: absolute; right: 0; top: 5%; width: 12%; transform-origin: right bottom; animation: flower 15s infinite alternate; }
+@keyframes flower {
+    to { transform:rotate(5deg); }
+}
+
+#page-1 .bug { position: absolute; right: 15%; top: 20%; width: 5%; }
+
+#page-1 .blue02 { position: absolute; left: 10%; bottom: 10%; width: 45%; }
+#page-1 .blue01 { position: absolute; right: 0; bottom: 10%; width: 60%; }
+
+#page-1 .green_left { position: absolute; left: 0; bottom: 0; width: 75%; }
+
+#page-1 .cat { position: absolute; left: 11%; bottom: 20%; width: 20%; }
+
+#page-1 .grass01 { position: absolute; left: 9%; bottom: 23%; width: 15%; }
+#page-1 .grass02 { position: absolute; left: 21%; bottom: 20%; width: 3%; }
+
+#page-1 .green_right { position: absolute; right: 0; bottom: 0; width: 55%; }
+
+#page-1 .main_title { position: absolute; left: 0; top: 38%; transform: translateY(-50%); width: 100%; text-align: center; }
+#page-1 .main_title .text { width: 40%; margin: 0 auto; }
+#page-1 .main_title .explore { width: 15%; margin: 30px auto 0; }

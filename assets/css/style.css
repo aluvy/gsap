@@ -1,0 +1,11 @@
+#gsap-wrap { width: 100%; min-height: var(--vh); background-color: #0e100f; color: #fff; }
+#gsap-wrap .inner { padding: 0 5rem; }
+
+#gsap-wrap h1 { font-size: 10rem; -webkit-text-fill-color: transparent; background: linear-gradient(180deg, #d6ffc3, rgba(214, 255, 195, 0)), #f3ffee; -webkit-background-clip: text; background-clip: text; padding-top: 7rem; }
+
+#gsap-wrap .content { padding: 5rem 0; }
+
+#gsap-wrap nav ul { padding: 2rem 0; border-top: 1px solid rgba(255,255,255, 0.2); }
+#gsap-wrap nav ul li { padding: 1rem 0; }
+#gsap-wrap nav a { opacity: 0.4; transition: all .3s; }
+#gsap-wrap nav a:hover { opacity: 1; }
