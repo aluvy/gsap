@@ -3,7 +3,7 @@ function init() {
     defaults: { opacity: 0, duration: 0.2 }, // timeline 안에만 설정
   });
 
-  tl.from(".stage", { opacity: 1, autoAlpha: 0 }) // FOUC 해결 방법 step2 (from이기 때문에 0)
+  tl.from(".stage", { autoAlpha: 0 }) // FOUC 해결 방법 step2 (from이기 때문에 0)
     .from(".contents h1", { x: 20, id: "h1" })
     .from(".contents h2", { x: -20, duration: 0.5, id: "h2" })
     .from(".contents p", { y: 30, id: "p" })
