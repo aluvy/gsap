@@ -1,8 +1,9 @@
-#oneScroll { position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 900; perspective: 1000px; }
+#oneScroll { position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 900; perspective: 1000px;}
+
 #oneScroll .page { position: absolute; left: 0; top: 0; width: 100%; height: 100%; transform: translateZ(-500px); opacity: 0; transform-style: preserve-3d; }
 #oneScroll .page.on { opacity: 1; z-index: 10; transform: translateZ(0px); }
 
-#page-1 { background: darkseagreen; z-index: 10; }
+#page-1 { background: darkseagreen; visibility: hidden; z-index: 10; }
 #page-1 img { width: 100%; }
 
 #page-1 .bg { position: absolute; left: 0; top:0; width: 100%; height: 100%; background:url(../images/top/sky.jpg) center no-repeat; background-size: cover;}
