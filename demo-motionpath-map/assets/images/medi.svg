@@ -1,0 +1,25 @@
+<svg width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="medi">
+<g id="Ellipse 3" filter="url(#filter0_d_50_24)">
+<circle cx="26.5" cy="22.5" r="22.5" fill="white"/>
+</g>
+<g id="Medical / Case / 24px / Contour">
+<g id="Union">
+<path d="M26 21C26.5523 21 27 21.4477 27 22V23H28C28.5523 23 29 23.4477 29 24C29 24.5523 28.5523 25 28 25H27V26C27 26.5523 26.5523 27 26 27C25.4477 27 25 26.5523 25 26V25H24C23.4477 25 23 24.5523 23 24C23 23.4477 23.4477 23 24 23H25V22C25 21.4477 25.4477 21 26 21Z" fill="#0064FA"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M30.9162 17.0838C33.2401 17.5141 35 19.5515 35 22V26C35 28.7614 32.7614 31 30 31H22C19.2386 31 17 28.7614 17 26V22C17 19.5515 18.7599 17.5141 21.0838 17.0838C21.5141 14.7599 23.5515 13 26 13C28.4485 13 30.4859 14.7599 30.9162 17.0838ZM22 19C20.3431 19 19 20.3431 19 22V26C19 27.6569 20.3431 29 22 29H30C31.6569 29 33 27.6569 33 26V22C33 20.3431 31.6569 19 30 19H22ZM28.8293 17C28.4175 15.8348 27.3062 15 26 15C24.6938 15 23.5825 15.8348 23.1707 17H28.8293Z" fill="#0064FA"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_50_24" x="0" y="0" width="53" height="53" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_50_24"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_50_24" result="shape"/>
+</filter>
+</defs>
+</svg>
