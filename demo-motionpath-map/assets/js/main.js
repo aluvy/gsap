@@ -5,18 +5,6 @@ const mart = $(".mart");
 const medi = $(".medi");
 let isZoom = false;
 
-// const map = gsap.timeline();
-// map
-//   .to(".map", {
-//     duration: 2,
-//     ease: "power2.inOut",
-//     scale: 2,
-//     x: 150,
-//     y: -200,
-//   })
-//   .to("#here", { y: -10, repeat: -1, yoyo: true })
-//   .pause();
-
 const map = gsap.timeline();
 map
   .to(".map", {
@@ -43,7 +31,6 @@ const drawPath = function (target, length) {
 
   map.pause();
   tl.set(`${target} .pick`, { opacity: 0 })
-    // .to(map, { reverse: true, duration: 2 })
     .to("#here", { y: 0, duration: 0.5 })
     .to(".map", {
       duration: isZoom ? 1 : 0,
