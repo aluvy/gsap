@@ -27,7 +27,7 @@ body,dd,dl,dt,ul,ol,li,p,fieldset,form,input,textarea,select,button,table,legend
   margin: 0;
   padding: 0;
   color: inherit;
-  font-family: 'Pretendard', 'Sans-serif', "맑은 고딕", "Malgun Gothic";
+  font-family: 'Pretendard', 'Fira Code', 'Sans-serif', "맑은 고딕", "Malgun Gothic";
 }
 article,aside,footer,header,nav,main,menu,section,summary,details,hgroup,figure,figcaption { display: block; }
 table { table-layout: fixed; width: 100%; border-collapse: collapse; border-spacing: 0; }

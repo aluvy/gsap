@@ -9,11 +9,23 @@
 #gsap-wrap img { height: 6.6rem; }
 
 #gsap-wrap .content { padding: 5rem 0; }
+#gsap-wrap .content * { font-family: 'Fira Code', 'Pretendard', 'Sans-serif', "맑은 고딕", "Malgun Gothic"; }
 
-#gsap-wrap nav .navgroup { padding: 3rem 0; border-top: 1px solid rgba(255,255,255, 0.2); }
-#gsap-wrap nav h2 { font-size: 1.6rem; }
-#gsap-wrap nav ul { padding-top: 1.6rem; }
+#gsap-wrap nav .navgroup { padding: 6rem 0; border-top: 1px solid rgba(255,255,255, 0.2); }
+#gsap-wrap nav h2 { font-size: 2.6rem; color: #fefce1; }
+#gsap-wrap nav h3 { font-size: 1.8rem; color: #fefce1; opacity: 0.6; }
+#gsap-wrap nav .navgroup > ul { padding-top: 1.6rem; }
 /* #gsap-wrap nav ul li { padding: 1rem 0; } */
-#gsap-wrap nav ul li + li { padding-top: 1.4rem; }
+#gsap-wrap nav .navgroup > ul > li + li { padding-top: 1.4rem; }
+
+#gsap-wrap nav .demogroup { padding-top: 6rem; }
+#gsap-wrap nav .demogroup > ul { padding-top: 2rem; }
+#gsap-wrap nav .demogroup > ul > li { display: flex; align-items: center; }
+#gsap-wrap nav .demogroup > ul > li a { position: relative; display: inline-block; padding: 0.6rem 0; }
+#gsap-wrap nav .demogroup > ul > li a:hover { transform: translate3d(-20px, 0, 0); }
+#gsap-wrap nav .demogroup > ul > li a::before { content:'|'; opacity: 0.4; padding: 0 2rem; transition: all .3s; }
+#gsap-wrap nav .demogroup > ul > li a:hover::before { padding-right: 3rem; }
+
+
 #gsap-wrap nav a { opacity: 0.4; transition: all .3s; }
 #gsap-wrap nav a:hover { opacity: 1; }
