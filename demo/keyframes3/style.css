@@ -15,7 +15,7 @@ body {
 .among {
   width: 80px;
   height: 90px;
-  background: url(https://aluvy.github.io/gsap/assets/images/among/red.png);
+  background: url(../../assets/images/among/red.png);
   background-size: cover;
   position: absolute;
   top: 100px;

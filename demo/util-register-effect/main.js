@@ -3,6 +3,7 @@
  * 번들링이나 빌드 시 발생하는 tree shaking의 이슈를 해결하기 위해 등록한다.
  */
 gsap.registerPlugin(GSDevTools, SplitText);
+GSDevTools.create();
 
 gsap.set(".stage", { autoAlpha: 1 });
 
