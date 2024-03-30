@@ -7,10 +7,12 @@
 #gsap-wrap h1 { display: flex; align-items: center; gap: 2rem; }
 #gsap-wrap svg { height: 6.6rem; }
 
-
 #gsap-wrap .content { padding: 5rem 0; }
 
-#gsap-wrap nav ul { padding: 2rem 0; border-top: 1px solid rgba(255,255,255, 0.2); }
-#gsap-wrap nav ul li { padding: 1rem 0; }
+#gsap-wrap nav .navgroup { padding: 3rem 0; border-top: 1px solid rgba(255,255,255, 0.2); }
+#gsap-wrap nav h2 { font-size: 1.6rem; }
+#gsap-wrap nav ul { padding-top: 1.6rem; }
+/* #gsap-wrap nav ul li { padding: 1rem 0; } */
+#gsap-wrap nav ul li + li { padding-top: 1.4rem; }
 #gsap-wrap nav a { opacity: 0.4; transition: all .3s; }
 #gsap-wrap nav a:hover { opacity: 1; }
