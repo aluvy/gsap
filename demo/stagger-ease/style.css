@@ -1,0 +1,10 @@
+body { background-color: #333; }
+
+.stage { width: 90%; height: 350px; margin: 0 auto; display:flex; justify-content: center; align-items: center; gap: 1rem; }
+.stage > div { flex: 0 0 calc(100% / 8 - (1rem * 0.875)); background-size: cover; }
+.stage > div::after { content:''; display: block; padding-bottom: 86.27450980392157% }
+
+.orange { background: url(../../assets/images/tiger/orange.png); }
+.green { background: url(../../assets/images/tiger/green.png); }
+.blue { background: url(../../assets/images/tiger/blue.png); }
+.pink { background: url(../../assets/images/tiger/pink.png); }
