@@ -1,0 +1,14 @@
+body { background-color: #333; }
+
+.tiger { width: 500px; height: 200px; margin: 0 auto; display:flex; justify-content:center; align-items: center; gap: 2rem; }
+.tiger > div{ width: 102px; height: 88px; background-size: cover; }
+
+.stage { width: 600px; margin: 0 auto; }
+.stage > div { display: inline-block; width: 5.166667%; margin: 0px 1.5% 1.5% 0px; background: #88ce02; }
+
+.box:before { content: ""; display: block; padding-top: 100%; }
+
+.orange { background: url(../../assets/images/tiger/orange.png); }
+.green { background: url(../../assets/images/tiger/green.png); }
+.blue { background: url(../../assets/images/tiger/blue.png); }
+.pink { background: url(../../assets/images/tiger/pink.png); }
