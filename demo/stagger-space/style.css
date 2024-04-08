@@ -1,0 +1,66 @@
+* { margin: 0; padding: 0; }
+html { font-size: 10px; }
+body { background-color: #000; overflow: hidden; }
+
+.space { position: absolute; width: 100%; height: 100%; transform: rotateX(-20deg); perspective: 800px; transform-style: preserve-3d; }
+
+button { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; color: #fff; padding: 1rem 2rem; border: 1px solid #ffffff6b; background: transparent; border-radius: 0.5rem; cursor: pointer; z-index: 9099; transition: all .5s; }
+button:hover { background:#fff; color: #000; }
+.left { left: 2rem; }
+.right { right: 2rem; }
+
+.solar_system { position: absolute; inset: 0; transform-style: preserve-3d; pointer-events: none; }
+.solar_system .planet { position: absolute; left: 0; right: 0; bottom: -920px; width: 1200px; height: 1200px; border-radius: 600px; background-size: 1140px 910px; }
+
+.planet h2 { position: absolute; left: 50%; top: -50px; font-size: 2rem; color: #fff; transform: translateX(-50%); text-transform: uppercase; }
+
+.overlay { position: absolute; right: 0; top: -240px; left: -303px; width: 1800px; height: 620px; transform: none; border-bottom: 1020px solid black; border-radius: 100%; box-shadow: 0px -190px 215px 110px black inset; opacity: 1; z-index: 0; }
+
+/* .overlay { position: absolute; inset: 0 -100px -200px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 4%, rgba(0,0,0,1) 13%);
+} */
+
+.planet.mercury {
+  background-image: url(../../assets/images/space/mercury.jpg);
+  box-shadow: 0 -590px 150px black inset, 0 0px 130px 40px rgba(234, 205, 199, 0.6) inset, 0 0px 23px 4px rgba(234, 205, 199, 0.6) inset, 0 -10px 130px rgba(188, 143, 127, 0.6);
+}
+
+.planet.venus {
+  background-image: url(../../assets/images/space/venus.jpg);
+  box-shadow: 0 -590px 150px black inset, 0 0px 130px 40px #ffcb9c inset, 0 0px 23px 4px #ffcb9c inset, 0 -10px 130px #b85a07;
+}
+
+.planet.earth {
+  background-image: url(../../assets/images/space/earth.jpg);
+  box-shadow: 0 -590px 150px black inset, 0 0px 130px 40px #8cbaff inset, 0 0px 23px 4px #8cbaff inset, 0 -10px 130px #7894a9;
+}
+
+.planet.mars {
+  background-image: url(../../assets/images/space/mars.jpg);
+  box-shadow: 0 -590px 150px black inset, 0 0px 130px 40px #e86363 inset, 0 0px 23px 4px #e86363 inset, 0 -10px 130px #6b261a;
+}
+
+.planet.jupiter {
+  background-image: url(../../assets/images/space/hires.jpg);
+  box-shadow: 0 -590px 150px black inset, 0 0px 130px 40px rgba(234, 205, 199, 0.6) inset, 0 0px 23px 4px rgba(234, 205, 199, 0.6) inset, 0 -10px 130px rgba(188, 143, 127, 0.6);
+}
+
+.planet.saturn {
+  background-image: url(../../assets/images/space/saturn.jpg);
+  box-shadow: 0 -590px 150px black inset, 0 0px 130px 40px rgba(234, 205, 199, 0.6) inset, 0 0px 23px 4px rgba(234, 205, 199, 0.6) inset, 0 -10px 130px rgba(188, 143, 127, 0.6);
+}
+
+.planet.uranus {
+  background-image: url(../../assets/images/space/uranus.png);
+  box-shadow: 0 -590px 150px black inset, 0 0px 130px 40px rgba(234, 205, 199, 0.6) inset, 0 0px 23px 4px rgba(234, 205, 199, 0.6) inset, 0 -10px 130px rgba(127, 188, 171, 0.6);
+}
+
+.planet.neptune {
+  background-image: url(../../assets/images/space/neptune.jpg);
+  box-shadow: 0 -590px 150px black inset, 0 0px 130px 40px rgba(234, 205, 199, 0.6) inset, 0 0px 23px 4px rgba(234, 205, 199, 0.6) inset, 0 -10px 130px #2d4153;
+}
+
+.planet.pluto {
+  background: url(../../assets/images/space/pluto.png);
+  box-shadow: 0 -590px 150px black inset, 0 0px 130px 40px rgba(234, 205, 199, 0.6) inset, 0 0px 23px 4px rgba(234, 205, 199, 0.6) inset, 0 -10px 130px #2d4153;
+}
