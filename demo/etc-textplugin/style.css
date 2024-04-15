@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400&display=swap');
+
+* { padding: 0; margin: 0; }
+html { font-size: 10px; }
+body { background-color: #333; font-family: "Work Sans"; }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { width: 0; height: 0; }
+
+.stage { padding: 50px 0; text-align: center; color: #fff; font-size: 2rem; }
+.textField { display: flex; align-items: center; justify-content: center; }
+
+.old { color: red; }
+.new { color: #fff; }
+
+h1 { margin: 0; min-height: 80px; line-height: 80px; text-transform: uppercase; }
+.cursor { display: inline-block; height: 50px; width: 5px; background: #fff; position: relative; right: -10px; }
