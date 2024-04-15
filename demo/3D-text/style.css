@@ -1,26 +1,6 @@
-body { background: black; }
+* { padding: 0; margin: 0; }
+body { background: #444; }
 
-.stage{
-  width: 100vw;
-  height: 350px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-  display:flex;
-  font-size:3rem;
-  color: #fff;
-  justify-content:center;
-  align-items:center
-
-}
-.utils{
-  perspective:400px;
-}
-
-.utils > div{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-}
+.stage { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; font-size: 5vw; color: #fff; }
+.utils { perspective: 400px; }
+.utils > div { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); }

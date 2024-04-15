@@ -10,15 +10,19 @@ button:hover { background:#fff; color: #000; }
 .right { right: 2rem; }
 
 .solar_system { position: absolute; inset: 0; transform-style: preserve-3d; pointer-events: none; }
-.solar_system .planet { position: absolute; left: 0; right: 0; bottom: -920px; width: 1200px; height: 1200px; border-radius: 600px; background-size: 1140px 910px; }
+.solar_system .planet { position: absolute; left: 0; right: 0; bottom: -920px; width: 1200px; height: 1200px; border-radius: 600px;
+  background-size: 1140px 910px;
+  
+  /* transition: transform 2.8s 0.23s cubic-bezier(0.33, 0, 0, 1), opacity 2s 0.8s, box-shadow 0s 0s; */
+  /* top: auto; */
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+  /* margin: auto; */
+}
 
 .planet h2 { position: absolute; left: 50%; top: -50px; font-size: 2rem; color: #fff; transform: translateX(-50%); text-transform: uppercase; }
 
 .overlay { position: absolute; right: 0; top: -240px; left: -303px; width: 1800px; height: 620px; transform: none; border-bottom: 1020px solid black; border-radius: 100%; box-shadow: 0px -190px 215px 110px black inset; opacity: 1; z-index: 0; }
-
-/* .overlay { position: absolute; inset: 0 -100px -200px;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 4%, rgba(0,0,0,1) 13%);
-} */
 
 .planet.mercury {
   background-image: url(../../assets/images/space/mercury.jpg);
