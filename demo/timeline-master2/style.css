@@ -1,0 +1,25 @@
+* { padding: 0; margin: 0; }
+html { font-size: 10px; }
+body { background-color: #333; }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { width: 0; height: 0; }
+
+.stage { position: relative; width: 100%; height: 350px; display: flex; align-items: center; justify-content: center; gap: 2rem; border: 1px solid #ffffff1b; padding: 2rem; overflow: hidden; }
+.stage .orange,
+.stage .green,
+.stage .blue,
+.stage .pink { width: 102px; background-size: cover; }
+.stage .orange::before,
+.stage .green::before,
+.stage .blue::before,
+.stage .pink::before { content: ''; display: block; padding-bottom: 86.27450980392157% }
+
+/* h1 { position: absolute; left: 50%; top: 0; transform: translateX(-50%); color: #fff; white-space: nowrap; } */
+
+.orange { background: url(../../assets/images/tiger/orange.png); }
+.green { background: url(../../assets/images/tiger/green.png); }
+.blue { background: url(../../assets/images/tiger/blue.png); }
+.pink { background: url(../../assets/images/tiger/pink.png); }
+
+.tiger { position: absolute; left: 50%; bottom: 0; transform: translate3d(-50%, 0, 0); display: flex; align-items: center; gap: 3rem; }
+.quote { font-size: 2rem; color: #fff; white-space: nowrap; }
