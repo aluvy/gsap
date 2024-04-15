@@ -1,3 +1,9 @@
+* { padding: 0; margin: 0; }
+html { font-size: 10px; }
+body { background: #444; }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { width: 0; height: 0; }
+
 .stage { position: absolute; left: 0; top: 0; width: 100%; height: 100%; min-height: 50rem; background: #83FFE1; overflow: hidden; visibility: hidden; }
 
 .contents { position: absolute; left: 10rem; top: 50%; transform: translate3d(0, -50%, 0); z-index: 10; }

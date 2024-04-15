@@ -1,4 +1,8 @@
-body { background-color: #333; }
+* { padding: 0; margin: 0; }
+html { font-size: 10px; }
+body { background: #333; }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { width: 0; height: 0; }
 
 .tiger { width: 500px; height: 200px; margin: 0 auto; display:flex; justify-content:center; align-items: center; gap: 2rem; }
 .tiger > div{ width: 102px; height: 88px; background-size: cover; }

@@ -1,3 +1,9 @@
+* { padding: 0; margin: 0; }
+html { font-size: 10px; }
+body { background: #444; }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { width: 0; height: 0; }
+
 #oneScroll { position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 900; perspective: 1000px;}
 
 #oneScroll .page { position: absolute; left: 0; top: 0; width: 100%; height: 100%; transform: translateZ(-500px); opacity: 0; transform-style: preserve-3d; }

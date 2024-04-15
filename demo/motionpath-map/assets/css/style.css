@@ -1,5 +1,8 @@
+* { padding: 0; margin: 0; }
 html { font-size: 10px; }
-body { background-color: #333; font-size: 1.6rem; }
+body { background: #333; font-size: 1.6rem; }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { width: 0; height: 0; }
 ul { list-style: none; text-align: center; font-weight: bold; }
 button { padding: 0; margin: 0; background: transparent; border: 0 none; cursor: pointer; }
 

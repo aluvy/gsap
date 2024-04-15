@@ -1,5 +1,8 @@
 * { padding: 0; margin: 0; }
+html { font-size: 10px; }
 body { background: #444; }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { width: 0; height: 0; }
 
 .stage { width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; font-size: 5vw; color: #fff; }
 .utils { perspective: 400px; }
