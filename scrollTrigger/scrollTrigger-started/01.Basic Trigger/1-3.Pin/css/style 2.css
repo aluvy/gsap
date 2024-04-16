@@ -1,0 +1,46 @@
+section {
+  height: 100vh;
+  position: relative;
+}
+
+h2 {
+  font-size: 5vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.section02{
+  height: initial;
+}
+.section02 h2 {
+  opacity: 0;
+}
+
+p {
+  margin: 0;
+  font-size: 8vw;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: initial !important;
+  background: #000;
+  z-index: 10;
+  
+}
+.inner {
+  display: flex;
+  align-items: center;
+  padding: 3vh;
+}
+
+h3 {
+  font-size: 5vw;
+  margin-left: 3vw;
+  margin: 0 0 0 2vw;
+  color: #fff;
+}

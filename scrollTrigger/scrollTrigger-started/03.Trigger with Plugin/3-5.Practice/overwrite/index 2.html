@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./assets/tiger.svg" type="image/x-icon" />
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+  <title>overwrite</title>
+
+</head>
+<body>
+
+  
+  <section>
+    <div><img class="tiger" width="100" src="../assets/tiger.svg" alt="착한호랑이" /></div>
+
+
+    <button type="button" class="tween">tween</button>
+    <button type="button" class="reset">reset</button>
+  </section>
+  
+
+  <script>
+    gsap.to('.tiger',{x:500,duration:12,rotation:360})
+
+    document.querySelector('.tween').addEventListener('click',()=>{
+      gsap.to('.tiger',{x:0,overwrite:'auto'})
+    })
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

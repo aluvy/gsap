@@ -1,0 +1,156 @@
+
+
+section{
+  height: 100vh;
+  position: relative;
+}
+
+h2{
+  font-size: 5vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#container{
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.progressHolder{
+  width: 100vw;
+  height: 150px;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10vw;
+  box-sizing: border-box;
+  
+}
+
+
+.progressHolder h3{
+  
+  font-size: 1.4rem;
+  background: linear-gradient(to right, #12a2ff, #0021f4b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+
+.progressHolder .percent{
+  margin-top: 20px;
+  font-size: 1rem;
+  /* position: absolute;
+  color: #12a2ff;
+  font-size: 1.4rem;
+  margin-left: 10vw; */
+}
+
+.progressHolder .percent span{
+  color: #12a2ff;
+  font-size: 2rem;
+}
+
+.progress_bg{
+  width: 80%;
+  height: 20px;
+  background: #f1f1f1;
+  box-shadow: inset 0px 2px 4px #00000045;
+  position: absolute;
+  overflow: hidden;
+  border-radius: 20px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+
+.progress{
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #12a2ff, #0021f4b0);
+  box-shadow: inset 0px 2px 4px #00000075;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+
+
+
+.circleContainer{
+  width: 50px;
+  height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  position: fixed;
+  right: 3vw;
+  top: 3vw;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  display: none;
+}
+
+
+.circleContainer svg{
+  width: 120%;
+  height: 120%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%) rotate(-90deg);
+}
+
+.circleContainer circle{
+  fill: none;
+  stroke: black;
+  stroke-width: 4px;
+
+  stroke-linecap: round;
+  
+}
+
+.circleContainer:hover circle{
+  /* animation: dash 2s 1 forwards */
+}
+
+@keyframes dash {
+  to{
+    stroke-dashoffset: 0;
+  }
+}
+
+
+.rectContainer{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  pointer-events: none;
+  display: none;
+}
+
+.rectContainer svg{
+  width: 100%;
+  height: 100%;
+}
+
+.rectContainer rect{
+  fill: none;
+  stroke: orange;
+  stroke-width: 30px;
+}
+
+
+

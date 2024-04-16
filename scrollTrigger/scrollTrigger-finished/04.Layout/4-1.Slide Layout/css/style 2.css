@@ -1,0 +1,33 @@
+
+
+section{
+  height: 100vh;
+  position: relative;
+}
+
+h2{
+  margin:0;
+  font-size: 5vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#container{
+  width: 100vw;
+  height: 100vh; 
+}
+
+.wrapper{
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+#container .section{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

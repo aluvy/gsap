@@ -1,0 +1,49 @@
+
+
+section{
+  height: 100vh;
+  position: relative;
+}
+
+h2{
+  font-size: 5vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#container{
+  width: 100vw;
+  height: 100vh;
+}
+
+
+.nav{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  /* height: 100px; */
+  z-index: 999;
+  background: rgb(235 222 193)
+}
+
+
+.nav > ul{
+  display: flex;
+  list-style: none;
+  align-items: center;
+  font-size: 2rem;
+  
+}
+
+.nav > ul > li{
+  margin-right: 5vw;
+  
+}
+
+.nav > ul > li > a{
+  color: inherit;
+  
+}
