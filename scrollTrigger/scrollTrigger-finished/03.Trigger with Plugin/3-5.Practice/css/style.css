@@ -1,0 +1,330 @@
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+
+:root{
+  --primary: #161616;
+  --secondary: #f5f5f5;
+}
+
+
+
+body{
+  overflow: hidden;
+  background-color: var(--primary);
+  color:var(--secondary);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+section{
+  height: 100vh;
+  position: relative;
+}
+
+img{
+  max-width: 100%;
+  width: 100%;
+}
+
+h1{
+  margin: 0;
+}
+h2{
+  font-size: 5vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#container{
+  width: 100vw;
+  height: 100vh;
+}
+
+
+
+a{
+  color:inherit;
+  text-decoration: none;
+}
+
+nav{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 1000;
+  
+
+
+  & ul{
+    list-style: none;
+    display:flex;
+    flex-direction: column;
+    gap:1rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    font-size: 7vw;
+    padding: 0;
+    margin: 0;
+
+  }
+}
+
+
+
+#header{
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  left:0;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+
+  .inner{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & img{
+      width: 40px;
+    }
+
+    .menu{
+      width: 30px;
+      height: 20px;
+      /* border: 1px solid white; */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      & span{
+        display: inline-block;
+        width: 100%;
+        height: 2px;
+        background: #fff;
+      }
+    }
+  }
+}
+
+
+
+
+.section01{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.image_container{
+  width: 95vw;
+  max-height: 90vh;
+  min-height: 90vh;
+  position: relative;
+  scale:0.5;
+  overflow: hidden;
+
+  .cover{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    filter: brightness(0.4);
+    display: flex;
+    
+     & div{
+      width: 100%;
+     }
+    /* transform:translateY(100%) */
+    /* opacity: 0; */
+  }
+
+  .cover:nth-child(1){ z-index: 3}
+  .cover:nth-child(2){ z-index: 2}
+  .cover:nth-child(3){ z-index: 1}
+
+
+}
+
+
+
+
+p{
+  font-size: 5rem;
+}
+
+
+
+
+
+
+
+
+
+.visual{
+  width: 95vw;
+  max-height: 90vh;
+  min-height: 90vh;
+  overflow: hidden;
+  filter: brightness(1);
+  /* display: flex; */
+}
+
+
+
+
+.heading{
+  min-width: 60vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  z-index: 10;
+  color: var(--primary);
+  
+
+  & h3{
+    font-size:5rem;
+    margin: 0;
+    overflow: hidden;
+  }
+  .line{
+    width: 100%;
+    height: 2px;
+    background: black;
+    margin: 1rem 0;
+  }
+
+  & p{
+    font-size: 2rem;
+    overflow: hidden;
+  }
+
+  & span{
+    display:inline-block
+  }
+}
+
+
+
+#rome{
+
+  .section02{
+    height: 100vh;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    overflow: hidden;
+
+    .card_container{
+      display: flex;
+      gap:2rem;
+  
+      & div{
+        flex-shrink: 0;
+        width: 40vw;
+      }
+      & img{
+        min-height: 100%;
+        object-fit: cover;
+      }
+    }
+
+  }
+ 
+}
+
+
+#england{
+  .section02{
+    height: inherit;
+  }
+}
+#india{
+
+
+  .section02 {
+    padding: 5rem;
+    height: 100vh;
+    overflow: hidden;
+
+    & h3{
+      font-size: 10rem;
+      margin: 0;
+    }
+  }
+
+
+  .section03{
+    padding: 3rem 5rem;
+    display:flex;
+    gap:3rem
+  }
+
+  .section04{
+    padding: 3rem 5rem;
+    display:flex;
+    gap:3rem
+  }
+
+
+}
+
+
+
+#peru{
+
+  .section{
+    overflow: hidden;
+  }
+
+  .card_container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+  
+    & div{
+      max-width: 50vw;
+      padding: 2rem;
+    }
+  
+    & h3{
+      font-size: 2.5rem;
+    }
+  
+    & p{
+      font-size: 1.5rem
+    }
+
+    
+
+
+  }
+  
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+
+
+section{
+  height: 100vh;
+  position: relative;
+}
+
+h2{
+  font-size: 5vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#container{
+  width: 100vw;
+  height: 100vh;
+}
+
+
+
+.section02{
+  height: inherit;
+  /* height: 200vh; */
+  background: black !important;
+}
+.section02 h2{
+  opacity: 0;
+}
+
+
+
+.ball {
+  fill: white;
+  /* visibility: hidden; */
+}
+
+.line {
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}
+text {
+  fill: white;
+  font-size: 15px;
+  font-family: "Signika Negative", sans-serif; 
+  visibility: hidden;
+} 

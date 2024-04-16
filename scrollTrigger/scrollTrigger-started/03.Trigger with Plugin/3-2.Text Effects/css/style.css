@@ -1,0 +1,41 @@
+
+body{
+  background: black;
+  color: #fff;
+  
+}
+
+section{
+  height: 100vh;
+  position: relative;
+}
+
+h2{
+  font-size: 5vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  margin: 0;
+}
+
+#container{
+  width: 100vw;
+  height: 100vh;
+}
+.section02,
+.section04{
+  height: initial !important;
+}
+
+.section02 h2,
+.section04 h2{
+  opacity: 0;
+}
+
+
+p{
+  padding: 5vw;
+  margin: 0;
+  font-size: 4rem;
+}

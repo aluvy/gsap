@@ -1,0 +1,21 @@
+
+
+section{
+  height: 100vh;
+  position: relative;
+}
+
+h2{
+  font-size: 5vw;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+
+.tigerSection{
+  height:30vh;
+  display:flex;
+  align-items: center;
+}

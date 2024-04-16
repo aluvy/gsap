@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPA</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="shortcut icon" href="./assets/tiger.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.7.5/smooth-scrollbar.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    
+    <script src="./js/settings.js" defer></script>
+    <script src="../../plugins/splitText.js"></script>
+    <script src="./js/main.js" defer></script>
+  </head>
+
+  <body data-barba="wrapper">
+    
+    <header id="header">
+      <div class="inner">
+        <h1 class="logo">
+          <a href="index.html">
+            <img width="40" src="./assets/8b.svg" alt="" />
+          </a>
+        </h1>
+        
+        <div class="menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="rome.html">Rome</a></li>
+        <li><a href="england.html">England</a></li>
+        <li><a href="india.html">India</a></li>
+        <li><a href="peru.html">Peru</a></li>
+      </ul>
+    </nav>
+
+    <div id="container">
+        <div id="main" data-barba="container" data-barba-namespace="main">
+
+          <section class="section section01">
+
+            <div class="image_container">
+              <div class="cover" data-name="rome">
+                <div ><img src="./assets/rome.jpg" alt="로마" /></div>
+              </div>
+              <div class="cover" data-name="england">
+                <div ><img src="./assets/england.jpg" alt="영국" /></div>
+              </div>
+              <div class="cover" data-name="india">
+                <div ><img src="./assets/india.jpg" alt="인도" /></div>
+              </div>
+              <div class="cover" data-name="peru">
+                <div ><img src="./assets/peru.jpg" alt="페루" /></div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="./js/markers.js"></script>
+
+  </body>
+</html>
+
+
+
+
+

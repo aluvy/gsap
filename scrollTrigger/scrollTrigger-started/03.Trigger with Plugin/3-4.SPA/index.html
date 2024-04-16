@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPA</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="shortcut icon" href="./assets/tiger.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.7.5/smooth-scrollbar.js"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="./js/settings.js" defer></script>
+
+    <script src="./js/main.js" defer></script>
+  </head>
+
+  <body data-barba="wrapper">
+    
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div id="container">
+        <div id="home" data-barba="container" data-barba-namespace="home">
+
+          <section class="section section01">
+            <h2>HOME</h2>
+          </section>
+
+          <section class="section section02"></section>
+
+          <section class="section section03">
+            <div class="box"></div>
+          </section>
+
+          <section class="section section04"></section>
+        </div>
+    </div>
+
+    <script src="./js/markers.js"></script>
+  </body>
+</html>
