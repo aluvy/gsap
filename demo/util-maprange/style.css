@@ -1,0 +1,14 @@
+* { padding: 0; margin: 0; }
+html { font-size: 10px; }
+body { background-color: #000; font-family: "Paytone One"; }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { width: 0; height: 0; }
+
+#cursor { position: fixed; left: 0; top: 0; width: 40px; height: 40px; background: white; border-radius: 50%; pointer-events: none; mix-blend-mode: difference; z-index: 9999; }
+
+#intro { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; font-size: 100px; background: rgba(0,0,0,0.7); z-index: 999; }
+
+.left { position: fixed; top: 0; left: 0; right: 50%; bottom: 0; display: flex; overflow: hidden; background: black; z-index: 10; }
+.left .holder { position: absolute; top: 0; left: 0; width: 100vw; height: 100%; display: flex; color: #fff; justify-content: center; align-items: center; }
+
+.right { width: 100vw; height: 100vh; background: #fff; color: black; display: flex; justify-content: center; align-items: center; }
