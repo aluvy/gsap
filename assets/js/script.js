@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setVh();
   window.addEventListener("resize", setVh);
 
+  setDemo__SCROLLTRIGGER();
   setDemo__TIMELINE();
   setDemo__MOTIONPATH();
   setDemo__3DTRANSFORM();
@@ -15,6 +16,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   handleFloatingIframe();
 });
+
+const setDemo__SCROLLTRIGGER = () => {
+  setGroup("scrolltrigger-area", "ScrollTrigger"); // class, title
+
+  const area = $(".demogroup.scrolltrigger-area ul");
+  const item = [
+    {
+      title: "basic",
+      href: "./demo/scrolltrigger-basic",
+      hash: [
+        "scrolltrigger",
+        "trigger",
+        "start",
+        "end",
+        "markers",
+        "id",
+        "animation",
+        "toggleActions",
+      ],
+    },
+    {
+      title: "basic - scrub",
+      href: "./demo/scrolltrigger-scrub",
+      hash: ["scrolltrigger"],
+    },
+  ];
+  setItem(area, item);
+};
 
 const setDemo__TIMELINE = () => {
   setGroup("timeline-area", "Timeline"); // class, title
@@ -402,3 +431,10 @@ const handleFloatingIframe = () => {
 const setVh = () => {
   document.documentElement.style.setProperty("--vh", `${window.innerHeight}px`);
 };
+
+/**
+ * notion
+ * https://productive-printer-b81.notion.site/GSAP-Basic-4c37387fe8254db4a7d14c883f8baa2d
+ * https://productive-printer-b81.notion.site/GSAP-Advanced-249a1a7075db43b48ef6f62896e79c46
+ * https://productive-printer-b81.notion.site/GSAP-ScrollTrigger-1fc38d08c3c045a1b8e6362660d32e72
+ */
