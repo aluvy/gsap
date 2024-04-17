@@ -41,6 +41,11 @@ const setDemo__SCROLLTRIGGER = () => {
       href: "./demo/scrolltrigger-scrub",
       hash: ["scrolltrigger", "onScrubComplete", "gsap.utils.toArray()"],
     },
+    {
+      title: "basic - pin",
+      href: "./demo/scrolltrigger-pin",
+      hash: ["scrolltrigger", "pin", "pinType", "pinSpacing", "scrub"],
+    },
   ];
   setItem(area, item);
 };
