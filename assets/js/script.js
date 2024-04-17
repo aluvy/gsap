@@ -39,7 +39,7 @@ const setDemo__SCROLLTRIGGER = () => {
     {
       title: "basic - scrub",
       href: "./demo/scrolltrigger-scrub",
-      hash: ["scrolltrigger"],
+      hash: ["scrolltrigger", "onScrubComplete", "gsap.utils.toArray()"],
     },
   ];
   setItem(area, item);
