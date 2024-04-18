@@ -23,6 +23,11 @@ const setDemo__SCROLLTRIGGER = () => {
   const area = $(".demogroup.scrolltrigger-area ul");
   const item = [
     {
+      title: "parallax",
+      href: "./demo/scrolltrigger-parallax",
+      hash: ["scrolltrigger", "parallax", "시차", "timeline in scrollTrigger"],
+    },
+    {
       title: "basic",
       href: "./demo/scrolltrigger-basic",
       hash: [
