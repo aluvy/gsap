@@ -1,0 +1,16 @@
+* { padding: 0; margin: 0; box-sizing: border-box; }
+html { font-size: 10px; }
+/* html::-webkit-scrollbar,
+body::-webkit-scrollbar { width: 0; height: 0; } */
+body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji; background: #fff; overflow: hidden; }
+
+body { overflow: hidden; }
+
+section { position: relative; height: 100vh; translate: 0 0; }
+h2 { position: absolute; left: 50%; top: 50%; font-size: 5vw; transform: translate(-50%,-50%); }
+
+#container { width: 100vw; height: 100vh; overflow-x: hidden; }
+
+.deep { width: 50vw; height: 100vh; overflow-x: hidden; }
+.deepSection { width: 100%; height: 50vh; background: orange; overflow-x: hidden; }
+.deepSection:nth-child(even) { background: dodgerblue; }
