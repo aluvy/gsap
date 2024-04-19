@@ -1,9 +1,8 @@
 * { padding: 0; margin: 0; box-sizing: border-box; }
 html { font-size: 10px; }
-body { background: #fff; font-family: "Playfair Display", serif; }
-/* html::-webkit-scrollbar,
-body::-webkit-scrollbar { width: 0; height: 0; } */
-body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji; }
+html::-webkit-scrollbar,
+body::-webkit-scrollbar { width: 0; height: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji; background: #fff; overflow: hidden; }
 
 :root { font-size: 16px; }
 ::-moz-selection { background: #87cd33; color: white; }
@@ -25,7 +24,7 @@ footer { height: 50vh; color: #fff; }
 .aic { align-items: center; }
 .jcc { justify-content: center; }
 
-.loader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: black; color: white; display: none; }
+.loader { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: black; color: white; }
 .demo-wrapper { overflow-x: hidden; }
 .wrapper { display: flex; }
 .demo-gallery:not(.last) { padding-bottom: 1rem; }
