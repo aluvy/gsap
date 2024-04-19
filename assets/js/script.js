@@ -23,6 +23,11 @@ const setDemo__SCROLLTRIGGER = () => {
   const area = $(".demogroup.scrolltrigger-area ul");
   const item = [
     {
+      title: "callback",
+      href: "./demo/scrolltrigger-callback",
+      hash: ["scrolltrigger", "callback", "onEnter", "onLeave"],
+    },
+    {
       title: "smooth Scrollbar",
       href: "./demo/scrolltrigger-proxy",
       hash: [
