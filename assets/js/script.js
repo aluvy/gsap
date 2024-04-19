@@ -23,6 +23,26 @@ const setDemo__SCROLLTRIGGER = () => {
   const area = $(".demogroup.scrolltrigger-area ul");
   const item = [
     {
+      title: "smooth Scrollbar",
+      href: "./demo/scrolltrigger-proxy",
+      hash: [
+        "부드러운 스크롤",
+        "scrolltrigger",
+        "scrollerProxy",
+        "gsap.registerPlugin()",
+        "smooth scrollbar",
+        "scrollbar.addListener()",
+        "proxy",
+        "hijacking",
+        "다중스크롤",
+      ],
+    },
+    {
+      title: "gsap ScrollSmoother",
+      href: "./demo/scrolltrigger-scrollsmoother",
+      hash: ["scrolltrigger", "scrollsmoother"],
+    },
+    {
       title: "practice",
       href: "./demo/scrolltrigger-practice",
       hash: ["scrolltrigger", "scrollWidth", "loading", "imagesLoaded"],
