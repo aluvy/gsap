@@ -25,7 +25,7 @@ const setDemo__SCROLLTRIGGER = () => {
     {
       title: "practice",
       href: "./demo/scrolltrigger-practice",
-      hash: ["scrolltrigger", "parallax", "시차", "timeline in scrollTrigger"],
+      hash: ["scrolltrigger", "scrollWidth", "loading", "imagesLoaded"],
     },
     {
       title: "parallax",
