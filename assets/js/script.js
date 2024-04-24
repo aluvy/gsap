@@ -25,7 +25,17 @@ const setDemo__SCROLLTRIGGER = () => {
     {
       title: "callback",
       href: "./demo/scrolltrigger-callback",
-      hash: ["scrolltrigger", "callback", "onEnter", "onLeave"],
+      hash: [
+        "scrolltrigger",
+        "callback",
+        "onEnter",
+        "onLeave",
+        "onEnterBack",
+        "onLeaveBack",
+        "onToggle (direction)",
+        "onRefresh",
+        "onUpdate (progress)",
+      ],
     },
     {
       title: "smooth Scrollbar",
