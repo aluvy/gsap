@@ -23,7 +23,20 @@ const setDemo__SCROLLTRIGGER = () => {
   const area = $(".demogroup.scrolltrigger-area ul");
   const item = [
     {
-      title: "PreventScroll",
+      title: "Fast Scroll End",
+      href: "./demo/scrolltrigger-FastScrollEnd",
+      hash: [
+        "scrolltrigger",
+        "FastScrollEnd",
+        "goToTop",
+        "toggleActions",
+        "toggleClass",
+        "scrollTo",
+        "easing js",
+      ],
+    },
+    {
+      title: "Prevent Scroll",
       href: "./demo/scrolltrigger-PreventScroll",
       hash: [
         "scrolltrigger",
