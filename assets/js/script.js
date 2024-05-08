@@ -23,6 +23,16 @@ const setDemo__SCROLLTRIGGER = () => {
   const area = $(".demogroup.scrolltrigger-area ul");
   const item = [
     {
+      title: "PreventScroll",
+      href: "./demo/scrolltrigger-PreventScroll",
+      hash: [
+        "scrolltrigger",
+        "tween, timeline callback",
+        "onComplete()",
+        "eventCallback()",
+      ],
+    },
+    {
       title: "callback",
       href: "./demo/scrolltrigger-callback",
       hash: [
