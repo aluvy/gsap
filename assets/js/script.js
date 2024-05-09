@@ -25,7 +25,7 @@ const setDemo__SCROLLTRIGGER = () => {
 		{
 			title: 'Navigation Loop',
 			href: './demo/scrolltrigger-NavigationLoop',
-			hash: ['scrolltrigger', 'NavigationLoop', 'immediateRenter: false', '글리치', 'function based value'],
+			hash: ['scrolltrigger', 'NavigationLoop', 'immediateRenter: false', '글리치', 'function based value', '$0.getBoundingClientRect()', 'ScrollTrigger.getAll()'],
 		},
 		{
 			title: 'Fast Scroll End',
