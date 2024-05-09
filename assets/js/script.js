@@ -23,6 +23,11 @@ const setDemo__SCROLLTRIGGER = () => {
 	const area = $('.demogroup.scrolltrigger-area ul');
 	const item = [
 		{
+			title: 'scroll based progress',
+			href: './demo/scrolltrigger-scrollbasedprogress',
+			hash: ['scrolltrigger', 'endTrigger', 'progress', 'onUpdate', 'once: true', 'ScrollTrigger.getById(id)', 'svg 애니메이션 처리', 'getTotalLength()', 'strokeDashoffset', 'strokeDasharray'],
+		},
+		{
 			title: 'Navigation Loop',
 			href: './demo/scrolltrigger-NavigationLoop',
 			hash: ['scrolltrigger', 'NavigationLoop', 'immediateRenter: false', '글리치', 'function based value', '$0.getBoundingClientRect()', 'ScrollTrigger.getAll()'],
