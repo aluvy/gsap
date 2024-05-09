@@ -1,0 +1,25 @@
+* { padding: 0; margin: 0; box-sizing: border-box; }
+html { font-size: 10px; }
+body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji; line-height: 1.1; background: #fff; }
+section { position: relative; height: 100vh; }
+section h2 { position: absolute; left: 50%; top: 50%; font-size: 5vw; transform: translate3d(-50%, -50%, 0); }
+
+#container { width: 100vw; height: 100vh; }
+
+.progressHolder { position: absolute; left: 0; bottom: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 150px; padding: 0px 10vw; background: #fff; z-index: 99999; }
+.progressHolder .ttl { display: flex; align-items: center; width: 100%; }
+.progressHolder h3 { flex: 1 1 45%; font-size: 1.4rem; background: linear-gradient(to right, #12a2ff, #0021f4b0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.progressHolder .percent { font-size: 1rem; }
+.progressHolder .percent span { color: #12a2ff; font-size: 2rem; }
+.progress_bg { width: 100%; height: 20px; background: #f1f1f1; box-shadow: inset 0px 2px 4px #00000045; border-radius: 20px; overflow: hidden; margin-top: 10px; }
+.progress { width: 100%; height: 100%; background: linear-gradient(to right, #12a2ff, #0021f4b0); box-shadow: inset 0px 2px 4px #00000075; transform: scaleX(0); transform-origin: left center; }
+
+/* circle */
+.circleContainer { position: fixed; right: 4vw; top: 4vw; display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; border-radius: 50%; background: #fff; cursor: pointer; z-index: 99999; }
+.circleContainer svg { position: absolute; left: 50%; top: 50%; width: 120%; height: 120%; transform: translate(-50%,-50%) rotate(-90deg); }
+.circleContainer circle{ fill: none; stroke: black; stroke-width: 4px; stroke-linecap: round; }
+
+/* rect */
+.rectContainer { position: fixed; left: 0; top: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999; }
+.rectContainer svg { width: 100%; height: 100%; }
+.rectContainer rect { fill: none; stroke: orange; stroke-width: 15px; }
