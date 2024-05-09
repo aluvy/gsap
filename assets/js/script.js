@@ -23,6 +23,11 @@ const setDemo__SCROLLTRIGGER = () => {
 	const area = $('.demogroup.scrolltrigger-area ul');
 	const item = [
 		{
+			title: 'Navigation Loop',
+			href: './demo/scrolltrigger-NavigationLoop',
+			hash: ['scrolltrigger', 'NavigationLoop', 'immediateRenter: false', '글리치', 'function based value'],
+		},
+		{
 			title: 'Fast Scroll End',
 			href: './demo/scrolltrigger-FastScrollEnd',
 			hash: ['scrolltrigger', 'FastScrollEnd', 'goToTop', 'toggleActions', 'toggleClass', 'scrollTo', 'easing js'],
