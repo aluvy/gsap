@@ -23,6 +23,11 @@ const setDemo__SCROLLTRIGGER = () => {
 	const area = $('.demogroup.scrolltrigger-area ul');
 	const item = [
 		{
+			title: 'scroll animation toggle',
+			href: './demo/scrolltrigger-animationToggle',
+			hash: ['scrolltrigger', 'toggleActions', 'scroll active navigation'],
+		},
+		{
 			title: 'scroll based progress',
 			href: './demo/scrolltrigger-scrollbasedprogress',
 			hash: ['scrolltrigger', 'endTrigger', 'progress', 'onUpdate', 'once: true', 'ScrollTrigger.getById(id)', 'svg 애니메이션 처리', 'getTotalLength()', 'strokeDashoffset', 'strokeDasharray', 'drawSVG'],
