@@ -23,6 +23,11 @@ const setDemo__SCROLLTRIGGER = () => {
 	const area = $('.demogroup.scrolltrigger-area ul');
 	const item = [
 		{
+			title: 'practice advanced - Light House',
+			href: './demo/scrolltrigger-practiceAdvanced',
+			hash: ['scrolltrigger'],
+		},
+		{
 			title: 'scroll animation toggle',
 			href: './demo/scrolltrigger-animationToggle',
 			hash: ['scrolltrigger', 'scroll active navigation', 'animation toggle 여러가지 방법', 'toggleActions', 'onToggle(self)'],
