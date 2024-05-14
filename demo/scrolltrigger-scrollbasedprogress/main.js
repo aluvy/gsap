@@ -19,7 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
 		// markers: true,
 		scrub: true,
 		once: true, // 애니메이션이 끝난 후에는 스크롤 트리거가 kill 됨
-		id: 'pro', // ScrollTrigger.getById('pro')
+		id: 'pro', // ScrollTrigger.getById('pro') 을 콘솔에 찍어보면 pro ScrollTrigger 값 확인 가능
 	});
 })();
 
