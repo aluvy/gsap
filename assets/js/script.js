@@ -25,7 +25,7 @@ const setDemo__SCROLLTRIGGER = () => {
 		{
 			title: 'scroll based progress',
 			href: './demo/scrolltrigger-scrollbasedprogress',
-			hash: ['scrolltrigger', 'endTrigger', 'progress', 'onUpdate', 'once: true', 'ScrollTrigger.getById(id)', 'svg 애니메이션 처리', 'getTotalLength()', 'strokeDashoffset', 'strokeDasharray'],
+			hash: ['scrolltrigger', 'endTrigger', 'progress', 'onUpdate', 'once: true', 'ScrollTrigger.getById(id)', 'svg 애니메이션 처리', 'getTotalLength()', 'strokeDashoffset', 'strokeDasharray', 'drawSVG'],
 		},
 		{
 			title: 'Navigation Loop',
