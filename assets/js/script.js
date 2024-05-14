@@ -25,7 +25,7 @@ const setDemo__SCROLLTRIGGER = () => {
 		{
 			title: 'scroll animation toggle',
 			href: './demo/scrolltrigger-animationToggle',
-			hash: ['scrolltrigger', 'toggleActions', 'scroll active navigation'],
+			hash: ['scrolltrigger', 'scroll active navigation', 'animation toggle 여러가지 방법', 'toggleActions', 'onToggle(self)'],
 		},
 		{
 			title: 'scroll based progress',
