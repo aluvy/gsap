@@ -23,7 +23,8 @@ gsap.registerPlugin(ScrollTrigger);
 	});
 })();
 
-// svg
+// svg (Draw SVG 사용 X)
+/*
 (function () {
 	const circle = document.querySelector('.circleContainer circle');
 	const circleLenth = circle.getTotalLength() + 1; // 1 정도 더해준다.
@@ -60,9 +61,35 @@ gsap.registerPlugin(ScrollTrigger);
 		scrub: true,
 	});
 })();
+*/
+
+
+// svg (Draw SVG 사용)
+(function(){
+	const circle = document.querySelector('.circleContainer circle');
+	const rect = document.querySelector('.rectContainer rect');
+
+	const progressSVG = gsap
+		.timeline({ defaults: { drawSVG: 0, ease: 'none' } })
+		.from(circle, {})
+		.from(rect, {}, '<');
+
+	ScrollTrigger.create({
+		trigger: '.scroll-content', // 전체에 대한 progress
+		start: 'top top',
+		end: 'bottom bottom',
+		animation: progressSVG,
+		scrub: true,
+	});
+
+})();
+
 
 markers();
 
 /**
  * endTrigger: end 포인트의 타겟 지정
+ * 
+ * drawSVG: svg 선을 쉽게 그릴 수 있는 라이브러리
+ * stroke-dashoffset, stroke-dasharray 를 사용한다.
  */
