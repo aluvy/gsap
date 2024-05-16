@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	setVh();
 	window.addEventListener('resize', setVh);
 
+	setDemo__SWP();
 	setDemo__SCROLLTRIGGER();
 	setDemo__TIMELINE();
 	setDemo__MOTIONPATH();
@@ -16,6 +17,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	handleFloatingIframe();
 });
+
+const setDemo__SWP = () => {
+	setGroup('swp-area', 'ScrollTrigger with Plugin'); // class, title
+
+	const area = $('.demogroup.swp-area ul');
+	const item = [
+		{
+			title: 'Video Controls',
+			href: './demo/swp-videocontrols',
+			hash: ['scrolltrigger', 'SnapPlugin', '스크롤 시 비디오 재생시간 컨트롤', 'ScrollTrigger onToggle()', 'canvas'],
+		},
+	];
+	setItem(area, item);
+
+}
 
 const setDemo__SCROLLTRIGGER = () => {
 	setGroup('scrolltrigger-area', 'ScrollTrigger'); // class, title
