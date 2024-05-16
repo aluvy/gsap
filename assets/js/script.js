@@ -25,7 +25,7 @@ const setDemo__SCROLLTRIGGER = () => {
 		{
 			title: 'practice advanced - Light House',
 			href: './demo/scrolltrigger-practiceAdvanced',
-			hash: ['scrolltrigger'],
+			hash: ['scrolltrigger', 'onUpdate(self)', 'scrolltrigger progress', 'timeline add()', 'endTrigger', 'end: max'],
 		},
 		{
 			title: 'scroll animation toggle',
