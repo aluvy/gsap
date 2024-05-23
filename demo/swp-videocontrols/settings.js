@@ -4,7 +4,7 @@ gsap.set('.section',{backgroundColor:gsap.utils.wrap(sectionColors)})
 
 gsap.utils.toArray('.section').forEach((item,index)=>{
   let h2 = /* html */`<h2>section${index + 1}</h2>`
-  item.insertAdjacentHTML('beforeend',h2);
+  // item.insertAdjacentHTML('beforeend',h2);
 })
 
 gsap.registerPlugin(ScrollTrigger);
