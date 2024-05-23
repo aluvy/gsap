@@ -26,7 +26,7 @@ const setDemo__SWP = () => {
 		{
 			title: 'Video Controls',
 			href: './demo/swp-videocontrols',
-			hash: ['scrolltrigger', 'SnapPlugin', '스크롤 시 비디오 재생시간 컨트롤', 'ScrollTrigger onToggle()', 'canvas'],
+			hash: ['scrolltrigger', 'SnapPlugin', '객체에 애니메이션 걸기', '스크롤 시 비디오 재생시간 컨트롤', 'canvas', 'ctx', 'drawImage', 'render' ],
 		},
 	];
 	setItem(area, item);
