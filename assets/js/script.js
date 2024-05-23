@@ -24,6 +24,11 @@ const setDemo__SWP = () => {
 	const area = $('.demogroup.swp-area ul');
 	const item = [
 		{
+			title: 'Scroll Draw SVG',
+			href: './demo/swp-scrolldrawsvg',
+			hash: ['scrolltrigger', 'MotionPathPlugin', 'drawSVG', 'getTotalLength()'],
+		},
+		{
 			title: 'Text Animation',
 			href: './demo/swp-textanimation',
 			hash: ['scrolltrigger', 'splitText plugin', 'resize', 'SplitText.revert()', 'ScrollTrigger.getAll()', 'ScrollTrigger.kill()', 'Throttle & Debounce', 'timer', 'apply()', '애니메이션 성능 이슈'],
