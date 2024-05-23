@@ -24,6 +24,11 @@ const setDemo__SWP = () => {
 	const area = $('.demogroup.swp-area ul');
 	const item = [
 		{
+			title: 'Text Animation',
+			href: './demo/swp-textanimation',
+			hash: ['scrolltrigger', 'splitText plugin', 'resize', 'SplitText.revert()', 'ScrollTrigger.getAll()', 'ScrollTrigger.kill()', 'Throttle & Debounce', 'timer', 'apply()', '애니메이션 성능 이슈'],
+		},
+		{
 			title: 'Video Controls',
 			href: './demo/swp-videocontrols',
 			hash: ['scrolltrigger', 'SnapPlugin', '객체에 애니메이션 걸기', '스크롤 시 비디오 재생시간 컨트롤', 'canvas', 'ctx', 'drawImage', 'render' ],
