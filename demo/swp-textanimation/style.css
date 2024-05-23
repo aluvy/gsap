@@ -1,0 +1,15 @@
+body { background: black; color: #fff; }
+
+section { position: relative; height: 100vh; }
+
+h2 { position: absolute; left: 50%; top: 50%; font-size: 5vw; transform: translate(-50%,-50%); margin: 0; }
+
+#container { width: 100vw; height: 100vh; }
+
+.section02,
+.section04 { height: initial !important; }
+
+.section02 h2,
+.section04 h2 { opacity: 0; }
+
+p { padding: 5vw; margin: 0; font-size: 4rem; }
