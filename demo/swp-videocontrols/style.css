@@ -3,5 +3,8 @@ h2 { position: absolute; left: 50%; top: 50%; font-size: 5vw; transform: transla
 #container { width: 100vw; height: 100vh; }
 
 .box { width: 100px; height: 100px; background: red; }
+
+.section01 { background-color: #000 !important; }
 .section03 { background-color: #fff !important; }
-canvas { position: absolute; left: 50%; top: 50%; max-width: 100vw; max-height: 100vh; transform: translate(-50%, -50%); }
+
+canvas { position: absolute; left: 50%; top: 50%; max-width: 100vw; max-height: 100vh; transform: translate(-50%, -50%); filter: brightness(0); }
