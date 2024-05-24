@@ -24,6 +24,11 @@ const setDemo__SWP = () => {
 	const area = $('.demogroup.swp-area ul');
 	const item = [
 		{
+			title: 'Single Page Application - Practice',
+			href: './demo/swp-spa-practice',
+			hash: [''],
+		},
+		{
 			title: 'Single Page Application',
 			href: './demo/swp-spa',
 			hash: ['scrolltrigger', 'Smoothscroller', 'barba.js', 'SPA', 'hook', 'spa in gsap'],
