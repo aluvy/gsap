@@ -26,7 +26,7 @@ const setDemo__SWP = () => {
 		{
 			title: 'Scroll Draw SVG',
 			href: './demo/swp-scrolldrawsvg',
-			hash: ['scrolltrigger', 'MotionPathPlugin', 'drawSVG', 'getTotalLength()'],
+			hash: ['scrolltrigger', 'MotionPathPlugin', 'drawSVG', 'getTotalLength()', 'drawSVG() custom 함수', '타임라인 재생시간 확인'],
 		},
 		{
 			title: 'Text Animation',
