@@ -24,6 +24,11 @@ const setDemo__SWP = () => {
 	const area = $('.demogroup.swp-area ul');
 	const item = [
 		{
+			title: 'Single Page Application',
+			href: './demo/swp-spa',
+			hash: ['scrolltrigger', 'Smoothscroller', 'barba.js', 'SPA', 'hook', 'spa in gsap'],
+		},
+		{
 			title: 'Scroll Draw SVG',
 			href: './demo/swp-scrolldrawsvg',
 			hash: ['scrolltrigger', 'MotionPathPlugin', 'drawSVG', 'getTotalLength()', 'drawSVG() custom 함수', '타임라인 재생시간 확인'],
