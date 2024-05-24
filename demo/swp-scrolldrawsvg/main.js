@@ -4,7 +4,27 @@ gsap.defaults({ ease: 'none' })
 
 // 무료: svg 선의 총 길이 구하는 함수
 function drawSVG(target) {
-  const pathLength = target.getTotalLength();  // svg 선의 총 길이
+
+  // target이 string이 아닐 때 에러처리
+  if ( typeof target !== 'string') throw new TypeError('drawSVG 함수에 전달된 인수는 string 타입이어야 합니다.');
+
+  let pathLength;
+  
+  // target에 , 가 있을 경우 배열로 처리
+  if ( target.includes(",") ) {
+    const arr = target.split(",").map((a, i)=>{
+      pathLength = document.querySelector(a).getTotalLength();
+      gsap.set(a, {
+        strokeDashoffset: pathLength,
+        strokeDasharray: pathLength,
+      });
+      return pathLength;
+    })
+    
+    return arr
+  }
+
+  pathLength = document.querySelector(target).getTotalLength();  // svg 선의 총 길이
   gsap.set(target, {
     strokeDashoffset: pathLength,
     strokeDasharray: pathLength,
@@ -12,10 +32,10 @@ function drawSVG(target) {
   return pathLength;
 }
 
-drawSVG($('.path'));
-gsap.utils.toArray('.line').forEach((a, i) => {
-  drawSVG(a);
-})
+drawSVG(".path, .line01, .line02, .line03, .line04, .line05");
+
+
+
 
 // 유료
 // const line = gsap.timeline({ defaults: {drawSVG: 0} });
@@ -67,6 +87,12 @@ master
   }, 0)
   .add(palse, 0)
   .add(line, 0)
+
+
+// gsap devtool이 없을 경우
+// master.eventCallback('onUpdate', function(){
+//   console.log(this);  // tween._time 이 애니메이션의 재생시간 임
+// })
 
 
 ScrollTrigger.create({
