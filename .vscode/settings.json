@@ -12,6 +12,7 @@
 	},
 	"[javascript]": {
 		"editor.formatOnSave": true,
+		"prettier.printWidth": 500,
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 }

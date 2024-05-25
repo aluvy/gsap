@@ -1,22 +1,13 @@
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-gsap.registerPlugin(ScrollTrigger,ScrollToPlugin);
-
-
-
-
-
-const container = document.querySelector('#container');
-
+const container = document.querySelector("#container");
 
 const options = {
-  
-    damping: 0.1,
-    alwaysShowTracks: false,
-    
-  
-}
+  damping: 0.1,
+  alwaysShowTracks: false,
+};
 const scrollbar = Scrollbar.init(container, {
-  ...options
+  ...options,
 });
 
 ScrollTrigger.scrollerProxy(container, {
@@ -31,4 +22,3 @@ ScrollTrigger.scrollerProxy(container, {
 
 scrollbar.addListener(ScrollTrigger.update);
 ScrollTrigger.defaults({ scroller: container });
-
