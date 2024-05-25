@@ -1,7 +1,1 @@
-
-
-const $ = node => document.querySelector(node);
-
-
-
-
+const $ = (node) => document.querySelector(node);

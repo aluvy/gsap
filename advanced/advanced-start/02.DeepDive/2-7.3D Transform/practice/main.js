@@ -1,10 +1,3 @@
+gsap.from(".stage", { autoAlpha: 0 });
 
-
-gsap.from('.stage',{autoAlpha:0})  
-
-
-
-
-
-
-GSDevTools.create()
+GSDevTools.create();

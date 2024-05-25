@@ -1,32 +1,3 @@
-const $ = node => document.querySelector(node);
+const $ = (node) => document.querySelector(node);
 
-
-
-gsap.to('svg',{autoAlpha:1})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+gsap.to("svg", { autoAlpha: 1 });

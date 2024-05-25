@@ -1,6 +1,1 @@
-
-
-
-
-
-GSDevTools.create()
+GSDevTools.create();

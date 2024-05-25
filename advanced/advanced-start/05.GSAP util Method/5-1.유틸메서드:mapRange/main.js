@@ -1,11 +1,4 @@
+const $ = (node) => document.querySelector(node);
 
-const $ = node => document.querySelector(node);
-
-let cursor = $('#cursor');
-let intro = $('#intro');
-
-
-
-
-
-
+let cursor = $("#cursor");
+let intro = $("#intro");

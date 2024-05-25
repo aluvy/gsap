@@ -4,87 +4,58 @@ const $ = (node) => document.querySelector(node);
 //   return document.querySelector(node)
 // }
 
+const tiger = $("#tiger");
+const button = $("#button");
+const time = $("#time");
+const progress = $("#progressSlider");
 
-const tiger = $('#tiger');
-const button = $('#button');
-const time = $('#time');
-const progress = $('#progressSlider');
-
-
-
-
-
-
-const animation = gsap.to(tiger,{
-  duration:6,
-  motionPath:{
-    path:'#route',
-    align:tiger,
+const animation = gsap.to(tiger, {
+  duration: 6,
+  motionPath: {
+    path: "#route",
+    align: tiger,
   },
   onUpdate: update,
-  onComplete: ()=> button.textContent = 'play'
-})
+  onComplete: () => (button.textContent = "play"),
+});
 
-
-function update(){
+function update() {
   time.textContent = animation.time().toFixed(2);
   progress.value = animation.progress();
-  
-  
-
 }
 
-
-
-
-
-
-progress.addEventListener('input',(e)=>{
-
+progress.addEventListener("input", (e) => {
   const target = e.currentTarget;
-  button.textContent = 'play';
-  
+  button.textContent = "play";
+
   animation.progress(target.value).pause();
-  
-})
+});
 
-
-function setButtonState(){
-  button.textContent = animation.paused() ? 'play' : 'pause';
+function setButtonState() {
+  button.textContent = animation.paused() ? "play" : "pause";
 }
 
+button.addEventListener("click", () => {
+  animation.paused(!animation.paused()); // getter true / false
 
-button.addEventListener('click', ()=>{
-  
-  animation.paused(!animation.paused()) // getter true / false
-
-  if(animation.progress() === 1){
+  if (animation.progress() === 1) {
     animation.restart();
   }
 
   // if(animation.paused()){
   //   button.textContent = 'play'
   // }else{
-  //   button.textContent = 'pause'  
+  //   button.textContent = 'pause'
   // }
 
- 
-  setButtonState()
+  setButtonState();
+});
 
-  
-})
-
-
-
-const home = $('#home');
-const mountain = $('#mountain');
-const river = $('#river');
-const company = $('#company');
-const svg = $('svg');
-
-
-
-
+const home = $("#home");
+const mountain = $("#mountain");
+const river = $("#river");
+const company = $("#company");
+const svg = $("svg");
 
 //  이벤트 위임 event delegation
 /* 
@@ -108,44 +79,37 @@ company.addEventListener('click',()=>{
   gsap.to(animation,{progress:1,duration:3})
 })
   */
- 
 
+svg.addEventListener("click", (e) => {
+  const target = e.target.closest("g");
+  if (!target) return;
 
-svg.addEventListener('click',(e)=>{
-  
-  const target = e.target.closest('g');
-  if(!target) return;
+  const id = target.getAttribute("id");
+  if (!id) return;
 
-  const id = target.getAttribute('id');
-  if(!id) return;
-
-  if(id === 'svg') return;
+  if (id === "svg") return;
 
   let progress = 0;
   animation.pause();
 
   switch (id) {
-    case 'home': progress = 0; break;
-    case 'mountain': progress = 0.21; break;
-    case 'river': progress = 0.47; break;
-    case 'company': progress = 1; break;
+    case "home":
+      progress = 0;
+      break;
+    case "mountain":
+      progress = 0.21;
+      break;
+    case "river":
+      progress = 0.47;
+      break;
+    case "company":
+      progress = 1;
+      break;
   }
 
-  gsap.to(animation,{progress:progress,duration:1});
+  gsap.to(animation, { progress: progress, duration: 1 });
   setButtonState();
-
-
-})
-
-
-
-
-
-
-
-
-
-
+});
 
 // 이벤트의 버블링
 
@@ -153,12 +117,8 @@ svg.addEventListener('click',(e)=>{
 
 // 속성 가져오기 getAttribute
 
-
-// if 
+// if
 // switch case 문
-
-
-
 
 /* 
 if(animal === 'tiger'){
@@ -199,20 +159,6 @@ switch (animal) {
 
  */
 
-
-
 // gsap.to(animation,{time:3,duration:5});
 // gsap.to(animation,{progress:1,duration:1});
 // gsap.to(animation,{timeScale:2,duration:1});
-
-
-
-
-
-
-
-
-
-
-
-

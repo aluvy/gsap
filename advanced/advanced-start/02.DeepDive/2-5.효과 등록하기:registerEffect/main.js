@@ -1,11 +1,3 @@
-
 gsap.registerPlugin(GSDevTools, SplitText);
 
-
-
-gsap.set('.stage',{autoAlpha:1})  
-
-
-
-
-
+gsap.set(".stage", { autoAlpha: 1 });
