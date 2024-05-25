@@ -1,45 +1,10 @@
+section { position: relative; height: 100vh; overflow: hidden; }
+h2 { position: absolute; left: 50%; top: 50%; font-size: 5vw; transform: translate(-50%,-50%); }
 
+#container { width: 100vw; height: 100vh; }
 
-section{
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-}
+.box { width: 100px; height: 100px; background:red; }
 
-h2{
-  font-size: 5vw;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
-}
-
-#container{
-  width: 100vw;
-  height: 100vh;
-}
-
-
-.box{
-  width: 100px;
-  height: 100px;
-  background:red;
-}
-
-
-/* .section01{
-  background-color: #000 !important;
-} */
-
-.section03{
-  background-color: #fff !important;
-}
-canvas {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 100vw;
-  max-height: 100vh;
-  /* filter: brightness(0); */
-}
+/* .section01{ background-color: #000 !important; } */
+.section03 { background-color: #fff !important; }
+canvas { position: absolute; left: 50%; top: 50%; max-width: 100vw; max-height: 100vh; transform: translate(-50%, -50%); /* filter: brightness(0); */ }
