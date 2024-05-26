@@ -28,8 +28,9 @@
 #gsap-wrap .demogroup > ul > li { flex: 1 1 45%;  }
 #gsap-wrap .demogroup > ul > li { display: flex; align-items: center; }
 #gsap-wrap .demogroup > ul > li a { position: relative; display: block; padding: 0.2rem 2rem; }
-#gsap-wrap .demogroup > ul > li a strong { display: block; font-size: 1.6rem; }
-#gsap-wrap .demogroup > ul > li a p.hash { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; font-size: 1.2rem; margin: 0.8rem 0 0; }
+#gsap-wrap .demogroup > ul > li a strong { display: block; font-size: 1.6rem; margin: 0 0 0.8rem; }
+#gsap-wrap .demogroup > ul > li a p.desc { display: block; font-size: 1.2rem; margin: 0 0 0.4rem; }
+#gsap-wrap .demogroup > ul > li a p.hash { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; font-size: 1.2rem; }
 #gsap-wrap .demogroup > ul > li a p.hash span { display: flex; align-items: center; gap: 0.2rem; opacity: 0.5; }
 #gsap-wrap .demogroup > ul > li a p.hash span::before { content: '#'; }
 #gsap-wrap .demogroup > ul > li a:hover {  padding-left: 4rem; padding-right: 0rem; }
