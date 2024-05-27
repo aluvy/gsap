@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setVh();
   window.addEventListener("resize", setVh);
 
+  setDemo__LAYOUT();
   setDemo__SWP();
   setDemo__SCROLLTRIGGER();
   setDemo__TIMELINE();
@@ -17,6 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   handleFloatingIframe();
 });
+
+const setDemo__LAYOUT = () => {
+  setGroup("layout-area", "Layout"); // class, title
+
+  const area = $(".demogroup.layout-area ul");
+  const item = [
+    {
+      title: "Slide Layout",
+      href: "./demo/layout-slide",
+      hash: [`full page scroll`, `scroll slide animation`],
+    },
+  ];
+  setItem(area, item);
+};
 
 const setDemo__SWP = () => {
   setGroup("swp-area", "ScrollTrigger with Plugin"); // class, title
