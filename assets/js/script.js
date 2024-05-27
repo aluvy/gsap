@@ -25,6 +25,18 @@ const setDemo__LAYOUT = () => {
   const area = $(".demogroup.layout-area ul");
   const item = [
     {
+      title: "Horizontal Layout Plugin",
+      href: "./demo/layout-horizontal-plugin",
+      desc: `가로 스크롤`,
+      hash: [`ScrollTrigger`],
+    },
+    {
+      title: "Horizontal Layout",
+      href: "./demo/layout-horizontal",
+      desc: `ScrollTrigger로 가로 스크롤 구현`,
+      hash: [`ScrollTrigger`, `containerAnimation`],
+    },
+    {
       title: "OneScroll Layout",
       href: "./demo/layout-onescroll",
       desc: `gsap ScrollTrigger로 fullPage 스크롤 구현`,
