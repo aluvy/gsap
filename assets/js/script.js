@@ -25,9 +25,16 @@ const setDemo__LAYOUT = () => {
   const area = $(".demogroup.layout-area ul");
   const item = [
     {
+      title: "Layerd Pinning Layout",
+      href: "./demo/layout-layerd-pinning",
+      desc: `스크롤 시 pinning과 함께 슬라이드 되는 형태의 레이아웃`,
+      hash: [`full page scroll`, `scroll pinning slide animation`, `각각의 ScrollTrigger`, `snap`],
+    },
+    {
       title: "Slide Layout",
       href: "./demo/layout-slide",
-      hash: [`full page scroll`, `scroll slide animation`],
+      desc: `스크롤 시 여러 방향에서 슬라이드 되는 형태의 레이아웃`,
+      hash: [`full page scroll`, `scroll slide animation`, `timeline`],
     },
   ];
   setItem(area, item);
