@@ -26,7 +26,7 @@ const setDemo__SWP = () => {
     {
       title: "Single Page Application - Practice",
       href: "./demo/swp-spa-practice",
-      hash: [""],
+      hash: ["barba.js", "SPA", "트윈중첩", "애니메이션 오버라이딩", "overwrite: 'auto'", "barba.transitions.sync"],
     },
     {
       title: "Single Page Application",
@@ -76,7 +76,7 @@ const setDemo__SCROLLTRIGGER = () => {
     {
       title: "Navigation Loop",
       href: "./demo/scrolltrigger-NavigationLoop",
-      hash: ["scrolltrigger", "NavigationLoop", "immediateRenter: false", "글리치", "function based value", "$0.getBoundingClientRect()", "ScrollTrigger.getAll()"],
+      hash: ["scrolltrigger", "NavigationLoop", "immediateRender: false", "글리치", "function based value", "$0.getBoundingClientRect()", "ScrollTrigger.getAll()"],
     },
     {
       title: "Fast Scroll End",
