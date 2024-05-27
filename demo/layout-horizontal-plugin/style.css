@@ -1,0 +1,11 @@
+section { position: relative; width: 100vw; height: 100vh; }
+h2 { position: absolute; left: 50%; top: 50%; font-size: 5vw; transform: translate(-50%,-50%); }
+
+#container { width: 100vw; height: 100vh; }
+.box { width: 200px; height: 200px; background: dodgerblue; }
+
+.wrapper {
+  display: flex;
+
+  & section{ /* flex:1; */ flex-shrink: 0; }
+}
