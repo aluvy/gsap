@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.8.4/smooth-scrollbar.js"></script>
+
+  <script src="https://unpkg.com/@barba/core"></script>
+
+  <script src="./settings.js" defer></script>
+  <script src="./markers.js" defer></script>
+  <script src="./main.js" defer></script>
+
+  <title>SPA Practice</title>
+</head>
+<body data-barba="wrapper">
+  
+  <header id="header">
+    <div class="inner">
+      <h1 class="logo">
+        <a href="index.html">
+          <img width="40" src="../../assets/images/nation/8b.svg" alt="logo">
+        </a>
+      </h1>
+      
+      <div class="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="rome.html">Rome</a></li>
+      <li><a href="england.html">England</a></li>
+      <li><a href="india.html">India</a></li>
+      <li><a href="peru.html">Peru</a></li>
+    </ul>
+  </nav>
+
+  <div id="container">
+      <div id="main" data-barba="container" data-barba-namespace="main">
+
+        <section class="section section01">
+
+          <div class="image_container">
+            <div class="cover" data-name="rome">
+              <div ><img src="../../assets/images/nation/rome.jpg" alt="로마" /></div>
+            </div>
+            <div class="cover" data-name="england">
+              <div ><img src="../../assets/images/nation/england.jpg" alt="영국"></div>
+            </div>
+            <div class="cover" data-name="india">
+              <div ><img src="../../assets/images/nation/india.jpg" alt="인도"></div>
+            </div>
+            <div class="cover" data-name="peru">
+              <div ><img src="../../assets/images/nation/peru.jpg" alt="페루"></div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+  </div>
+
+</body>
+</html>
