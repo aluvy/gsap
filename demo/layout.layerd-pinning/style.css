@@ -1,0 +1,6 @@
+section { position: relative; height: 100vh; }
+h2 { position: absolute; left: 50%; top: 50%; margin: 0; font-size: 5vw; transform: translate(-50%,-50%); }
+
+#container { width: 100vw; height: 100vh; /* overflow: hidden !important; */ }
+/* .wrapper { height: 100vh; overflow-x: hidden; } */
+/* #container .section { position: absolute; left: 0; top: 0; width: 100vw; height: 100vh; } */
