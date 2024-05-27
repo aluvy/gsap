@@ -25,16 +25,22 @@ const setDemo__LAYOUT = () => {
   const area = $(".demogroup.layout-area ul");
   const item = [
     {
+      title: "OneScroll Layout",
+      href: "./demo/layout-onescroll",
+      desc: `gsap ScrollTrigger로 fullPage 스크롤 구현`,
+      hash: [`ScrollTrigger`, `one scroll page`, `fullPage.js와 유사`, `wheel event`, `deltaY` ],
+    },
+    {
       title: "Layerd Pinning Layout",
       href: "./demo/layout-layerd-pinning",
       desc: `스크롤 시 pinning과 함께 슬라이드 되는 형태의 레이아웃`,
-      hash: [`full page scroll`, `scroll pinning slide animation`, `각각의 ScrollTrigger`, `snap`],
+      hash: [`각각의 ScrollTrigger`, `full page scroll`, `scroll pinning slide animation`, `snap`],
     },
     {
       title: "Slide Layout",
       href: "./demo/layout-slide",
       desc: `스크롤 시 여러 방향에서 슬라이드 되는 형태의 레이아웃`,
-      hash: [`full page scroll`, `scroll slide animation`, `timeline`],
+      hash: [`한 개의 ScrollTrigger`, `full page scroll`, `scroll slide animation`, `timeline`],
     },
   ];
   setItem(area, item);
