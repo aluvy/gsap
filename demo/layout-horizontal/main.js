@@ -54,6 +54,5 @@ function type2() {
 type2();
 
 
-// 세 번째 방법
 
 markers();
