@@ -26,6 +26,12 @@ const setDemo__RESPONSIVE = () => {
   const area = $(".demogroup.responsive-area ul");
   const item = [
     {
+      title: "responsive Reduced-motion",
+      href: "./demo/responsive-reduce-motion",
+      desc: `시스템에 동작줄이기 설정이 되어있을 때 애니메이션 줄이기, 동작 줄이기 선택 UI 제공`,
+      hash: [`Accessibility`, `gsap.matchMedia()`, `동작 줄이기`, `(prefers-reduced-motion: reduce)`, `동작 줄이기 선택 UI 제공`, `gsap.matchMediaRefresh`],
+    },
+    {
       title: "responsive",
       href: "./demo/responsive",
       desc: `뷰포트마다 다른 애니메이션을 주고싶다면`,
