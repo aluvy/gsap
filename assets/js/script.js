@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setVh();
   window.addEventListener("resize", setVh);
 
+  setDemo__RESPONSIVE();
   setDemo__LAYOUT();
   setDemo__SWP();
   setDemo__SCROLLTRIGGER();
@@ -18,6 +19,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   handleFloatingIframe();
 });
+
+const setDemo__RESPONSIVE = () => {
+  setGroup("responsive-area", "Responsive & a11y"); // class, title
+
+  const area = $(".demogroup.responsive-area ul");
+  const item = [
+    {
+      title: "responsive",
+      href: "./demo/responsive",
+      desc: `뷰포트마다 다른 애니메이션을 주고싶다면`,
+      hash: [`gsap.matchMedia()`, `matchMedia로 클릭 이벤트 거는 방법`, `context`, `clean up`, `조건부 문법`, `scope`],
+    },
+  ];
+  setItem(area, item);
+};
 
 const setDemo__LAYOUT = () => {
   setGroup("layout-area", "Layout"); // class, title
