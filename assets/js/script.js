@@ -27,14 +27,14 @@ const setDemo__LAYOUT = () => {
     {
       title: "Horizontal Layout Plugin",
       href: "./demo/layout-horizontal-plugin",
-      desc: `가로 스크롤`,
-      hash: [`ScrollTrigger`],
+      desc: `smooth-scrollbar에서 제공하는 ScrollbarPlugin을 사용하여 실제 가로스크롤 구현 (가로 스크롤이 주가 되며, 세로스크롤이 적게 들어갈 때에는 이 방법 추천)`,
+      hash: [`ScrollTrigger`, `방법3: 진짜 가로스크롤 주기`, `smoothscrollbar`, `ScrollbarPlugin`, `transformDelta()`, `Overscroll Plugin`],
     },
     {
       title: "Horizontal Layout",
       href: "./demo/layout-horizontal",
-      desc: `ScrollTrigger로 가로 스크롤 구현`,
-      hash: [`ScrollTrigger`, `containerAnimation`],
+      desc: `실제는 세로 스크롤이지만 ScrollTrigger로 가로 스크롤이 되는 것 처럼 구현 (가로, 세로 혼합 스크롤이 필요할 때에는 이 방법 추천)`,
+      hash: [`ScrollTrigger`, `containerAnimation`, `방법1: wrapper에게 애니메이션 주기`, `방법2: 각각의 대상에게 애니메이션 주기`],
     },
     {
       title: "OneScroll Layout",
