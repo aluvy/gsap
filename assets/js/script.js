@@ -25,6 +25,12 @@ const setDemo__LAYOUT = () => {
   const area = $(".demogroup.layout-area ul");
   const item = [
     {
+      title: "Mixed Layout",
+      href: "./demo/layout-mixed",
+      desc: `가로, 세로 혼합된 스크롤 레이아웃과 부모 엘리먼트가 pin일 때 자식 엘리먼트에게도 pin을 주는 방법`,
+      hash: [`ScrollTrigger`, `ScrollbarPlugin`, `생성된 scrollbar의 x축의 좌표 제거`, `가속도 제거`, `부모 애니메이션이 pin 일때 자식도 pin 시키는 경우`],
+    },
+    {
       title: "Horizontal Layout Plugin",
       href: "./demo/layout-horizontal-plugin",
       desc: `smooth-scrollbar에서 제공하는 ScrollbarPlugin을 사용하여 실제 가로스크롤 구현 (가로 스크롤이 주가 되며, 세로스크롤이 적게 들어갈 때에는 이 방법 추천)`,
