@@ -5,7 +5,7 @@ const markers = () => {
 
     const scrollers = markers.filter( a => a.className.includes('scroller'));
 
-    console.log(scrollers);
+    // console.log(scrollers);
 
     scrollbar.addListener(({ offset }) => {
       // gsap.set(markers, { marginTop: -offset.y });
