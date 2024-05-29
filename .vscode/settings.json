@@ -11,7 +11,7 @@
 		"editor.defaultFormatter": "vscode.css-language-features"
 	},
 	"[javascript]": {
-		"editor.formatOnSave": true,
+		// "editor.formatOnSave": true,
 		"prettier.printWidth": 500,
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
