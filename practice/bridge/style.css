@@ -1,0 +1,11 @@
+#loading { position: fixed; left: 0; top: 0; width: 100%; height: var(--vh); display: flex; align-items: center; justify-content: center; background: #fafafa; user-select: none; z-index: 9999; }
+#loading .desc { overflow: hidden; }
+#loading .desc p { font-size: 1.7rem; font-weight: 600; }
+
+/* #loading .ready { display: none; } */
+#loading .ready .progress { height: 2px; background: #bebebe; margin: 1.6rem 0 0; }
+#loading .ready .progress .bar { width: 0; height: 100%; background: #000; }
+#loading .done { display: none; }
+#loading .done .arrow { text-align: center; color: #666; margin: 1.6rem 0 0; }
+
+#container { width: 100%; height: var(--vh); opacity: 0; visibility: hidden; }
