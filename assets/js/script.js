@@ -16,9 +16,25 @@ document.addEventListener("DOMContentLoaded", () => {
   setDemo__KEYFRAMES();
   setDemo__UTIL();
   setDemo__ETC();
+  setDemo__PRACTICE();
 
   handleFloatingIframe();
 });
+
+const setDemo__PRACTICE = () => {
+  setGroup("practice-area", "PRACTICE"); // class, title
+
+  const area = $(".demogroup.practice-area ul");
+  const item = [
+    {
+      title: "Bridge",
+      href: "./practice/bridge",
+      // desc: `시스템에 동작줄이기 설정이 되어있을 때 애니메이션 줄이기, 동작 줄이기 선택 UI 제공`,
+      hash: [``],
+    },
+  ];
+  setItem(area, item);
+};
 
 const setDemo__RESPONSIVE = () => {
   setGroup("responsive-area", "Responsive & a11y"); // class, title
