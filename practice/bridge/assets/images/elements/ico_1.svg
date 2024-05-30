@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="190" height="130" viewBox="0 0 190 130">
+  <path class="element-stroke" fill="transparent" stroke="currentColor" stroke-width="2px" d="M120 19h34v8h-34z"></path>
+  <path class="element-stroke" fill="transparent" stroke="currentColor" stroke-width="2px" d="M79 19h34v30H79z"></path>
+  <path d="M120 31h24v2h-24z"></path>
+  <path d="M79 52h24v2H79z"></path>
+  <path class="element-stroke" fill="transparent" stroke="currentColor" stroke-width="2px" d="M38 19h34v30H38z"></path>
+  <path d="M38 52h24v2H38z"></path>
+  <path class="element-stroke" fill="transparent" stroke="currentColor" stroke-width="2px" d="M79 62h34v30H79z"></path>
+  <path d="M79 95h24v2H79z"></path>
+  <path class="element-stroke" fill="transparent" stroke="currentColor" stroke-width="2px" d="M38 62h34v30H38z"></path>
+  <path class="element-stroke" fill="transparent" stroke="currentColor" stroke-width="2px" d="M79 104h34v26H79zm-41 0h34v26H38z"></path>
+  <path d="M38 95h24v2H38z"></path>
+  <path d="M120 37h19v2h-19z"></path>
+  <path d="M120 49h22v2h-22z"></path>
+  <path d="M120 43h28v2h-28z"></path>
+  <path d="M120 55h24v2h-24zm0 6h19v2h-19zm0 12h22v2h-22zm0-6h28v2h-28z"></path>
+  <path d="M0 0h190v2H0z"></path>
+  <path d="M0 128h190v2H0z"></path>
+  <path d="M188 0h2v130h-2z"></path>
+  <path d="M0 0h2v130H0z"></path>
+</svg>
