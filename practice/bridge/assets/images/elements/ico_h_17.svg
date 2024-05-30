@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="190" height="130" viewBox="0 0 190 130">
+  <defs>
+    <filter id="filter-2" x="15.906" y="98.875" width="89.032" height="2" filterUnits="userSpaceOnUse">
+      <feFlood result="flood"></feFlood>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"></feComposite>
+      <feBlend result="blend" in2="SourceGraphic"></feBlend>
+    </filter>
+    <filter id="filter-3" x="15.906" y="112.875" width="48.438" height="2" filterUnits="userSpaceOnUse">
+      <feFlood result="flood"></feFlood>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"></feComposite>
+      <feBlend result="blend" in2="SourceGraphic"></feBlend>
+    </filter>
+    <filter id="filter-4" x="171.938" y="7.969" width="10.031" height="2" filterUnits="userSpaceOnUse">
+      <feFlood result="flood"></feFlood>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"></feComposite>
+      <feBlend result="blend" in2="SourceGraphic"></feBlend>
+    </filter>
+    <filter id="filter-5" x="171.938" y="10.969" width="10.031" height="2" filterUnits="userSpaceOnUse">
+      <feFlood result="flood"></feFlood>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"></feComposite>
+      <feBlend result="blend" in2="SourceGraphic"></feBlend>
+    </filter>
+    <filter id="filter-6" x="171.938" y="13.969" width="10.031" height="2" filterUnits="userSpaceOnUse">
+      <feFlood result="flood"></feFlood>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"></feComposite>
+      <feBlend result="blend" in2="SourceGraphic"></feBlend>
+    </filter>
+  </defs>
+  <path class="element-stroke" fill="transparent" stroke="currentColor" stroke-width="2px" d="M87.918 76.061l41.649-24.08L170.948 75.9 129.3 99.983z"></path>
+  <path class="element-stroke" fill="transparent" stroke="currentColor" stroke-width="2px" d="M34.9 45.067l41.649-24.08 41.381 23.922-41.649 24.08z"></path>
+  <path class="element-stroke" fill="transparent" stroke="currentColor" stroke-width="2px" d="M116.929 34.042l27.6-16.053 27.422 15.947-27.6 16.054z"></path>
+  <path d="M15.892 105.877h89.036v2H15.892v-2z" filter="url(#filter)" fill-rule="evenodd"></path>
+  <path d="M15.892 98.89h89.036v2H15.892v-2z" filter="url(#filter-2)" fill-rule="evenodd"></path>
+  <path d="M15.893 112.865h48.463v2H15.893v-2z" filter="url(#filter-3)" fill-rule="evenodd"></path>
+  <path class="cls-5" d="M172.96 60.362l5.489 5.306 1.5-1.461-5.491-5.307z"></path>
+  <path class="cls-5" d="M172.96 69.405l5.489-5.305 1.5 1.46-5.489 5.305zM16.887 60.362L11.4 65.668l-1.5-1.461 5.489-5.307z"></path>
+  <path class="cls-5" d="M16.887 69.405L11.4 64.1l-1.5 1.46 5.489 5.305z"></path>
+  <path d="M171.951 7.982h10.006v2h-10.006v-2z" filter="url(#filter-4)" fill-rule="evenodd"></path>
+  <path d="M171.951 10.978h10.006v2h-10.006v-2z" filter="url(#filter-5)" fill-rule="evenodd"></path>
+  <path d="M171.951 13.973h10.006v2h-10.006v-2z" filter="url(#filter-6)" fill-rule="evenodd"></path>
+  <path d="M0 0h190v2H0z"></path>
+  <path d="M0 128h190v2H0z"></path>
+  <path d="M188 0h2v130h-2z"></path>
+  <path d="M0 0h2v130H0z"></path>
+  <path d="M8 8h10v2H8z"></path>
+  <path d="M8 16h10v2H8z"></path>
+  <path d="M8 8h2v10H8zM16 8h2v10h-2z"></path>
+</svg>

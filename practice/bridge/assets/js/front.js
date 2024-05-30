@@ -37,7 +37,7 @@ const front = {
   spitText(el) {
     const texts = el.textContent.split('');
     let HTML = ``;
-    texts.forEach((a, i)=>{ HTML += `<span class="chars" data-chars="${i}">${a}</span>` });
+    texts.forEach((a, i)=>{ HTML += `<div class="chars" data-chars="${i}">${a}</div>` });
     el.textContent = ``;
     el.insertAdjacentHTML("afterbegin", HTML);
 
@@ -46,6 +46,17 @@ const front = {
 };
 
 document.addEventListener("DOMContentLoaded", front.init);
+
+const is = {
+  none: data => (data === null || data === undefined || data === '') ? true : false,
+
+  null: data => data === null ? true : false,
+  undefined: data => data === undefined ? true : false,
+
+  array: data => data === null ? false : typeof(data) === 'array' ? true : false,
+  object: data => data === null ? false : typeof(data) === 'object' ? true : false,
+  number: data => data === null ? false : typeof(data) === 'number' ? true : false,
+}
 
 /**
  * https://simseonbeom.github.io/Bridge/build/
