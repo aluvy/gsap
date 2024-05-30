@@ -1,0 +1,134 @@
+
+@keyframes element-animated-1 {
+  0%,2% { transform: rotate(0); }
+  25% { transform: rotate(20deg); }
+  49%,51% { transform: rotate(0); }
+  75% { transform: rotate(-20deg); }
+  to,98% { transform: rotate(0); } 
+}
+@keyframes element-animated-2 {
+  55% { transform: translateY(-18px); } 
+}
+@keyframes element-animated-3 { 
+  0% { transform: translate(-26%); }
+  50%,60% { transform: translate(0); } 
+  to { transform: translate(-26%); }
+}
+@keyframes element-animated-3-elem-2 {
+  0% { transform: translate(-39%); }
+  50%,60% { transform: translate(0); }
+  to { transform: translate(-39%); } 
+}
+@keyframes element-animated-6 { 
+  0% { transform: rotate(0); } 
+  to { transform: rotate(360deg); }
+}
+@keyframes element-animated-6-cursor { 
+  0% { transform: translateY(0); }
+  40% { transform: translateY(-6px) translate(0); }
+  70% { transform: translateY(2px) translate(3px); }
+  to { transform: translateY(0); }
+}
+@keyframes element-animated-7 { 
+  0% { transform: translate(0); }
+  60% { transform: translate(-31px); } 
+}
+@keyframes element-animated-7-left {
+  0% { transform: translate(0); }
+  60% { transform: translate(31px); } 
+}
+@keyframes element-animated-9 { 
+  0% { transform: scale(.4) translateY(5px) rotate(5deg); opacity: .5; }
+  5% { opacity: 1; }
+  60%,80% { transform: scale(1) translateY(0); opacity: 1; }
+  to { transform: scale(.8) translateY(0); opacity: 0; } 
+}
+@keyframes element-animated-10 {
+  0%,15% { transform: translateY(0); }
+  55%,61% { transform: translateY(-75%); } 
+}
+@keyframes element-animated-10-element-2 {
+  0%,35% { opacity: 0; }
+  to,55% { opacity: 1; }
+}
+@keyframes element-animated-12 {
+  0%,10% { transform: rotate(-30deg); }
+  to { transform: rotate(330deg); } 
+}
+@keyframes element-animated-13 { 
+  0% { transform: translate(-110px); opacity: 0; }
+  60% { opacity: 1; }
+  70% { transform: translate(0); opacity: 1; } 
+  to { transform: translate(100px); opacity: 0; }
+}
+@keyframes element-animated-14 {
+  0% { transform: translate(-60px); }
+  70% { transform: translate(0); }
+  to { transform: translate(75px); } 
+}
+@keyframes element-animated-14-element-2 {
+  0%,10% { transform: rotate(0) }
+  30% { transform: rotate(-7deg) translateY(-1px) scale(1.04); }
+  40% { transform: rotate(12deg) }
+  60% { transform: rotate(-11deg) translateY(-2px) scale(1.04); }
+  80% { transform: rotate(8deg) }
+  90% { transform: rotate(0) } 
+}
+@keyframes element-animated-16 {
+  0% { transform: scale(.7); opacity: 0; }
+  20%,85% { transform: scale(1); opacity: 1; }
+  to { opacity: 0; } 
+}
+@keyframes element-animated-16-element-2 {
+  0%,10% { transform: scale(.7); opacity: 0; }
+  30%,85% { transform: scale(1); opacity: 1; }
+  to { opacity: 0; } 
+}
+@keyframes element-animated-16-element-3 {
+  0%,20% { transform: scale(.7); opacity: 0; }
+  40%,85% { transform: scale(1); opacity: 1; }
+  to { opacity: 0; } 
+}
+@keyframes element-animated-16-element-4 {
+  0%,30% { transform: scale(.7); opacity: 0; }
+  50%,85% { transform: scale(1); opacity: 1; }
+  to { opacity: 0; } 
+}
+@keyframes element-animated-17 {
+  0% { -webkit-clip-path: inset(0 100% 0 0); clip-path: inset(0 100% 0 0); opacity: 1; }
+  55%,80% { -webkit-clip-path: inset(0 0 0 0); clip-path: inset(0 0 0 0); opacity: 1; }
+  99% { -webkit-clip-path: inset(0 0 0 0); clip-path: inset(0 0 0 0); }
+  to { -webkit-clip-path: inset(0 100% 0 0); clip-path: inset(0 100% 0 0); opacity: 0; } 
+}
+@keyframes horziontal-element-animated {
+  0%,16% { opacity: 1; }
+  34%,66% { opacity: 0; }
+  to,84% { opacity: 1; }
+}
+@keyframes horziontal-element-animated-element-2 {
+  0%,16% { opacity: 0; }
+  34%,66% { opacity: 1; }
+  to,84% { opacity: 0; }
+}
+@keyframes horziontal-element-animated-fade {
+  0%,13% { opacity: 1; }
+  19%,45% { opacity: 0; }
+  51%,77% { opacity: 0; }
+  to,87% { opacity: 1; }
+}
+@keyframes horziontal-element-animated-fade-2 {
+  0%,13% { opacity: 0; }
+  19%,45% { opacity: 1; }
+  51%,77% { opacity: 0; }
+  to,87% { opacity: 0; } 
+}
+@keyframes horziontal-element-animated-fade-3 {
+  0%,13% { opacity: 0; }
+  19%,45% { opacity: 0; }
+  51%,77% { opacity: 1; }
+  to,87% { opacity: 0; } 
+}
+@keyframes preloader-scroll-arrow {
+  0%,to { transform: translateY(8px); }
+  45%,50% { transform: translateY(-1px); }
+}
