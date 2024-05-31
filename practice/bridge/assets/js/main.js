@@ -97,7 +97,6 @@ const intro = {
   },
 };
 
-
 const wall = {
   init() {
     wall.animation();
@@ -132,14 +131,36 @@ const wall = {
       markers: true
     })
     markers();
-
-
-
-
   }
-
 }
 
+const demo = {
+  init() {
+    demo.animation();
+  },
+  animation() {}
+}
+
+const shop = {
+  init() {
+    shop.animation();
+  },
+  animation() {}
+}
+
+const pp = {
+  init() {
+    pp.animation();
+  },
+  animation() {}
+}
+
+const letters = {
+  init() {
+    letters.animation();
+  },
+  animation() {}
+}
 
 const elements = {
   init() {
@@ -167,13 +188,25 @@ const elements = {
   }
 }
 
+const qode = {
+  init() {
+    qode.animation();
+  },
+  animation() {}
+}
+
 
 
 
 function init() {
   intro.init();
   wall.init();
+  demo.init();
+  shop.init();
+  pp.init();
+  letters.init();
   elements.init();
+  qode.init();
 }
 
 document.addEventListener("DOMContentLoaded", init);
