@@ -3,7 +3,7 @@ gsap.registerPlugin(ScrollTrigger);
 const container = document.querySelector('#container');
 const options = {
   damping: 0.1,
-  alwaysShowTracks: true,  
+  alwaysShowTracks: true,
 }
 
 const scrollbar = Scrollbar.init(container, {
@@ -20,4 +20,4 @@ ScrollTrigger.scrollerProxy(container, {
 });
 
 scrollbar.addListener(ScrollTrigger.update);
-ScrollTrigger.defaults({ scroller: container });
+ScrollTrigger.defaults({ scroller: container })

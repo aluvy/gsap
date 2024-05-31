@@ -1,3 +1,10 @@
+const breakPoint = {
+  isDesktop: '(min-width: 1025px)',
+  isTablet: '(max-width:1024px) and (min-width:681px)',
+  isMobile: '(max-width: 680px)',
+  reduceMotion: '(prefers-reduced-motion)',
+}
+
 const intro = {
   init() {
     intro.animation();
@@ -7,46 +14,131 @@ const intro = {
     if ( is.none(bridge) ) return;
 
     const chars = front.spitText(bridge);
-    const size = [
-      { x: -1.8, y: 1.5, scale: 1 },
-      { x: 3, y: -30, scale: 1 },
-      { x: -0.6, y: 30, scale: 1 },
-      { x: -3, y: -45, scale: 1 },
-      { x: 15, y: -9, scale: 1 },
-      { x: 3, y: 30, scale: 1 },
-    ]
+    const mm = gsap.matchMedia();
 
-    const tl = gsap.timeline({
-      // scrollTrigger: {
-      //   trigger: '#intro',
-      //   start: 'top top',
-      //   end: 'bottom bottom',
-      //   scrub: true,
-      //   markers: true,
-      //   onUpdate() {
-      //     console.log('test')
-      //   }
-      // }
-    });
-    gsap.utils.toArray("#intro .chars").forEach((a,i)=>{
-      tl.to(a, {
-        scale: 2,
-        duration: 5
-      }, 0)
+    mm.add(breakPoint, (ctx) => {
+      const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
+
+      if(reduceMotion) return;
+      if ( isDesktop )        ST_desktop();
+      else if ( isTablet )    ST_tablet();
+      else if ( isMobile )    ST_mobile();
+
     });
 
-    ScrollTrigger.create({
-      trigger: '#intro',
-      start: 'top top',
-      end: 'bottom bottom',
-      animation: tl,
-      scrub: true,
-      markers: true,
-    })
-    markers();
+    // desktop
+    function ST_desktop() {
+      const tl = gsap.timeline({ defaults: { scale: 13, transformOrigin: "50% 50%" } });
+      tl.from(".char-b", { xPercent: -250, yPercent: 0 })
+        .from(".char-r", { xPercent: 0, yPercent: -1000 }, 0.1)
+        .from(".char-i", { xPercent: 1000, yPercent: -1000 }, 0.15)
+        .from(".char-d", { xPercent: -1000, yPercent: -1000 }, 0.2)
+        .from(".char-g", { xPercent: -1000, yPercent: 1500 }, 0.25)
+        .from(".char-e", { xPercent: 1000, yPercent: 500 }, 0.3)
+        .from("#intro .desc", { autoAlpha: 0, y: 30, scale: 1, duration: 0.1 })
+
+      ScrollTrigger.create({
+        trigger: '#intro',
+        start: 'top top',
+        end: `+=3000`,
+        animation: tl,
+        pin: !0,
+        scrub: 1,
+        // markers: true,
+      })
+      markers();
+    }
+
+    // tablet
+    function ST_tablet() {
+      const tl = gsap.timeline({ defaults: { scale: 16, transformOrigin: "50% 50%" } })
+        .from(".char-b", { xPercent: -150, yPercent: 0 })
+        .from(".char-r", { xPercent: 0, yPercent: -2000 }, 0.1)
+        .from(".char-i", { xPercent: 2000, yPercent: -1000 }, 0.15)
+        .from(".char-d", { xPercent: -2000, yPercent: -1000 }, 0.2)
+        .from(".char-g", { xPercent: -2000, yPercent: 1500 }, 0.25)
+        .from(".char-e", { xPercent: 2000, yPercent: 500 }, 0.3)
+        .from("#intro .desc", { autoAlpha: 0, y: 30, scale: 1, duration: 0.1 })
+
+      ScrollTrigger.create({
+        trigger: '#intro',
+        start: 'top top',
+        end: `+=3000`,
+        animation: tl,
+        pin: !0,
+        scrub: 1,
+        // markers: true,
+      })
+      markers();
+    }
+
+    // mobile
+    function ST_mobile() {
+      const tl = gsap.timeline({ defaults: { scale: 20, transformOrigin: "50% 50%" } })
+        .from(".char-b", { xPercent: -150, yPercent: 0 })
+        .from(".char-r", { xPercent: 0, yPercent: -3000 }, 0.1)
+        .from(".char-i", { xPercent: 3000, yPercent: -2000 }, 0.15)
+        .from(".char-d", { xPercent: -3000, yPercent: -1000 }, 0.2)
+        .from(".char-g", { xPercent: -3000, yPercent: 1500 }, 0.25)
+        .from(".char-e", { xPercent: 3000, yPercent: 500 }, 0.3)
+        .from("#intro .desc", { autoAlpha: 0, y: 30, scale: 1, duration: 0.1 })
+
+      ScrollTrigger.create({
+        trigger: '#intro',
+        start: 'top top',
+        end: `+=3000`,
+        animation: tl,
+        pin: !0,
+        scrub: 1,
+        // markers: true,
+      })
+      markers();
+    }
   },
 };
 
+
+const wall = {
+  init() {
+    wall.animation();
+  },
+  animation() {
+    const wallItem = document.querySelector("#wall .wall-item");
+    if ( is.none(wallItem) ) return;
+
+    const items = document.querySelectorAll("#wall .wall-item:not(.show)");
+    items.forEach( a => front.spitText(a) );
+
+    gsap.set("#wall .wall-side .chars", { opacity: 0 });
+
+    const tl = gsap.timeline();
+    tl.from("#wall .wall-front .wall-item .chars", {
+      opacity: 0,
+      duration: 1,
+      stagger: {
+        each: 0.1,
+        from: "random",
+        easel: "power1",
+      }
+    });
+
+    ScrollTrigger.create({
+      trigger: '#wall',
+      start: 'top top',
+      end: `+=2000`,
+      animation: tl,
+      pin: true,
+      scrub: true,
+      markers: true
+    })
+    markers();
+
+
+
+
+  }
+
+}
 
 
 const elements = {
@@ -80,6 +172,7 @@ const elements = {
 
 function init() {
   intro.init();
+  wall.init();
   elements.init();
 }
 

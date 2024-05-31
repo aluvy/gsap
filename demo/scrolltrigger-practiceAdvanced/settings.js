@@ -10,6 +10,7 @@ const scrollbar = Scrollbar.init(container, { ...options });
 ScrollTrigger.scrollerProxy(container, {
   // fixedMarkers:true,
   scrollTop(value) {
+    console.log(value)
     if (arguments.length) {
       scrollbar.scrollTop = value; // setter
     }

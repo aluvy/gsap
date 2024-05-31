@@ -10,7 +10,7 @@
 
 /** container ***********************************************************/
 #container { width: 100%; height: var(--vh); opacity: 0; visibility: hidden; }
-#container .section { position: relative; width: var(--vw); height: var(--vh); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+#container .section { position: relative; width: var(--vw); height: var(--vh); display: flex; flex-direction: column; justify-content: center; align-items: center; overflow: hidden; }
 /* #container .horizontal-wrap { position: relative; width: var(--vw); height: var(--vh); } */
 
 
@@ -25,6 +25,7 @@
 #wall { position: relative; width: 100%; height: var(--vh); display: flex; align-items: center; justify-content: center; }
 #wall .wall-front,
 #wall .wall-side { position: absolute; height: 100%; display: flex; flex-flow: column nowrap; align-items: center; justify-content: space-around; font-size: 8rem; font-weight: 600; padding: 0 8px; backface-visibility: hidden; }
+#wall .wall-item { display: flex; }
 
 
 /** demo ***********************************************************/
@@ -368,12 +369,16 @@
 
 
 /** qode ***********************************************************/
-.qode_tagline { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:25vw }
-.qode_round_text { position:absolute; left:50%; transform:translate(-50%,80%) scale(1.5); bottom:0 }
-.qode_logo { width:100vw; height:100vh; position:absolute; left:0; top:0; display:flex; justify-content:center; align-items:center }
-.qode_logo svg { width:100%; height:100%; transform:scale(.25); position:relative }
-.qode-text-holder { position:absolute; left:50%; top:50%; transform:translate(-50%,50%); text-align:center; opacity:0 }
-.qode-screen--end h2 { font-size:4.5vmax; font-weight:500 }
+#qode { }
+#qode .qode-ttl { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+#qode .qode-ttl h3 { font-size: 10rem; font-weight: 600; }
+
+#qode .qode_round_text { position: absolute; left: 50%; transform: translate(-50%,80%) scale(1.5); bottom: 0; }
+
+#qode .qode_logo { width:100vw; height:100vh; position:absolute; left:0; top:0; display:flex; justify-content:center; align-items:center }
+#qode .qode_logo svg { width:100%; height:100%; transform:scale(.25); position:relative }
+#qode .qode-text-holder { position:absolute; left:50%; top:50%; transform:translate(-50%,50%); text-align:center; opacity:0 }
+#qode .qode-screen--end h2 { font-size:4.5vmax; font-weight:500 }
 
 /* .qode-description,.qode-end-description { margin-top:1rem } */
-#line { stroke-dasharray:11342; stroke-dashoffset:11342 }
+#qode #line { stroke-dasharray: 11342; stroke-dashoffset: 11342; }
