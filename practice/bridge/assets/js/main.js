@@ -17,29 +17,34 @@ const intro = {
     front.spitText(bridge);
     const mm = gsap.matchMedia();
 
-    const trigger = document.querySelector("#intro");
+    const _el = {
+      intro: document.querySelector("#intro"),
+      desc: document.querySelector("#intro .desc"),
+    }
 
     mm.add(breakPoint, (ctx) => {
       const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
 
-      if(reduceMotion) return;
-      if ( isDesktop )        intro.$desktop(trigger);
-      else if ( isTablet )    intro.$tablet(trigger);
-      else if ( isMobile )    intro.$mobile(trigger);
+      if (reduceMotion)       intro.$reduceMotion(_el);
+      else if ( isDesktop )   intro.$desktop(_el);
+      else if ( isTablet )    intro.$tablet(_el);
+      else if ( isMobile )    intro.$mobile(_el);
     });
   },
-  $desktop(trigger) {
-    const tl = gsap.timeline({ defaults: { scale: 13, transformOrigin: "50% 50%" } });
-    tl.from(".char-b", { xPercent: -250, yPercent: 0 })
+  $desktop(_el) {
+    const { intro, desc } = _el;
+
+    const tl = gsap.timeline({ defaults: { scale: 10, transformOrigin: "50% 50%" } });
+    tl.from(".char-b", { xPercent: -100, yPercent: 0 })
       .from(".char-r", { xPercent: 0, yPercent: -1000 }, 0.1)
       .from(".char-i", { xPercent: 1000, yPercent: -1000 }, 0.15)
       .from(".char-d", { xPercent: -1000, yPercent: -1000 }, 0.2)
       .from(".char-g", { xPercent: -1000, yPercent: 1500 }, 0.25)
       .from(".char-e", { xPercent: 1000, yPercent: 500 }, 0.3)
-      .from("#intro .desc", { autoAlpha: 0, y: 30, scale: 1, duration: 0.1 })
+      .from(desc, { autoAlpha: 0, y: 30, scale: 1, duration: 0.1 })
 
     ScrollTrigger.create({
-      trigger: trigger,
+      trigger: intro,
       start: 'top top',
       end: `+=3000`,
       animation: tl,
@@ -49,7 +54,9 @@ const intro = {
     })
     // markers();
   },
-  $tablet(trigger) {
+  $tablet(_el) {
+    const { intro, desc } = _el;
+
     const tl = gsap.timeline({ defaults: { scale: 16, transformOrigin: "50% 50%" } })
       .from(".char-b", { xPercent: -150, yPercent: 0 })
       .from(".char-r", { xPercent: 0, yPercent: -2000 }, 0.1)
@@ -57,10 +64,10 @@ const intro = {
       .from(".char-d", { xPercent: -2000, yPercent: -1000 }, 0.2)
       .from(".char-g", { xPercent: -2000, yPercent: 1500 }, 0.25)
       .from(".char-e", { xPercent: 2000, yPercent: 500 }, 0.3)
-      .from("#intro .desc", { autoAlpha: 0, y: 30, scale: 1, duration: 0.1 })
+      .from(desc, { autoAlpha: 0, y: 30, scale: 1, duration: 0.1 })
 
     ScrollTrigger.create({
-      trigger: trigger,
+      trigger: intro,
       start: 'top top',
       end: `+=3000`,
       animation: tl,
@@ -70,7 +77,9 @@ const intro = {
     })
     // markers();
   },
-  $mobile(trigger) {
+  $mobile(_el) {
+    const { intro, desc } = _el;
+
     const tl = gsap.timeline({ defaults: { scale: 20, transformOrigin: "50% 50%" } })
       .from(".char-b", { xPercent: -150, yPercent: 0 })
       .from(".char-r", { xPercent: 0, yPercent: -3000 }, 0.1)
@@ -78,10 +87,10 @@ const intro = {
       .from(".char-d", { xPercent: -3000, yPercent: -1000 }, 0.2)
       .from(".char-g", { xPercent: -3000, yPercent: 1500 }, 0.25)
       .from(".char-e", { xPercent: 3000, yPercent: 500 }, 0.3)
-      .from("#intro .desc", { autoAlpha: 0, y: 30, scale: 1, duration: 0.1 })
+      .from(desc, { autoAlpha: 0, y: 30, scale: 1, duration: 0.1 })
 
     ScrollTrigger.create({
-      trigger: trigger,
+      trigger: intro,
       start: 'top top',
       end: `+=3000`,
       animation: tl,
@@ -91,7 +100,7 @@ const intro = {
     })
     // markers();
   },
-  $reduceMotion(trigger) {
+  $reduceMotion(_el) {
 
   }
 };
@@ -102,8 +111,7 @@ const wall = {
     window.addEventListener("resize", front.debounce(gsap.matchMediaRefresh, 100));
   },
   animation() {
-    const wallItem = document.querySelector("#wall .wall-item");
-    if ( is.none(wallItem) ) return;
+    if ( is.none(document.querySelector("#wall .wall-item")) ) return;
 
     const items = document.querySelectorAll("#wall .wall-item:not(.show)");
     items.forEach( a => front.spitText(a) );
@@ -128,7 +136,6 @@ const wall = {
       else if ( isTablet )      wall.$tablet(_el);
       else if ( isMobile )      wall.$mobile(_el);
     });
-
   },
   $desktop(_el) {
     const { wall, wallWrapper, wallFront, wallFrontChars, wallSide, wallSideChars, number } = _el;
@@ -295,14 +302,279 @@ const demo = {
   init() {
     demo.animation();
   },
-  animation() {}
+  animation() {
+    if ( is.none(document.querySelector("#demo")) ) return;
+
+    const mm = gsap.matchMedia();
+
+    const _el = {
+      demo: document.querySelector("#demo"),
+      front: document.querySelector("#demo .demo-front"),
+      back: document.querySelector("#demo .demo-back"), 
+    }
+
+    mm.add(breakPoint, (ctx) => {
+      demo.$desktop(_el);
+      // const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
+
+      // if (reduceMotion)       demo.$reduceMotion(_el);
+      // else if ( isDesktop )   demo.$desktop(_el);
+      // else if ( isTablet )    demo.$desktop(_el);
+      // else if ( isMobile )    demo.$desktop(_el);
+    });
+  },
+  $desktop(_el) {
+    const { demo, front, back } = _el;
+    let tl = gsap.timeline()
+      .to(front, { yPercent: -50 })
+      .to(back, { yPercent: -20 }, 0)
+
+    ScrollTrigger.create({
+      trigger: demo,
+      start: "top top",
+      end: "+=3000",
+      animation: tl,
+      pin: !0,
+      pinSpacing: !1,
+      scrub: !0
+    })
+  },
+  $tablet(_el) {
+
+  },
+  $mobile(_el) {
+    
+  },
+  $reduceMotion (_el) {
+
+  }
 }
 
 const shop = {
   init() {
     shop.animation();
   },
-  animation() {}
+  animation() {
+    if ( is.none(document.querySelector("#shop")) ) return;
+
+    // const items = document.querySelectorAll("#wall .wall-item:not(.show)");
+    // items.forEach( a => front.spitText(a) );
+
+    const _el = {
+      shop: document.querySelector("#shop"),
+      inner: document.querySelector("#shop .shop-inner"),
+      ttl: document.querySelector("#shop .shop-ttl"),
+      hScroll: document.querySelector("#shop .h-scroll"),
+      hSections: document.querySelectorAll("#shop .h-section"),
+      hSectionLast: document.querySelector("#shop .h-section.last"),
+
+      cover: document.querySelector("#shop .shop-cover"),
+      coverBg: document.querySelector("#shop .shop-cover .bg"),
+      coverLeft: document.querySelector("#shop .shop-cover .left-lnb"),
+      coverRight: document.querySelector("#shop .shop-cover .right-cont"),
+      coverRightInner: document.querySelector("#shop .shop-cover .right-inner"),
+      coverSlogan: document.querySelector("#shop .shop-cover .right-slogan"),
+      coverCenterImg: document.querySelector("#shop .shop-cover .center-img"),
+    }
+
+    const mm = gsap.matchMedia();
+
+    mm.add(breakPoint, (ctx) => {
+      const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
+
+      if (reduceMotion) {
+        if ( isDesktop ) {
+          shop.$reduce_desktop(_el);
+        } else if ( isTablet || isMobile ) {
+          shop.$reduce_tablet(_el);
+        }
+      } else {
+        if ( isDesktop ) {
+          shop.$desktop(_el);
+        } else if ( isTablet || isMobile ) {
+          shop.$tablet(_el);
+        }
+      }
+    });
+
+  },
+  $reduce_desktop(_el) {
+    let o = document.querySelector("#shop .last").getBoundingClientRect().left;
+
+                gsap.timeline().to("#shop .shop-horizontal .bg", {
+                    xPercent: -20
+                }).from("#shop .left_nav", {
+                    xPercent: -100
+                }, 0).from("#shop .shop-cover-bg", {
+                    xPercent: 100
+                }, 0).from("#shop .shop-cover-bg-inner > div", {
+                    xPercent: 50
+                }, 0).from("#shop .shop-cover-bg-inner .acc > img", {
+                    xPercent: 100
+                }, 0).to("#shop .bigger", {
+                    scale: .4
+                }).from(".shop-text-content", {
+                    autoAlpha: 0,
+                    y: 60,
+                    duration: .2
+                }, "-=0.2");
+
+                let s = gsap.timeline().from(".shop-horizontal", {
+                    xPercent: 100
+                }).from(".shop-horizontal .bg", {
+                    scale: 1.4
+                }, 0).from(".h-section:nth-child(2)", {
+                    xPercent: 50
+                }, "-=0.35").to(".shop-cover", {
+                    x: -o,
+                    duration: 3
+                });
+                $.create({
+                    trigger: "#shop",
+                    start: "top top",
+                    end: "+=5000",
+                    animation: s,
+                    pin: !0,
+                    pinSpacing: !1,
+                    scrub: !0,
+                    onEnter: ()=>{}
+                })
+  },
+  $reduce_tablet(_el) {
+    document.querySelector("#shop .last").getBoundingClientRect().top,
+                W.timeline().to("#shop .shop-horizontal .bg", {
+                    xPercent: -20
+                }).from("#shop .left_nav", {
+                    xPercent: -100
+                }, 0).from("#shop .shop-cover-bg", {
+                    xPercent: 100
+                }, 0).from("#shop .shop-cover-bg-inner > div", {
+                    xPercent: 50
+                }, 0).from("#shop .shop-cover-bg-inner .acc img", {
+                    xPercent: 100
+                }, 0).to("#shop .bigger", {
+                    scale: .65
+                }).to("#shop .bg", {
+                    height: "57vw"
+                }, "<").from(".shop-text-content", {
+                    autoAlpha: 0,
+                    y: 60,
+                    duration: .2
+                }, "-=0.2");
+                let o = W.timeline().from(".shop-horizontal", {
+                    xPercent: 100
+                }).from(".shop-horizontal .bg", {
+                    scale: 1.4
+                }, 0).from(".h-section:nth-child(2)", {
+                    yPercent: 150,
+                    onComplete: ()=>{}
+                }, "-=0.35").from(".h-section:nth-child(3)", {
+                    yPercent: 150
+                }, "<").to(".shop-cover", {
+                    y: -document.querySelector(".h-section").offsetHeight,
+                    duration: 3
+                }).to(".shop-text-content", {
+                    yPercent: -500
+                }, "<");
+                $.create({
+                    trigger: "#shop",
+                    start: "top top",
+                    end: "+=5000",
+                    animation: o,
+                    pin: !0,
+                    pinSpacing: !1,
+                    scrub: !0,
+                    onEnter: ()=>{}
+                })
+  },
+  $desktop(_el) {
+    const { shop, inner, ttl, hScroll, hSections, hSectionLast } = _el;
+    const { cover, coverBg, coverLeft, coverRight, coverRightInner, coverSlogan, coverCenterImg } = _el;
+
+    let last = hSectionLast.getBoundingClientRect().left;
+
+    gsap.set("#shop, #shop .shop-inner", { backgroundColor: 'transparent' })
+
+    let shopCover = gsap.timeline()
+      .to("#shop .h-scroll .bg", { xPercent: -20 })
+      .from("#shop .left-lnb", { xPercent: -100 }, 0)
+      .from("#shop .right-cont", { xPercent: 100 }, 0)
+      .from("#shop .right-inner > div", { xPercent: 50 }, 0)
+      .from("#shop .right-cont .center-img > img", { xPercent: 100 }, 0)
+      .set("#shop, #shop .shop-inner", { backgroundColor: "#d5d1c6" })
+      .to("#shop .shop-cover", { scale: .4 })
+      .from(".shop-ttl", { autoAlpha: 0, y: 60, duration: .2 }, "-=0.2")
+    
+    let tl = gsap.timeline()
+      .from("#shop .h-scroll", { xPercent: 100 })
+      .from("#shop .h-scroll .bg", { scale: 1.4 }, 0)
+      .add(shopCover)
+      .from("#shop .h-section:nth-child(2)", { xPercent: 50 }, "-=0.35")
+      .to("#shop .h-scroll", { x: -last, duration: 3 });
+
+      ScrollTrigger.create({
+        trigger: shop,
+        start: "top top",
+        end: "+=5000",
+        animation: tl,
+        pin: !0,
+        pinSpacing: !1,
+        scrub: !0,
+      })
+  },
+  $tablet(_el) {
+    document.querySelector("#shop .last").getBoundingClientRect().top;
+                let o = W.timeline().to("#shop .shop-horizontal .bg", {
+                    xPercent: -20
+                }).from("#shop .left_nav", {
+                    xPercent: -100
+                }, 0).from("#shop .shop-cover-bg", {
+                    xPercent: 100
+                }, 0).from("#shop .shop-cover-bg-inner > div", {
+                    xPercent: 50
+                }, 0).from("#shop .shop-cover-bg-inner .acc img", {
+                    xPercent: 100
+                }, 0).to("#shop .bigger", {
+                    scale: .65
+                }).to("#shop .bg", {
+                    height: "57vw"
+                }, "<").from(".shop-text-content", {
+                    autoAlpha: 0,
+                    y: 60,
+                    duration: .2
+                }, "-=0.2")
+                  , s = W.timeline().from(".shop-horizontal", {
+                    xPercent: 100
+                }).from(".shop-horizontal .bg", {
+                    scale: 1.4
+                }, 0).add(o).from(".h-section:nth-child(2)", {
+                    yPercent: 150,
+                    onComplete: ()=>{}
+                }, "-=0.35").from(".h-section:nth-child(3)", {
+                    yPercent: 150
+                }, "<").to(".shop-cover", {
+                    y: -document.querySelector(".h-section").offsetHeight,
+                    duration: 3
+                }).to(".shop-text-content", {
+                    yPercent: -500
+                }, "<");
+                $.create({
+                    trigger: "#shop",
+                    start: "top top",
+                    end: "+=5000",
+                    animation: s,
+                    pin: !0,
+                    pinSpacing: !1,
+                    scrub: !0,
+                    onEnter: ()=>{}
+                })
+  },
+  // $mobile(_el) {
+    
+  // },
+  // $reduceMotion(_el) {
+
+  // }
 }
 
 const pp = {
