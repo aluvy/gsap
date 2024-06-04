@@ -356,10 +356,6 @@
 #elements .el-module .img::before { content: ''; display: block; padding-bottom: 2.462121212121212%; background: #fff; }
 #elements .el-module .img img { width: 100%; }
 
-/* .module-screen__img img.modules-frame { position: absolute; top: 3.5%; left: 0; width: 100%; pointer-events: none; display: none; }
-.module-screen__img img:not(.modules-frame) { border-radius: 0 0 11px 11px; width: 100%; } */
-
-/* .module-img-wrap.-c .module-screen__img img.modules-frame { top:6% } */
 
 
 
