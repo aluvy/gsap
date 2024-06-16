@@ -382,42 +382,44 @@ const shop = {
     mm.add(breakPoint, (ctx) => {
       const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
 
-      if (reduceMotion) {
-        if ( isDesktop ) {
-          shop.$reduce_desktop(_el);
-        } else if ( isTablet || isMobile ) {
-          shop.$reduce_tablet(_el);
-        }
-      } else {
-        if ( isDesktop ) {
-          shop.$desktop(_el);
-        } else if ( isTablet || isMobile ) {
-          shop.$tablet(_el);
-        }
-      }
+      shop.$desktop(_el);
+
+      // if (reduceMotion) {
+      //   if ( isDesktop ) {
+      //     shop.$reduce_desktop(_el);
+      //   } else if ( isTablet || isMobile ) {
+      //     shop.$reduce_tablet(_el);
+      //   }
+      // } else {
+      //   if ( isDesktop ) {
+      //     shop.$desktop(_el);
+      //   } else if ( isTablet || isMobile ) {
+      //     shop.$tablet(_el);
+      //   }
+      // }
     });
 
   },
   $reduce_desktop(_el) {
     let o = document.querySelector("#shop .last").getBoundingClientRect().left;
 
-                gsap.timeline().to("#shop .shop-horizontal .bg", {
-                    xPercent: -20
-                }).from("#shop .left_nav", {
-                    xPercent: -100
-                }, 0).from("#shop .shop-cover-bg", {
-                    xPercent: 100
-                }, 0).from("#shop .shop-cover-bg-inner > div", {
-                    xPercent: 50
-                }, 0).from("#shop .shop-cover-bg-inner .acc > img", {
-                    xPercent: 100
-                }, 0).to("#shop .bigger", {
-                    scale: .4
-                }).from(".shop-text-content", {
-                    autoAlpha: 0,
-                    y: 60,
-                    duration: .2
-                }, "-=0.2");
+    gsap.timeline().to("#shop .shop-horizontal .bg", {
+        xPercent: -20
+    }).from("#shop .left_nav", {
+        xPercent: -100
+    }, 0).from("#shop .shop-cover-bg", {
+        xPercent: 100
+    }, 0).from("#shop .shop-cover-bg-inner > div", {
+        xPercent: 50
+    }, 0).from("#shop .shop-cover-bg-inner .acc > img", {
+        xPercent: 100
+    }, 0).to("#shop .bigger", {
+        scale: .4
+    }).from(".shop-text-content", {
+        autoAlpha: 0,
+        y: 60,
+        duration: .2
+    }, "-=0.2");
 
                 let s = gsap.timeline().from(".shop-horizontal", {
                     xPercent: 100
@@ -429,7 +431,7 @@ const shop = {
                     x: -o,
                     duration: 3
                 });
-                $.create({
+                ScrollTrigger.create({
                     trigger: "#shop",
                     start: "top top",
                     end: "+=5000",
@@ -441,51 +443,51 @@ const shop = {
                 })
   },
   $reduce_tablet(_el) {
-    document.querySelector("#shop .last").getBoundingClientRect().top,
-                W.timeline().to("#shop .shop-horizontal .bg", {
-                    xPercent: -20
-                }).from("#shop .left_nav", {
-                    xPercent: -100
-                }, 0).from("#shop .shop-cover-bg", {
-                    xPercent: 100
-                }, 0).from("#shop .shop-cover-bg-inner > div", {
-                    xPercent: 50
-                }, 0).from("#shop .shop-cover-bg-inner .acc img", {
-                    xPercent: 100
-                }, 0).to("#shop .bigger", {
-                    scale: .65
-                }).to("#shop .bg", {
-                    height: "57vw"
-                }, "<").from(".shop-text-content", {
-                    autoAlpha: 0,
-                    y: 60,
-                    duration: .2
-                }, "-=0.2");
-                let o = W.timeline().from(".shop-horizontal", {
-                    xPercent: 100
-                }).from(".shop-horizontal .bg", {
-                    scale: 1.4
-                }, 0).from(".h-section:nth-child(2)", {
-                    yPercent: 150,
-                    onComplete: ()=>{}
-                }, "-=0.35").from(".h-section:nth-child(3)", {
-                    yPercent: 150
-                }, "<").to(".shop-cover", {
-                    y: -document.querySelector(".h-section").offsetHeight,
-                    duration: 3
-                }).to(".shop-text-content", {
-                    yPercent: -500
-                }, "<");
-                $.create({
-                    trigger: "#shop",
-                    start: "top top",
-                    end: "+=5000",
-                    animation: o,
-                    pin: !0,
-                    pinSpacing: !1,
-                    scrub: !0,
-                    onEnter: ()=>{}
-                })
+    document.querySelector("#shop .last").getBoundingClientRect().top;
+    gsap.timeline().to("#shop .shop-horizontal .bg", {
+        xPercent: -20
+    }).from("#shop .left_nav", {
+        xPercent: -100
+    }, 0).from("#shop .shop-cover-bg", {
+        xPercent: 100
+    }, 0).from("#shop .shop-cover-bg-inner > div", {
+        xPercent: 50
+    }, 0).from("#shop .shop-cover-bg-inner .acc img", {
+        xPercent: 100
+    }, 0).to("#shop .bigger", {
+        scale: .65
+    }).to("#shop .bg", {
+        height: "57vw"
+    }, "<").from(".shop-text-content", {
+        autoAlpha: 0,
+        y: 60,
+        duration: .2
+    }, "-=0.2");
+    let o = gsap.timeline().from(".shop-horizontal", {
+        xPercent: 100
+    }).from(".shop-horizontal .bg", {
+        scale: 1.4
+    }, 0).from(".h-section:nth-child(2)", {
+        yPercent: 150,
+        onComplete: ()=>{}
+    }, "-=0.35").from(".h-section:nth-child(3)", {
+        yPercent: 150
+    }, "<").to(".shop-cover", {
+        y: -document.querySelector(".h-section").offsetHeight,
+        duration: 3
+    }).to(".shop-text-content", {
+        yPercent: -500
+    }, "<");
+    ScrollTrigger.create({
+        trigger: "#shop",
+        start: "top top",
+        end: "+=5000",
+        animation: o,
+        pin: !0,
+        pinSpacing: !1,
+        scrub: !0,
+        onEnter: ()=>{}
+    })
   },
   $desktop(_el) {
     const { shop, inner, ttl, hScroll, hSections, hSectionLast } = _el;
@@ -524,50 +526,35 @@ const shop = {
   },
   $tablet(_el) {
     document.querySelector("#shop .last").getBoundingClientRect().top;
-                let o = W.timeline().to("#shop .shop-horizontal .bg", {
-                    xPercent: -20
-                }).from("#shop .left_nav", {
-                    xPercent: -100
-                }, 0).from("#shop .shop-cover-bg", {
-                    xPercent: 100
-                }, 0).from("#shop .shop-cover-bg-inner > div", {
-                    xPercent: 50
-                }, 0).from("#shop .shop-cover-bg-inner .acc img", {
-                    xPercent: 100
-                }, 0).to("#shop .bigger", {
-                    scale: .65
-                }).to("#shop .bg", {
-                    height: "57vw"
-                }, "<").from(".shop-text-content", {
-                    autoAlpha: 0,
-                    y: 60,
-                    duration: .2
-                }, "-=0.2")
-                  , s = W.timeline().from(".shop-horizontal", {
-                    xPercent: 100
-                }).from(".shop-horizontal .bg", {
-                    scale: 1.4
-                }, 0).add(o).from(".h-section:nth-child(2)", {
-                    yPercent: 150,
-                    onComplete: ()=>{}
-                }, "-=0.35").from(".h-section:nth-child(3)", {
-                    yPercent: 150
-                }, "<").to(".shop-cover", {
-                    y: -document.querySelector(".h-section").offsetHeight,
-                    duration: 3
-                }).to(".shop-text-content", {
-                    yPercent: -500
-                }, "<");
-                $.create({
-                    trigger: "#shop",
-                    start: "top top",
-                    end: "+=5000",
-                    animation: s,
-                    pin: !0,
-                    pinSpacing: !1,
-                    scrub: !0,
-                    onEnter: ()=>{}
-                })
+    
+    let o = gsap.timeline()
+      .to("#shop .h-scroll .bg", { xPercent: -20 })
+      .from("#shop .left-lnb", { xPercent: -100 }, 0)
+      .from("#shop .right-cont", { xPercent: 100 }, 0)
+      .from("#shop .right-inner > div", { xPercent: 50 }, 0)
+      .from("#shop .center-img img", { xPercent: 100 }, 0)
+      .to("#shop .shop-cover", { scale: .65 })
+      .to("#shop .bg", { height: "57vw" }, "<")
+      .from(".shop-ttl", { autoAlpha: 0, y: 60, duration: .2 }, "-=0.2");
+
+    let tl = gsap.timeline()
+      .from("#shop .h-scroll", { xPercent: 100 })
+      .from("#shop .h-scroll .bg", { scale: 1.4 }, 0)
+      .add(o)
+      .from("#shop .h-section:nth-child(2)", { yPercent: 150 }, "-=0.35")
+      .from("#shop .h-section:nth-child(3)", { yPercent: 150 }, "<")
+      .to("#shop .shop-cover", { y: -document.querySelector(".h-section").offsetHeight, duration: 3 })
+      .to("#shop .shop-ttl", { yPercent: -500 }, "<");
+
+    ScrollTrigger.create({
+      trigger: "#shop",
+      start: "top top",
+      end: "+=5000",
+      animation: tl,
+      pin: !0,
+      pinSpacing: !1,
+      scrub: !0,
+    })
   },
   // $mobile(_el) {
     
@@ -581,7 +568,276 @@ const pp = {
   init() {
     pp.animation();
   },
-  animation() {}
+  animation() {
+    if ( is.none(document.querySelector("#portfolio")) ) return;
+
+    const _el = {
+
+    };
+
+    const mm = gsap.matchMedia();
+
+    mm.add(breakPoint, (ctx) => {
+
+      const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
+
+      if (reduceMotion) {
+        if (isDesktop) {
+          pp.$reduce_desktop(_el);
+        } else {
+          pp.$reduce_tablet(_el);
+        }
+      } else {
+        if (isDesktop) {
+          pp.$desktop(_el)
+        } else {
+          pp.$tablet(_el);
+        }
+      }
+
+    })
+
+  },
+  $reduce_desktop(_el) {
+
+    // let o = document.querySelector("#portfolio .last").getBoundingClientRect().left
+    //               , s = W.timeline().to(".portfolio-intro-image", {
+    //                 scale: .2
+    //             }).from(".portfolio-cover-center", {
+    //                 scale: .4
+    //             }, "-=0.3").from(".portfolio-cover-top", {
+    //                 duration: .2,
+    //                 opacity: 0,
+    //                 y: -50
+    //             }, "-=0.1").from(".portfolio-cover-bottom", {
+    //                 duration: .2,
+    //                 opacity: 0,
+    //                 y: 50
+    //             }, "<").from(".portfolio-cover-middle > svg:nth-child(1)", {
+    //                 duration: .2,
+    //                 opacity: 0,
+    //                 x: -50
+    //             }, "<").from(".portfolio-cover-middle > svg:nth-child(2)", {
+    //                 duration: .2,
+    //                 opacity: 0,
+    //                 x: 50
+    //             }, "<");
+    //             W.timeline().from(".portfolio-horizontal", {
+    //                 xPercent: 100
+    //             }).from(".portfolio-intro-image img", {
+    //                 scale: 1.4
+    //             }, 0).add(s).to("#portfolio .bigger", {
+    //                 scale: .46
+    //             }, "+=0.4").from(".p-section:nth-child(2) .portfolio-item", {
+    //                 xPercent: 50
+    //             }, "-=0.2").from(".portfolio-text-content", {
+    //                 autoAlpha: 0,
+    //                 y: 30
+    //             }, "-=0.1");
+    //             let l = W.timeline().to(".portfolio-cover", {
+    //                 duration: 3,
+    //                 x: -(o - document.querySelector("#portfolio .last").offsetWidth)
+    //             });
+    //             $.create({
+    //                 trigger: "#portfolio",
+    //                 start: "top top",
+    //                 end: "+=10000",
+    //                 animation: l,
+    //                 pin: !0,
+    //                 onLeave: ()=>{
+    //                     Gt.isPaused = !0,
+    //                     Gt.stack = Ao()
+    //                 }
+    //                 ,
+    //                 onEnterBack: ()=>{
+    //                     Gt.isPaused = !1,
+    //                     document.querySelectorAll("canvas").forEach(f=>{
+    //                         f.remove()
+    //                     }
+    //                     )
+    //                 }
+    //                 ,
+    //                 scrub: !0
+    //             })
+
+  },
+  $reduce_tablet(_el) {
+    // document.querySelector("#portfolio .last").getBoundingClientRect().left;
+    //             let o = W.timeline().to(".portfolio-intro-image", {
+    //                 scale: .2
+    //             }).from(".portfolio-cover-center", {
+    //                 scale: .4
+    //             }, "-=0.3").from(".portfolio-cover-top", {
+    //                 duration: .2,
+    //                 opacity: 0,
+    //                 y: -50
+    //             }, "-=0.1").from(".portfolio-cover-bottom", {
+    //                 duration: .2,
+    //                 opacity: 0,
+    //                 y: 50
+    //             }, "<").from(".portfolio-cover-middle > svg:nth-child(1)", {
+    //                 duration: .2,
+    //                 opacity: 0,
+    //                 x: -50
+    //             }, "<").from(".portfolio-cover-middle > svg:nth-child(2)", {
+    //                 duration: .2,
+    //                 opacity: 0,
+    //                 x: 50
+    //             }, "<");
+    //             W.timeline().from(".portfolio-horizontal", {
+    //                 xPercent: 100
+    //             }).from(".portfolio-intro-image img", {
+    //                 scale: 1.4
+    //             }, 0).add(o).to("#portfolio .bigger", {
+    //                 scale: .65,
+    //                 height: "60vw"
+    //             }, "+=0.4").from(".portfolio-text-content", {
+    //                 opacity: 0,
+    //                 duration: .1
+    //             }).from(".p-section:nth-child(2) .portfolio-item", {
+    //                 yPercent: 200
+    //             }, "-=0.2").from(".p-section:nth-child(3) .portfolio-item", {
+    //                 yPercent: 200
+    //             }, "<");
+    //             let s = W.timeline().to(".portfolio-text-content", {
+    //                 yPercent: -300
+    //             }).to(".portfolio-cover", {
+    //                 duration: 3,
+    //                 y: -document.querySelector("#portfolio .last").offsetHeight * 3
+    //             }, "<");
+    //             $.create({
+    //                 trigger: "#portfolio",
+    //                 start: "top top",
+    //                 end: "+=10000",
+    //                 animation: s,
+    //                 pin: !0,
+    //                 onLeave: ()=>{}
+    //                 ,
+    //                 onEnterBack: ()=>{}
+    //                 ,
+    //                 scrub: !0
+    //             })
+  },
+  $desktop(_el) {
+    const Gt = {
+      isPaused: !1,
+      stack: null,
+      smoother: null
+    }
+
+    let o = document.querySelector("#portfolio .p-section.last").getBoundingClientRect().left;
+    let s = gsap.timeline()
+      .to("#portfolio .pp-cover .bg", { scale: .2 })
+      .from("#portfolio .portfolio-cover-center", { scale: .4 }, "-=5")
+      .from("#portfolio .portfolio-cover-top", { duration: .2, opacity: 0, y: -50 }, "-=0.1")
+      .from("#portfolio .portfolio-cover-bottom", { duration: .2, opacity: 0, y: 50 }, "<")
+      .from("#portfolio .portfolio-cover-copyright", { duration: .2, opacity: 0, x: -50 }, "<")
+      .from("#portfolio .portfolio-cover-artwork", { duration: .2, opacity: 0, x: 50 }, "<");
+/*
+    #portfolio --> .portfolio-horizontal(.portfolio-inner) --> .portfolio-cover(.h-scroll) / .portfolio-text-content(.pp-ttl)
+    .portfolio-cover(.h-scroll) --> .p_section --> .bigger(.pp-cover) / .portfolio-item
+    .bigger(.pp-cover) --> .portfolio-intro-image(.bg) / .portfolio-svg
+    .portfolio-svg --> .portfolio-cover-center / .portfolio-cover-bottom / .portfolio-cover-top / .portfolio-cover-middle
+    */
+    let tl = gsap.timeline()
+      .from("#portfolio .portfolio-inner", { xPercent: 100 })
+      .from("#portfolio .pp-cover .bg img", { scale: 6 })
+      .add(s)
+      .to("#portfolio .pp-cover", { scale: .46 }, "+=0.4")
+      .from("#portfolio .p-section:nth-child(2) .pp-item", { xPercent: 50 }, "-=0.2")
+      .from("#portfolio .pp-ttl", { autoAlpha: 0, y: 30 }, "-=0.1")
+      .to("#portfolio .pp-cover", { duration: 3, x: -(o - document.querySelector("#portfolio .last").offsetWidth) });
+    
+    ScrollTrigger.create({
+      trigger: "#portfolio",
+      start: "top top",
+      end: "+=10000",
+      animation: tl,
+      pin: !0,
+      onLeave: ()=>{
+        Gt.isPaused = !0,
+        Gt.stack = Ao()
+      },
+      onEnterBack: ()=>{
+        Gt.isPaused = !1,
+        document.querySelectorAll("canvas").forEach(f=>{
+          f.remove()
+        })
+      }
+      ,
+      scrub: !0
+    })
+  },
+  $tablet(_el) {
+    const Gt = {
+      isPaused: !1,
+      stack: null,
+      smoother: null
+    }
+    // document.querySelector("#portfolio .last").getBoundingClientRect().left;
+    //             let o = W.timeline().to(".portfolio-intro-image", {
+    //                 scale: .2
+    //             }).from(".portfolio-cover-center", {
+    //                 scale: .4
+    //             }, "-=0.3").from(".portfolio-cover-top", {
+    //                 duration: .2,
+    //                 opacity: 0,
+    //                 y: -50
+    //             }, "-=0.1").from(".portfolio-cover-bottom", {
+    //                 duration: .2,
+    //                 opacity: 0,
+    //                 y: 50
+    //             }, "<").from(".portfolio-cover-middle > svg:nth-child(1)", {
+    //                 duration: .2,
+    //                 opacity: 0,
+    //                 x: -50
+    //             }, "<").from(".portfolio-cover-middle > svg:nth-child(2)", {
+    //                 duration: .2,
+    //                 opacity: 0,
+    //                 x: 50
+    //             }, "<")
+    //               , s = W.timeline().from(".portfolio-horizontal", {
+    //                 xPercent: 100
+    //             }).from(".portfolio-intro-image img", {
+    //                 scale: 1.4
+    //             }, 0).add(o).to("#portfolio .bigger", {
+    //                 scale: .65,
+    //                 height: "60vw"
+    //             }, "+=0.4").from(".portfolio-text-content", {
+    //                 opacity: 0,
+    //                 duration: .1
+    //             }).from(".p-section:nth-child(2) .portfolio-item", {
+    //                 yPercent: 200
+    //             }, "-=0.2").from(".p-section:nth-child(3) .portfolio-item", {
+    //                 yPercent: 200
+    //             }, "<").to(".portfolio-text-content", {
+    //                 yPercent: -300
+    //             }).to(".portfolio-cover", {
+    //                 duration: 3,
+    //                 y: -document.querySelector("#portfolio .last").offsetHeight * 3
+    //             }, "<");
+    //             $.create({
+    //                 trigger: "#portfolio",
+    //                 start: "top top",
+    //                 end: "+=10000",
+    //                 animation: s,
+    //                 pin: !0,
+    //                 onLeave: ()=>{
+    //                     Gt.isPaused = !0,
+    //                     Gt.stack = Ao()
+    //                 }
+    //                 ,
+    //                 onEnterBack: ()=>{
+    //                     Gt.isPaused = !1,
+    //                     document.querySelectorAll("canvas").forEach(l=>{
+    //                         l.remove()
+    //                     }
+    //                     )
+    //                 }
+    //                 ,
+    //                 scrub: !0
+    //             })
+  }
 }
 
 const letters = {
