@@ -728,12 +728,12 @@ const pp = {
     let o = document.querySelector("#portfolio .p-section.last").getBoundingClientRect().left;
     let s = gsap.timeline()
       .to("#portfolio .pp-cover .bg", { scale: .2 })
-      .from("#portfolio .portfolio-cover-center", { scale: .4 }, "-=5")
+      .from("#portfolio .portfolio-cover-center", { scale: .4 }, "-=0.3")
       .from("#portfolio .portfolio-cover-top", { duration: .2, opacity: 0, y: -50 }, "-=0.1")
       .from("#portfolio .portfolio-cover-bottom", { duration: .2, opacity: 0, y: 50 }, "<")
       .from("#portfolio .portfolio-cover-copyright", { duration: .2, opacity: 0, x: -50 }, "<")
       .from("#portfolio .portfolio-cover-artwork", { duration: .2, opacity: 0, x: 50 }, "<");
-/*
+    /*
     #portfolio --> .portfolio-horizontal(.portfolio-inner) --> .portfolio-cover(.h-scroll) / .portfolio-text-content(.pp-ttl)
     .portfolio-cover(.h-scroll) --> .p_section --> .bigger(.pp-cover) / .portfolio-item
     .bigger(.pp-cover) --> .portfolio-intro-image(.bg) / .portfolio-svg
@@ -741,12 +741,12 @@ const pp = {
     */
     let tl = gsap.timeline()
       .from("#portfolio .portfolio-inner", { xPercent: 100 })
-      .from("#portfolio .pp-cover .bg img", { scale: 6 })
+      .from("#portfolio .pp-cover .bg img", { scale: 1.4 }, 0)
       .add(s)
       .to("#portfolio .pp-cover", { scale: .46 }, "+=0.4")
       .from("#portfolio .p-section:nth-child(2) .pp-item", { xPercent: 50 }, "-=0.2")
       .from("#portfolio .pp-ttl", { autoAlpha: 0, y: 30 }, "-=0.1")
-      .to("#portfolio .pp-cover", { duration: 3, x: -(o - document.querySelector("#portfolio .last").offsetWidth) });
+      .to("#portfolio .h-scroll", { duration: 3, x: -(o - document.querySelector("#portfolio .last").offsetWidth) });
     
     ScrollTrigger.create({
       trigger: "#portfolio",
@@ -755,14 +755,14 @@ const pp = {
       animation: tl,
       pin: !0,
       onLeave: ()=>{
-        Gt.isPaused = !0,
-        Gt.stack = Ao()
+        // Gt.isPaused = !0;
+        // Gt.stack = Ao()
       },
       onEnterBack: ()=>{
-        Gt.isPaused = !1,
-        document.querySelectorAll("canvas").forEach(f=>{
-          f.remove()
-        })
+        // Gt.isPaused = !1;
+        // document.querySelectorAll("canvas").forEach( f => {
+        //   f.remove()
+        // })
       }
       ,
       scrub: !0
