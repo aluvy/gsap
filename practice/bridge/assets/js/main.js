@@ -8,7 +8,7 @@ const breakPoint = {
 const intro = {
   init() {
     intro.animation();
-    window.addEventListener("resize", front.debounce(gsap.matchMediaRefresh, 100));
+    // window.addEventListener("resize", front.debounce(gsap.matchMediaRefresh, 100));
   },
   animation() {
     const bridge = document.querySelector("#intro h1");
@@ -108,7 +108,7 @@ const intro = {
 const wall = {
   init() {
     wall.animation();
-    window.addEventListener("resize", front.debounce(gsap.matchMediaRefresh, 100));
+    // window.addEventListener("resize", front.debounce(gsap.matchMediaRefresh, 100));
   },
   animation() {
     if ( is.none(document.querySelector("#wall .wall-item")) ) return;
@@ -830,7 +830,7 @@ const letters = {
   $desktop(_el) {
     gsap.set("#canvas", { display: "block" });
     let tl = gsap.timeline()
-      .from("#canvas .letters-ttl", { opacity: 0, y: 50 })
+      .from("#canvas .letters-ttl", { delay: 0.5, duration: 1, opacity: 0, y: 50 })
       .to("#canvas", { xPercent: 100 })
       .from("#awards", { xPercent: -100 }, "<")
       .to("#awards .bg", { width: "100%" });
@@ -873,25 +873,36 @@ const elements = {
     if ( is.none(document.querySelector("#elements")) ) return;
 
     const _el = {
+      elements: document.querySelector("#elements"),
+      
+      elV: document.querySelector("#elements .el-v"),
+      elVttl: document.querySelector("#elements .el-v .el-ttl"),
+      elVWrap: document.querySelectorAll("#elements .el-v-wrap"),
+      
+      elH: document.querySelector("#elements .el-h"),
+      elHttl: document.querySelector("#elements .el-h .el-ttl"),
+      elHWrap: document.querySelectorAll("#elements .el-h-wrap"),
+
+      elModule: document.querySelector("#elements .el-module"),
+      elModuleScreen: document.querySelectorAll("#elements .module-screen"),
+      elModuleScreenBg: document.querySelector("#elements .module-screen-bg"),
+      elModuleTtl: document.querySelectorAll("#elements .module-ttl"),
     }
 
     const mm = gsap.matchMedia();
 
     mm.add(breakPoint, (ctx) => {
       const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
-
+      // elements.$reduceMotion(_el);
       if (reduceMotion)         elements.$reduceMotion(_el);
-      else if ( isDesktop )     elements.$desktop(_el);
-      else if ( isTablet )      elements.$tablet(_el);
-      else if ( isMobile )      elements.$mobile(_el);
+      else                      elements.$desktop(_el);
     });
   },
-  $reduceMotion(_el) {},
-  $tablet(_el) {},
-  $mobile(_el) {},
   $desktop(_el) {
-    gsap.set("#elements .elements-col", { display: "block" })
-    gsap.set("#elements .el-h-wrap", { display: "flex" });
+    const { elements, elV, elVttl, elVWrap, elH, elHttl, elHWrap, elModule, elModuleScreen, elModuleScreenBg, elModuleTtl } = _el;
+
+    gsap.set(elVWrap, { display: "block" })
+    gsap.set(elHWrap, { display: "flex" });
     
     let o = gsap.timeline()
       .to("#elements .-l, #elements .-r", { y: "-650vh", duration: 2.5, ease: "none" });
@@ -912,9 +923,9 @@ const elements = {
       .to("#elements .module-screen:nth-child(5) .module-screen-inner", { yPercent: 100 }, "<");
     
     let f = gsap.timeline()
-      .from("#elements .elements-screen-bg", { scaleX: 0, ease: "none", duration: .3 })
-      .from("#elements .module-ttl", { y: 30, opacity: 0, duration: .2 })
-      .set("#elements .module-screen", { autoAlpha: 1 })
+      .from(elModuleScreenBg, { scaleX: 0, ease: "none", duration: .3 })
+      .from(elModuleTtl, { y: 30, opacity: 0, duration: .2 })
+      .set(elModuleScreen, { autoAlpha: 1 })
       .add(s)
       .add(o, "<")
       .add(l, "<");
@@ -940,12 +951,12 @@ const elements = {
       .to("#elements .chars-item11 svg", {}, "-=0.3");
     
     let tl = gsap.timeline()
-      .from("#elements .el-v .el-ttl", { xPercent: 3, opacity: 0, duration: .2 })
-      .to("#elements .el-v .el-ttl", { yPercent: 3, opacity: 0, duration: .05 })
-      .fromTo("#elements .elements-col:nth-child(odd)", { yPercent: -100 }, { yPercent: 100 }, "<")
-      .fromTo("#elements .elements-col:nth-child(even)", { yPercent: 100 }, { yPercent: -100 }, "<")
-      .from("#elements .el-h .el-ttl", { xPercent: 1, opacity: 0, duration: .2 }, "-=0.2")
-      .to("#elements .el-h .el-ttl", { yPercent: 1, opacity: 0, duration: .05 })
+      .from(elVttl, { xPercent: 3, opacity: 0, duration: .2 })
+      .to(elVttl, { yPercent: 3, opacity: 0, duration: .05 })
+      .fromTo("#elements .el-v-wrap:nth-child(odd)", { yPercent: -100 }, { yPercent: 100 }, "<")
+      .fromTo("#elements .el-v-wrap:nth-child(even)", { yPercent: 100 }, { yPercent: -100 }, "<")
+      .from(elHttl, { xPercent: 1, opacity: 0, duration: .2 }, "-=0.2")
+      .to(elHttl, { yPercent: 1, opacity: 0, duration: .05 })
       .fromTo("#elements .el-h-wrap:nth-child(odd)", { xPercent: -100 }, { xPercent: 100 }, "<")
       .fromTo("#elements .el-h-wrap:nth-child(even)", { xPercent: 100 }, { xPercent: -100 }, "<")
       .add(f, "-=0.25")
@@ -953,14 +964,53 @@ const elements = {
       .add(p);
       
     ScrollTrigger.create({
-      trigger: "#elements",
+      trigger: elements,
       start: "top top",
       end: "+=15000",
       animation: tl,
       pin: true,
       scrub: true
     }) 
-  }
+  },
+  $reduceMotion(_el) {
+    const { elements, elV, elVttl, elVWrap, elH, elHttl, elHWrap, elModule, elModuleScreen, elModuleScreenBg, elModuleTtl } = _el;
+
+    let o = gsap.timeline({ defaults: { ease: "none" } })
+      .to("#elements .module-screen:nth-child(1)", { yPercent: -100 })
+      .to("#elements .module-screen:nth-child(1) .module-screen-inner", { yPercent: 100 }, "<")
+      .to("#elements .module-screen:nth-child(2)", { yPercent: -100 })
+      .to("#elements .module-screen:nth-child(2) .module-screen-inner", { yPercent: 100 }, "<")
+      .to("#elements .module-screen:nth-child(3)", { yPercent: -100 })
+      .to("#elements .module-screen:nth-child(3) .module-screen-inner", { yPercent: 100 }, "<")
+      .to("#elements .module-screen:nth-child(4)", { yPercent: -100 })
+      .to("#elements .module-screen:nth-child(4) .module-screen-inner", { yPercent: 100 }, "<")
+      .to("#elements .module-screen:nth-child(5)", { yPercent: -100 })
+      .to("#elements .module-screen:nth-child(5) .module-screen-inner", { yPercent: 100 }, "<");
+
+    let s = gsap.timeline()
+      .from(elModuleScreenBg, { scaleX: 0, ease: "none", duration: .3 })
+      .from(elModuleTtl, { y: 30, opacity: 0, duration: .2 })
+      .set(elModuleScreen, { autoAlpha: 1 })
+      .add(o, "<")
+    
+    gsap.set(elVWrap, elHWrap, { display: "none" });
+
+    let tl = gsap.timeline()
+      .from(elVttl, { xPercent: 3, opacity: 0, duration: .2 })
+      .to(elVttl, { opacity: 0, duration: .05 }, "+=1")
+      .from(elHttl, { opacity: 0, duration: .2 })
+      .to(elHttl, { opacity: 0, duration: .05 }, "+=1")
+      .add(s);
+
+    ScrollTrigger.create({
+      trigger: elements,
+      start: "top top",
+      end: "+=15000",
+      animation: tl,
+      pin: true,
+      scrub: true
+    })
+  },
 }
 
 const qode = {
@@ -971,6 +1021,11 @@ const qode = {
     if ( is.none(document.querySelector("#qode")) ) return;
 
     const _el = {
+      qode: document.querySelector("#qode"),
+      ttl: document.querySelector("#qode .qode-ttl"),
+      logoSvg: document.querySelector("#qode .qode-logo svg"),
+      logoLine: document.querySelector("#qode .qode-logo svg #line"),
+      logoText: document.querySelector("#qode .qode-logo-text"),
     }
 
     const mm = gsap.matchMedia();
@@ -979,30 +1034,44 @@ const qode = {
       const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
 
       if (reduceMotion)         qode.$reduceMotion(_el);
-      else if ( isDesktop )     qode.$desktop(_el);
-      else if ( isTablet )      qode.$tablet(_el);
-      else if ( isMobile )      qode.$mobile(_el);
+      else                      qode.$desktop(_el);
     });
   },
-  $reduceMotion(_el) {},
-  $tablet(_el) {},
-  $mobile(_el) {},
   $desktop(_el) {
+    const { qode, ttl, logoSvg, logoLine, logoText } = _el;
+
     let tl = gsap.timeline()
-      .fromTo("#qode .qode-ttl", { transformOrigin: "50% 200%", rotation: 50 }, { transformOrigin: "50% 200%", rotation: -50 }, "-=0.3")
-      .from("#qode .qode-logo svg", { yPercent: 100, rotation: 360, scale: .9, duration: 1 }, "<")
-      .to("#qode .qode-logo-text", { yPercent: 0, opacity: 1 })
-      .to("#qode .qode-logo #line", { strokeDashoffset: 0, duration: 3 });
+      .fromTo(ttl, { transformOrigin: "50% 200%", rotation: 50 }, { transformOrigin: "50% 200%", rotation: -50 }, "-=0.3")
+      .from(logoSvg, { yPercent: 100, rotation: 360, scale: .9, duration: 1 }, "<")
+      .to(logoText, { yPercent: 0, opacity: 1 })
+      .to(logoLine, { strokeDashoffset: 0, duration: 3 });
 
     ScrollTrigger.create({
-      trigger: "#qode",
+      trigger: qode,
       start: "top top",
       end: "+=15000",
       animation: tl,
       pin: true,
       scrub: true
     })
-  }
+  },
+  $reduceMotion(_el) {
+    const { qode, ttl, logoSvg, logoLine, logoText } = _el;
+    let tl = gsap.timeline()
+      .fromTo(ttl, { transformOrigin: "50% 200%", rotation: 50 }, { transformOrigin: "50% 200%", rotation: -50 }, "-=0.3")
+      .from(logoSvg, { yPercent: 100, rotation: 360, scale: .9, duration: 1 }, "<")
+      .to(logoText, { yPercent: 0, opacity: 1 })
+      .to(logoLine, { strokeDashoffset: 0, duration: 3 });
+  
+    ScrollTrigger.create({
+      trigger: qode,
+      start: "top top",
+      end: "+=15000",
+      animation: tl,
+      pin: true,
+      scrub: true
+    });
+  },
 }
 
 function init() {
@@ -1013,7 +1082,9 @@ function init() {
   pp.init();
   letters.init();
   elements.init();
-  qode.init();
+  qode.init();        // 완료
+
+  window.addEventListener("resize", front.debounce(gsap.matchMediaRefresh, 100));
 }
 
 document.addEventListener("DOMContentLoaded", init);
