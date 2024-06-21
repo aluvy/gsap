@@ -123,15 +123,11 @@
 
 /** letters ***********************************************************/
 /* #letters {  } */
-#letters .reduce-text { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); white-space: nowrap; visibility: hidden; }
-#letters .reduce-text p { font-size: 9rem; }
 
-/* #canvas { } */
-#canvas .text-to-canvas { text-align: center; font-weight: 700; font-family: Roboto,sans-serif; pointer-events: none; display: none; }
-#canvas .text-to-canvas div { position: absolute !important; left: 0; top: 0; font-size: 6.3vmax; line-height: .8; }
-#canvas .letters-ttl { position: absolute; top: 0; left: 0; height: 100%; width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; }
-#canvas .letters-ttl h3 { font-size: 3.4rem; max-width: 48vw; line-height: 1.12; text-align: center; font-weight: 600; word-break: keep-all; }
-#canvas .letters-ttl .desc { font-size: 1.8rem; color: #757575; font-weight: 300; margin-top: 1.2rem; }
+#canvas { position: relative; width: var(--vw); height: var(--vh); }
+#letters .letters-ttl { position: absolute; top: 0; left: 0; height: 100%; width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; }
+#letters .letters-ttl h3 { font-size: 3.4rem; max-width: 48vw; line-height: 1.12; text-align: center; font-weight: 600; word-break: keep-all; }
+#letters .letters-ttl .desc { font-size: 1.8rem; color: #757575; font-weight: 300; margin-top: 1.2rem; }
 
 #awards { width: var(--vw); height: var(--vh); position: absolute; left: 0; top: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #d0ccc1; z-index: 10; }
 #awards .bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #cfccde; width: 0; }
@@ -139,7 +135,6 @@
 #awards .frame::after { content: ''; display: block; padding-bottom: 59.89281507656066%; }
 #awards .frame .video { position: absolute; inset: 0; padding: 4% 2% 0; }
 #awards .frame .video video { width: 100%; vertical-align: middle; }
-/* #awards .framevideo { max-width: 100%; vertical-align: middle; } */
 
 #awards .awards-ttl { position: relative; width: 100%; text-align: center; margin-top: 2rem; }
 #awards .awards-ttl h3 { font-size: 3.6rem; color: #fff; font-weight: 600; }
@@ -379,19 +374,17 @@
 
 /** qode ***********************************************************/
 /* #qode { } */
-#qode .qode-ttl { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+#qode .qode-ttl { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 #qode .qode-ttl h3 { font-size: 10rem; font-weight: 600; }
+#qode .qode-ttl .desc { font-size: 2.2rem; font-weight: 300; margin-top: 1rem; }
 
-#qode .qode_round_text { position: absolute; left: 50%; transform: translate(-50%,80%) scale(1.5); bottom: 0; }
+#qode .qode-logo { position: absolute; left: 0; top: -12%; width: var(--vw); height: var(--vh); display: flex; justify-content: center; align-items: center; }
+#qode .qode-logo svg { position: relative; width: 100%; height: 100%; transform: scale(.25); }
+#qode .qode-logo svg #line { stroke-dasharray: 11342; stroke-dashoffset: 11342; }
 
-#qode .qode_logo { width:100vw; height:100vh; position:absolute; left:0; top:0; display:flex; justify-content:center; align-items:center }
-#qode .qode_logo svg { width:100%; height:100%; transform:scale(.25); position:relative }
-#qode .qode-text-holder { position:absolute; left:50%; top:50%; transform:translate(-50%,50%); text-align:center; opacity:0 }
-#qode .qode-screen--end h2 { font-size:4.5vmax; font-weight:500 }
-
-/* .qode-description,.qode-end-description { margin-top:1rem } */
-#qode #line { stroke-dasharray: 11342; stroke-dashoffset: 11342; }
-
+#qode .qode-logo-text { position: absolute; left: 50%; top: 45%; transform: translate(-50%,50%); text-align: center; opacity: 0; }
+#qode .qode-logo-text h3 { font-size: 7rem; font-weight: 600; line-height: 1.12; text-align: center; }
+#qode .qode-logo-text .desc { font-size: 2.2rem; font-weight: 300; margin-top: 1rem; }
 
 
 

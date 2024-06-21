@@ -48,7 +48,7 @@ const intro = {
       start: 'top top',
       end: `+=3000`,
       animation: tl,
-      pin: !0,
+      pin: true,
       scrub: 1,
       // markers: true,
     })
@@ -71,7 +71,7 @@ const intro = {
       start: 'top top',
       end: `+=3000`,
       animation: tl,
-      pin: !0,
+      pin: true,
       scrub: 1,
       // markers: true,
     })
@@ -94,7 +94,7 @@ const intro = {
       start: 'top top',
       end: `+=3000`,
       animation: tl,
-      pin: !0,
+      pin: true,
       scrub: 1,
       // markers: true,
     })
@@ -189,8 +189,8 @@ const wall = {
       start: 'top top',
       end: `+=2000`,
       animation: tl,
-      pin: !0,
-      scrub: !0,
+      pin: true,
+      scrub: true,
       // markers: true
     })
     // markers();
@@ -232,9 +232,9 @@ const wall = {
       start: "top top",
       end: "+=2000",
       animation: tl,
-      pin: !0,
-      pinSpacing: !0,
-      scrub: !0,
+      pin: true,
+      pinSpacing: true,
+      scrub: true,
     })
   },
   $mobile(_el) {
@@ -273,9 +273,9 @@ const wall = {
       start: "top top",
       end: "+=2000",
       animation: tl,
-      pin: !0,
-      pinSpacing: !0,
-      scrub: !0,
+      pin: true,
+      pinSpacing: true,
+      scrub: true,
       // markers: true
     })
     // markers();
@@ -292,8 +292,8 @@ const wall = {
       start: "top top",
       end: "+=2000",
       animation: tl,
-      pin: !0,
-      scrub: !0
+      pin: true,
+      scrub: true
     }) 
   }
 }
@@ -306,7 +306,6 @@ const demo = {
     if ( is.none(document.querySelector("#demo")) ) return;
 
     const mm = gsap.matchMedia();
-
     const _el = {
       demo: document.querySelector("#demo"),
       front: document.querySelector("#demo .demo-front"),
@@ -314,13 +313,12 @@ const demo = {
     }
 
     mm.add(breakPoint, (ctx) => {
-      demo.$desktop(_el);
-      // const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
+      const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
 
-      // if (reduceMotion)       demo.$reduceMotion(_el);
-      // else if ( isDesktop )   demo.$desktop(_el);
-      // else if ( isTablet )    demo.$desktop(_el);
-      // else if ( isMobile )    demo.$desktop(_el);
+      if (reduceMotion)       demo.$reduceMotion(_el);
+      else if ( isDesktop )   demo.$desktop(_el);
+      else if ( isTablet )    demo.$desktop(_el);
+      else if ( isMobile )    demo.$desktop(_el);
     });
   },
   $desktop(_el) {
@@ -334,9 +332,9 @@ const demo = {
       start: "top top",
       end: "+=3000",
       animation: tl,
-      pin: !0,
-      pinSpacing: !1,
-      scrub: !0
+      pin: true,
+      pinSpacing: false,
+      scrub: true
     })
   },
   $tablet(_el) {
@@ -356,9 +354,6 @@ const shop = {
   },
   animation() {
     if ( is.none(document.querySelector("#shop")) ) return;
-
-    // const items = document.querySelectorAll("#wall .wall-item:not(.show)");
-    // items.forEach( a => front.spitText(a) );
 
     const _el = {
       shop: document.querySelector("#shop"),
@@ -382,112 +377,80 @@ const shop = {
     mm.add(breakPoint, (ctx) => {
       const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
 
-      shop.$desktop(_el);
-
-      // if (reduceMotion) {
-      //   if ( isDesktop ) {
-      //     shop.$reduce_desktop(_el);
-      //   } else if ( isTablet || isMobile ) {
-      //     shop.$reduce_tablet(_el);
-      //   }
-      // } else {
-      //   if ( isDesktop ) {
-      //     shop.$desktop(_el);
-      //   } else if ( isTablet || isMobile ) {
-      //     shop.$tablet(_el);
-      //   }
-      // }
+      if (reduceMotion) {
+        if ( isDesktop ) {
+          shop.$reduce_desktop(_el);
+        } else if ( isTablet || isMobile ) {
+          shop.$reduce_tablet(_el);
+        }
+      } else {
+        if ( isDesktop ) {
+          shop.$desktop(_el);
+        } else if ( isTablet || isMobile ) {
+          shop.$tablet(_el);
+        }
+      }
     });
 
   },
   $reduce_desktop(_el) {
-    let o = document.querySelector("#shop .last").getBoundingClientRect().left;
+    // let o = document.querySelector("#shop .last").getBoundingClientRect().left;
 
-    gsap.timeline().to("#shop .shop-horizontal .bg", {
-        xPercent: -20
-    }).from("#shop .left_nav", {
-        xPercent: -100
-    }, 0).from("#shop .shop-cover-bg", {
-        xPercent: 100
-    }, 0).from("#shop .shop-cover-bg-inner > div", {
-        xPercent: 50
-    }, 0).from("#shop .shop-cover-bg-inner .acc > img", {
-        xPercent: 100
-    }, 0).to("#shop .bigger", {
-        scale: .4
-    }).from(".shop-text-content", {
-        autoAlpha: 0,
-        y: 60,
-        duration: .2
-    }, "-=0.2");
+    // gsap.timeline()
+    //   .to("#shop .shop-horizontal .bg", { xPercent: -20 })
+    //   .from("#shop .left_nav", { xPercent: -100 }, 0)
+    //   .from("#shop .shop-cover-bg", { xPercent: 100 }, 0)
+    //   .from("#shop .shop-cover-bg-inner > div", { xPercent: 50 }, 0)
+    //   .from("#shop .shop-cover-bg-inner .acc > img", { xPercent: 100 }, 0)
+    //   .to("#shop .bigger", { scale: .4 })
+    //   .from(".shop-text-content", { autoAlpha: 0, y: 60, duration: .2 }, "-=0.2");
 
-                let s = gsap.timeline().from(".shop-horizontal", {
-                    xPercent: 100
-                }).from(".shop-horizontal .bg", {
-                    scale: 1.4
-                }, 0).from(".h-section:nth-child(2)", {
-                    xPercent: 50
-                }, "-=0.35").to(".shop-cover", {
-                    x: -o,
-                    duration: 3
-                });
-                ScrollTrigger.create({
-                    trigger: "#shop",
-                    start: "top top",
-                    end: "+=5000",
-                    animation: s,
-                    pin: !0,
-                    pinSpacing: !1,
-                    scrub: !0,
-                    onEnter: ()=>{}
-                })
+    //   let tl = gsap.timeline()
+    //     .from(".shop-horizontal", { xPercent: 100 })
+    //     .from(".shop-horizontal .bg", { scale: 1.4 }, 0)
+    //     .from(".h-section:nth-child(2)", { xPercent: 50 }, "-=0.35")
+    //     .to(".shop-cover", { x: -o, duration: 3 });
+      
+    //   ScrollTrigger.create({
+    //     trigger: "#shop",
+    //     start: "top top",
+    //     end: "+=5000",
+    //     animation: tl,
+    //     pin: true,
+    //     pinSpacing: false,
+    //     scrub: true,
+    //   })
   },
   $reduce_tablet(_el) {
-    document.querySelector("#shop .last").getBoundingClientRect().top;
-    gsap.timeline().to("#shop .shop-horizontal .bg", {
-        xPercent: -20
-    }).from("#shop .left_nav", {
-        xPercent: -100
-    }, 0).from("#shop .shop-cover-bg", {
-        xPercent: 100
-    }, 0).from("#shop .shop-cover-bg-inner > div", {
-        xPercent: 50
-    }, 0).from("#shop .shop-cover-bg-inner .acc img", {
-        xPercent: 100
-    }, 0).to("#shop .bigger", {
-        scale: .65
-    }).to("#shop .bg", {
-        height: "57vw"
-    }, "<").from(".shop-text-content", {
-        autoAlpha: 0,
-        y: 60,
-        duration: .2
-    }, "-=0.2");
-    let o = gsap.timeline().from(".shop-horizontal", {
-        xPercent: 100
-    }).from(".shop-horizontal .bg", {
-        scale: 1.4
-    }, 0).from(".h-section:nth-child(2)", {
-        yPercent: 150,
-        onComplete: ()=>{}
-    }, "-=0.35").from(".h-section:nth-child(3)", {
-        yPercent: 150
-    }, "<").to(".shop-cover", {
-        y: -document.querySelector(".h-section").offsetHeight,
-        duration: 3
-    }).to(".shop-text-content", {
-        yPercent: -500
-    }, "<");
-    ScrollTrigger.create({
-        trigger: "#shop",
-        start: "top top",
-        end: "+=5000",
-        animation: o,
-        pin: !0,
-        pinSpacing: !1,
-        scrub: !0,
-        onEnter: ()=>{}
-    })
+    // document.querySelector("#shop .last").getBoundingClientRect().top;
+
+    // gsap.timeline()
+    //   .to("#shop .shop-horizontal .bg", { xPercent: -20 })
+    //   .from("#shop .left_nav", { xPercent: -100 }, 0)
+    //   .from("#shop .shop-cover-bg", { xPercent: 100 }, 0)
+    //   .from("#shop .shop-cover-bg-inner > div", { xPercent: 50 }, 0)
+    //   .from("#shop .shop-cover-bg-inner .acc img", { xPercent: 100 }, 0)
+    //   .to("#shop .bigger", { scale: .65 })
+    //   .to("#shop .bg", { height: "57vw" }, "<")
+    //   .from(".shop-text-content", { autoAlpha: 0, y: 60, duration: .2 }, "-=0.2");
+
+    // let tl = gsap.timeline()
+    //   .from(".shop-horizontal", { xPercent: 100 })
+    //   .from(".shop-horizontal .bg", { scale: 1.4 }, 0)
+    //   .from(".h-section:nth-child(2)", { yPercent: 150 }, "-=0.35")
+    //   .from(".h-section:nth-child(3)", { yPercent: 150 }, "<")
+    //   .to(".shop-cover", { y: -document.querySelector(".h-section").offsetHeight, duration: 3 })
+    //   .to(".shop-text-content", { yPercent: -500 }, "<");
+    
+    // ScrollTrigger.create({
+    //   trigger: "#shop",
+    //   start: "top top",
+    //   end: "+=5000",
+    //   animation: tl,
+    //   pin: true,
+    //   pinSpacing: false,
+    //   scrub: true,
+    // })
   },
   $desktop(_el) {
     const { shop, inner, ttl, hScroll, hSections, hSectionLast } = _el;
@@ -519,49 +482,49 @@ const shop = {
         start: "top top",
         end: "+=5000",
         animation: tl,
-        pin: !0,
-        pinSpacing: !1,
-        scrub: !0,
+        pin: true,
+        pinSpacing: false,
+        scrub: true,
       })
   },
   $tablet(_el) {
-    document.querySelector("#shop .last").getBoundingClientRect().top;
+    // document.querySelector("#shop .last").getBoundingClientRect().top;
     
-    let o = gsap.timeline()
-      .to("#shop .h-scroll .bg", { xPercent: -20 })
-      .from("#shop .left-lnb", { xPercent: -100 }, 0)
-      .from("#shop .right-cont", { xPercent: 100 }, 0)
-      .from("#shop .right-inner > div", { xPercent: 50 }, 0)
-      .from("#shop .center-img img", { xPercent: 100 }, 0)
-      .to("#shop .shop-cover", { scale: .65 })
-      .to("#shop .bg", { height: "57vw" }, "<")
-      .from(".shop-ttl", { autoAlpha: 0, y: 60, duration: .2 }, "-=0.2");
+    // let o = gsap.timeline()
+    //   .to("#shop .h-scroll .bg", { xPercent: -20 })
+    //   .from("#shop .left-lnb", { xPercent: -100 }, 0)
+    //   .from("#shop .right-cont", { xPercent: 100 }, 0)
+    //   .from("#shop .right-inner > div", { xPercent: 50 }, 0)
+    //   .from("#shop .center-img img", { xPercent: 100 }, 0)
+    //   .to("#shop .shop-cover", { scale: .65 })
+    //   .to("#shop .bg", { height: "57vw" }, "<")
+    //   .from(".shop-ttl", { autoAlpha: 0, y: 60, duration: .2 }, "-=0.2");
 
-    let tl = gsap.timeline()
-      .from("#shop .h-scroll", { xPercent: 100 })
-      .from("#shop .h-scroll .bg", { scale: 1.4 }, 0)
-      .add(o)
-      .from("#shop .h-section:nth-child(2)", { yPercent: 150 }, "-=0.35")
-      .from("#shop .h-section:nth-child(3)", { yPercent: 150 }, "<")
-      .to("#shop .shop-cover", { y: -document.querySelector(".h-section").offsetHeight, duration: 3 })
-      .to("#shop .shop-ttl", { yPercent: -500 }, "<");
+    // let tl = gsap.timeline()
+    //   .from("#shop .h-scroll", { xPercent: 100 })
+    //   .from("#shop .h-scroll .bg", { scale: 1.4 }, 0)
+    //   .add(o)
+    //   .from("#shop .h-section:nth-child(2)", { yPercent: 150 }, "-=0.35")
+    //   .from("#shop .h-section:nth-child(3)", { yPercent: 150 }, "<")
+    //   .to("#shop .shop-cover", { y: -document.querySelector(".h-section").offsetHeight, duration: 3 })
+    //   .to("#shop .shop-ttl", { yPercent: -500 }, "<");
 
-    ScrollTrigger.create({
-      trigger: "#shop",
-      start: "top top",
-      end: "+=5000",
-      animation: tl,
-      pin: !0,
-      pinSpacing: !1,
-      scrub: !0,
-    })
+    // ScrollTrigger.create({
+    //   trigger: "#shop",
+    //   start: "top top",
+    //   end: "+=5000",
+    //   animation: tl,
+    //   pin: true,
+    //   pinSpacing: false,
+    //   scrub: true,
+    // })
   },
-  // $mobile(_el) {
+  $mobile(_el) {
     
-  // },
-  // $reduceMotion(_el) {
+  },
+  $reduceMotion(_el) {
 
-  // }
+  }
 }
 
 const pp = {
@@ -753,7 +716,7 @@ const pp = {
       start: "top top",
       end: "+=10000",
       animation: tl,
-      pin: !0,
+      pin: true,
       onLeave: ()=>{
         // Gt.isPaused = !0;
         // Gt.stack = Ao()
@@ -765,7 +728,7 @@ const pp = {
         // })
       }
       ,
-      scrub: !0
+      scrub: true
     })
   },
   $tablet(_el) {
@@ -844,19 +807,54 @@ const letters = {
   init() {
     letters.animation();
   },
-  animation() {}
+  animation() {
+    if ( is.none(document.querySelector("#letters")) ) return;
+
+    const _el = {
+    }
+
+    const mm = gsap.matchMedia();
+
+    mm.add(breakPoint, (ctx) => {
+      const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
+
+      if (reduceMotion)         letters.$reduceMotion(_el);
+      else if ( isDesktop )     letters.$desktop(_el);
+      else if ( isTablet )      letters.$tablet(_el);
+      else if ( isMobile )      letters.$mobile(_el);
+    });
+  },
+  $reduceMotion(_el) {},
+  $tablet(_el) {},
+  $mobile(_el) {},
+  $desktop(_el) {
+    gsap.set("#canvas", { display: "block" });
+    let tl = gsap.timeline()
+      .from("#canvas .letters-ttl", { opacity: 0, y: 50 })
+      .to("#canvas", { xPercent: 100 })
+      .from("#awards", { xPercent: -100 }, "<")
+      .to("#awards .bg", { width: "100%" });
+    
+    ScrollTrigger.create({
+      trigger: "#letters",
+      start: "top top",
+      end: "+=3000",
+      animation: tl,
+      pin: true,
+      scrub: true
+    })
+  }
 }
 
 const elements = {
   init() {
     elements.setChars();
+    elements.animation();
   },
-
   setChars() {
     const chars = document.querySelector("#elements #chars");
     if ( is.none(chars) ) return;
     const SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="136.978px" height="191.953px" viewBox="0 0 136.978 191.953" enable-background="new 0 0 136.978 191.953" xml:space="preserve" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);"><path d="M0,191.953V0h65.786c21.708,0,38.232,4.351,49.57,13.052s17.007,21.667,17.007,38.892c0,8.79-2.373,16.7-7.119,23.73 c-4.746,7.033-11.69,12.481-20.83,16.348c10.37,2.814,18.391,8.108,24.06,15.886s8.503,17.118,8.503,28.015 c0,18.018-5.78,31.861-17.336,41.528c-11.558,9.669-28.104,14.502-49.636,14.502H0z M33.354,80.815H66.05 c10.37,0,18.478-2.351,24.324-7.053c5.844-4.701,8.767-11.358,8.767-19.973c0-9.492-2.703-16.348-8.108-20.566 s-13.822-6.328-25.247-6.328H33.354V80.815z M33.354,105.337v59.985H70.4c10.458,0,18.632-2.591,24.521-7.778 c5.887-5.185,8.833-12.393,8.833-21.621c0-19.951-10.197-30.145-30.586-30.586H33.354z" data-svg-origin="-24.54869270862605 -104.69015240585156"></path></svg>`;
-    // transform="matrix(0.92628,0.37684,-0.37684,0.92628,10.22983,112.59127)
 
     const row = 5;
     const item = 11;
@@ -870,6 +868,98 @@ const elements = {
     }
 
     chars.insertAdjacentHTML("afterbegin", HTML);
+  },
+  animation() {
+    if ( is.none(document.querySelector("#elements")) ) return;
+
+    const _el = {
+    }
+
+    const mm = gsap.matchMedia();
+
+    mm.add(breakPoint, (ctx) => {
+      const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
+
+      if (reduceMotion)         elements.$reduceMotion(_el);
+      else if ( isDesktop )     elements.$desktop(_el);
+      else if ( isTablet )      elements.$tablet(_el);
+      else if ( isMobile )      elements.$mobile(_el);
+    });
+  },
+  $reduceMotion(_el) {},
+  $tablet(_el) {},
+  $mobile(_el) {},
+  $desktop(_el) {
+    gsap.set("#elements .elements-col", { display: "block" })
+    gsap.set("#elements .el-h-wrap", { display: "flex" });
+    
+    let o = gsap.timeline()
+      .to("#elements .-l, #elements .-r", { y: "-650vh", duration: 2.5, ease: "none" });
+    
+    let s = gsap.timeline()
+      .to("#elements .-c", { y: "650vh", duration: 2.5, ease: "none" });
+    
+    let l = gsap.timeline({ defaults: { ease: "none" } })
+      .to("#elements .module-screen:nth-child(1)", { yPercent: -100 })
+      .to("#elements .module-screen:nth-child(1) .module-screen-inner", { yPercent: 100 }, "<")
+      .to("#elements .module-screen:nth-child(2)", { yPercent: -100 })
+      .to("#elements .module-screen:nth-child(2) .module-screen-inner", { yPercent: 100 }, "<")
+      .to("#elements .module-screen:nth-child(3)", { yPercent: -100 })
+      .to("#elements .module-screen:nth-child(3) .module-screen-inner", { yPercent: 100 }, "<")
+      .to("#elements .module-screen:nth-child(4)", { yPercent: -100 })
+      .to("#elements .module-screen:nth-child(4) .module-screen-inner", { yPercent: 100 }, "<")
+      .to("#elements .module-screen:nth-child(5)", { yPercent: -100 })
+      .to("#elements .module-screen:nth-child(5) .module-screen-inner", { yPercent: 100 }, "<");
+    
+    let f = gsap.timeline()
+      .from("#elements .elements-screen-bg", { scaleX: 0, ease: "none", duration: .3 })
+      .from("#elements .module-ttl", { y: 30, opacity: 0, duration: .2 })
+      .set("#elements .module-screen", { autoAlpha: 1 })
+      .add(s)
+      .add(o, "<")
+      .add(l, "<");
+    
+    let u = gsap.timeline()
+      .to("#elements .chars-row3 path", { x: 0, y: 0, rotation: 0, stagger: { amount: 1, from: 6 } })
+      .to("#elements .chars-row2 path", { x: 0, y: 0, rotation: 0, stagger: { amount: 1, from: 6 } }, .2)
+      .to("#elements .chars-row4 path", { x: 0, y: 0, rotation: 0, stagger: { amount: 1, from: 6 } }, .2)
+      .to("#elements .chars-row1 path", { x: 0, y: 0, rotation: 0, stagger: { amount: 1, from: 6 } }, .4)
+      .to("#elements .chars-row5 path", { x: 0, y: 0, rotation: 0, stagger: { amount: 1, from: 6 } }, .4);
+    
+    let p = gsap.timeline({ defaults: { scale: 0 } })
+      .to("#elements .chars-item1 svg", {})
+      .to("#elements .chars-item2 svg", {}, "-=0.3")
+      .to("#elements .chars-item3 svg", {}, "-=0.3")
+      .to("#elements .chars-item4 svg", {}, "-=0.3")
+      .to("#elements .chars-item5 svg", {}, "-=0.3")
+      .to("#elements .chars-item6 svg", {}, "-=0.3")
+      .to("#elements .chars-item7 svg", {}, "-=0.3")
+      .to("#elements .chars-item8 svg", {}, "-=0.3")
+      .to("#elements .chars-item9 svg", {}, "-=0.3")
+      .to("#elements .chars-item10 svg", {}, "-=0.3")
+      .to("#elements .chars-item11 svg", {}, "-=0.3");
+    
+    let tl = gsap.timeline()
+      .from("#elements .el-v .el-ttl", { xPercent: 3, opacity: 0, duration: .2 })
+      .to("#elements .el-v .el-ttl", { yPercent: 3, opacity: 0, duration: .05 })
+      .fromTo("#elements .elements-col:nth-child(odd)", { yPercent: -100 }, { yPercent: 100 }, "<")
+      .fromTo("#elements .elements-col:nth-child(even)", { yPercent: 100 }, { yPercent: -100 }, "<")
+      .from("#elements .el-h .el-ttl", { xPercent: 1, opacity: 0, duration: .2 }, "-=0.2")
+      .to("#elements .el-h .el-ttl", { yPercent: 1, opacity: 0, duration: .05 })
+      .fromTo("#elements .el-h-wrap:nth-child(odd)", { xPercent: -100 }, { xPercent: 100 }, "<")
+      .fromTo("#elements .el-h-wrap:nth-child(even)", { xPercent: 100 }, { xPercent: -100 }, "<")
+      .add(f, "-=0.25")
+      .add(u)
+      .add(p);
+      
+    ScrollTrigger.create({
+      trigger: "#elements",
+      start: "top top",
+      end: "+=15000",
+      animation: tl,
+      pin: true,
+      scrub: true
+    }) 
   }
 }
 
@@ -877,9 +967,43 @@ const qode = {
   init() {
     qode.animation();
   },
-  animation() {}
-}
+  animation() {
+    if ( is.none(document.querySelector("#qode")) ) return;
 
+    const _el = {
+    }
+
+    const mm = gsap.matchMedia();
+
+    mm.add(breakPoint, (ctx) => {
+      const { isDesktop, isTablet, isMobile, reduceMotion } = ctx.conditions;
+
+      if (reduceMotion)         qode.$reduceMotion(_el);
+      else if ( isDesktop )     qode.$desktop(_el);
+      else if ( isTablet )      qode.$tablet(_el);
+      else if ( isMobile )      qode.$mobile(_el);
+    });
+  },
+  $reduceMotion(_el) {},
+  $tablet(_el) {},
+  $mobile(_el) {},
+  $desktop(_el) {
+    let tl = gsap.timeline()
+      .fromTo("#qode .qode-ttl", { transformOrigin: "50% 200%", rotation: 50 }, { transformOrigin: "50% 200%", rotation: -50 }, "-=0.3")
+      .from("#qode .qode-logo svg", { yPercent: 100, rotation: 360, scale: .9, duration: 1 }, "<")
+      .to("#qode .qode-logo-text", { yPercent: 0, opacity: 1 })
+      .to("#qode .qode-logo #line", { strokeDashoffset: 0, duration: 3 });
+
+    ScrollTrigger.create({
+      trigger: "#qode",
+      start: "top top",
+      end: "+=15000",
+      animation: tl,
+      pin: true,
+      scrub: true
+    })
+  }
+}
 
 function init() {
   intro.init();
