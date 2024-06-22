@@ -6281,38 +6281,24 @@ function Zf(g=10) {
     ),
     t()
 }
+
+
+
+// #intro
 function Qf() {
     W.matchMedia().add(Pn, e=>{
-        let {isTablet: r, isMobile: i, isDesktop: n, reduceMotion: t} = e.conditions;
-        if (!t) {
-            if (n) {  // isDesktop
-                let o = W.timeline({
-                    defaults: {
-                        scale: 10,
-                        transformOrigin: "50% 50%"
-                    }
-                }).from("#b", {
-                    xPercent: -100
-                }).from("#r", {
-                    yPercent: -1e3
-                }, .1).from("#i", {
-                    yPercent: 1e3,
-                    xPercent: -1e3
-                }, .15).from("#d", {
-                    yPercent: -1e3,
-                    xPercent: -1e3
-                }, .2).from("#g", {
-                    yPercent: -1e3,
-                    xPercent: 1500
-                }, .25).from("#e", {
-                    yPercent: 1e3,
-                    xPercent: 500
-                }, .3).from(".site-info", {
-                    duration: .1,
-                    scale: 1,
-                    autoAlpha: 0,
-                    y: 30
-                });
+        let {isTablet, isMobile, isDesktop, reduceMotion} = e.conditions;
+        if (!reduceMotion) {
+            if (isDesktop) {  // isDesktop
+                let o = W.timeline({ defaults: { scale: 10, transformOrigin: "50% 50%" } })
+                    .from("#b", { xPercent: -100 })
+                    .from("#r", { yPercent: -1e3 }, .1)
+                    .from("#i", { yPercent: 1e3, xPercent: -1e3 }, .15)
+                    .from("#d", { yPercent: -1e3, xPercent: -1e3 }, .2)
+                    .from("#g", { yPercent: -1e3, xPercent: 1500 }, .25)
+                    .from("#e", { yPercent: 1e3, xPercent: 500 }, .3)
+                    .from(".site-info", { duration: .1, scale: 1, autoAlpha: 0, y: 30 });
+
                 $.create({
                     trigger: "#intro",
                     start: "top top",
@@ -6322,34 +6308,16 @@ function Qf() {
                     scrub: 1
                 })
             }
-            if (r) {  // isTablet
-                let o = W.timeline({
-                    defaults: {
-                        scale: 13,
-                        transformOrigin: "50% 50%"
-                    }
-                }).from("#b", {
-                    xPercent: -100
-                }).from("#r", {
-                    yPercent: -2e3
-                }, .1).from("#i", {
-                    yPercent: 2e3,
-                    xPercent: -1e3
-                }, .15).from("#d", {
-                    yPercent: -2e3,
-                    xPercent: -1e3
-                }, .2).from("#g", {
-                    yPercent: -2e3,
-                    xPercent: 1500
-                }, .25).from("#e", {
-                    yPercent: 2e3,
-                    xPercent: 500
-                }, .3).from(".site-info", {
-                    duration: .1,
-                    scale: 1,
-                    autoAlpha: 0,
-                    y: 30
-                });
+            if (isTablet) {  // isTablet
+                let o = W.timeline({ defaults: { scale: 13, transformOrigin: "50% 50%" } })
+                    .from("#b", { xPercent: -100 })
+                    .from("#r", { yPercent: -2e3 }, .1)
+                    .from("#i", { yPercent: 2e3, xPercent: -1e3 }, .15)
+                    .from("#d", { yPercent: -2e3, xPercent: -1e3 }, .2)
+                    .from("#g", { yPercent: -2e3, xPercent: 1500 }, .25)
+                    .from("#e", { yPercent: 2e3, xPercent: 500 }, .3)
+                    .from(".site-info", { duration: .1, scale: 1, autoAlpha: 0, y: 30 });
+                
                 $.create({
                     trigger: "#intro",
                     start: "top top",
@@ -6359,34 +6327,16 @@ function Qf() {
                     scrub: 1
                 })
             }
-            if (i) {  // isMobile
-                let o = W.timeline({
-                    defaults: {
-                        scale: 17,
-                        transformOrigin: "50% 50%"
-                    }
-                }).from("#b", {
-                    xPercent: -100
-                }).from("#r", {
-                    yPercent: -3e3
-                }, .1).from("#i", {
-                    yPercent: 3e3,
-                    xPercent: -2e3
-                }, .15).from("#d", {
-                    yPercent: -3e3,
-                    xPercent: -1e3
-                }, .2).from("#g", {
-                    yPercent: -3e3,
-                    xPercent: 1500
-                }, .25).from("#e", {
-                    yPercent: 3e3,
-                    xPercent: 500
-                }, .3).from(".site-info", {
-                    duration: .1,
-                    scale: 1,
-                    autoAlpha: 0,
-                    y: 30
-                });
+            if (isMobile) {  // isMobile
+                let o = W.timeline({ defaults: { scale: 17, transformOrigin: "50% 50%" } })
+                    .from("#b", { xPercent: -100 })
+                    .from("#r", { yPercent: -3e3 }, .1)
+                    .from("#i", { yPercent: 3e3, xPercent: -2e3 }, .15)
+                    .from("#d", { yPercent: -3e3, xPercent: -1e3 }, .2)
+                    .from("#g", { yPercent: -3e3, xPercent: 1500 }, .25)
+                    .from("#e", { yPercent: 3e3, xPercent: 500 }, .3)
+                    .from(".site-info", { duration: .1, scale: 1, autoAlpha: 0, y: 30 });
+                
                 $.create({
                     trigger: "#intro",
                     start: "top top",
@@ -6397,9 +6347,9 @@ function Qf() {
                 })
             }
         }
-    }
-    )
+    })
 }
+
 function Lr(g) {
     let e;
     return r=>{
@@ -6410,6 +6360,8 @@ function Lr(g) {
         , 1e3)
     }
 }
+
+// wall
 function Jf() {
     const g = new vi(".wall-front .wall-label:not(.show)",{
         type: "chars"
@@ -6438,8 +6390,8 @@ function Jf() {
         })
     }
     o.add(Pn, l=>{
-        let {isMobile: f, isTablet: u, isDesktop: p, reduceMotion: c} = l.conditions;
-        if (c) {
+        let {isMobile, isTablet, isDesktop, reduceMotion} = l.conditions;
+        if (reduceMotion) {
             let a = W.timeline().to(".wall-front", {
                 autoAlpha: 0,
                 delay: 1
@@ -6456,7 +6408,7 @@ function Jf() {
                 scrub: !0
             })
         } else {
-            if (f) {
+            if (isMobile) {
                 const a = W.timeline();
                 W.set(".wall-side", {
                     x: i.offsetWidth / 2,
@@ -6528,21 +6480,14 @@ function Jf() {
                     onLeaveBack: ()=>{}
                 })
             }
-            if (u) {
+            if (isTablet) {
                 const a = W.timeline();
-                W.set(".wall-side", {
-                    x: i.offsetWidth / 2,
-                    rotationY: "90deg"
-                }),
-                W.set(".wall-front", {
-                    z: n.offsetWidth / 2
-                }),
+                W.set(".wall-side", { x: i.offsetWidth / 2, rotationY: "90deg" }),
+                W.set(".wall-front", { z: n.offsetWidth / 2 }),
                 W.from(".wall-label.show .number", {
                     textContent: 177e3,
                     duration: .8,
-                    snap: {
-                        textContent: 1
-                    },
+                    snap: { textContent: 1 },
                     scrollTrigger: {
                         trigger: "#wall",
                         start: "top bottom",
@@ -6600,23 +6545,12 @@ function Jf() {
                     onLeaveBack: ()=>{}
                 })
             }
-            if (p) {
+            if (isDesktop) {
                 const a = W.timeline();
-                W.set(".wall-side", {
-                    x: i.offsetWidth / 2,
-                    rotationY: "90deg"
-                }),
-                W.set(".wall-front", {
-                    z: n.offsetWidth / 2
-                });
-                let d = W.from(".wall-label.show .number", {
-                    textContent: 177e3,
-                    duration: 2,
-                    snap: {
-                        textContent: 1
-                    },
-                    scrollTrigger: {
-                        trigger: "#wall",
+                W.set(".wall-side", { x: i.offsetWidth / 2, rotationY: "90deg" }),
+                W.set(".wall-front", { z: n.offsetWidth / 2 });
+                let d = W.from(".wall-label.show .number", { textContent: 177e3, duration: 2, snap: { textContent: 1 },
+                    scrollTrigger: { trigger: "#wall",
                         start: "top bottom",
                         toggleActions: "play none none reset",
                         onComplete: ()=>{}
@@ -6680,6 +6614,8 @@ function Jf() {
     ),
     window.addEventListener("resize", Lr(W.matchMediaRefresh))
 }
+
+// demo
 function jf() {
     W.matchMedia().add(Pn, e=>{
         e.conditions;
@@ -6702,40 +6638,30 @@ function jf() {
     }
     )
 }
+
+// shop
 function ec() {
     document.querySelector(".reduce"),
     W.matchMedia().add(Pn, e=>{
-        let {isMobile: r, isTablet: i, isDesktop: n, reduceMotion: t} = e.conditions;
-        if (t) {
-            if (n) {
+        let {isMobile, isTablet, isDesktop, reduceMotion} = e.conditions;
+        if (reduceMotion) {
+            if (isDesktop) {
                 let o = document.querySelector("#shop .last").getBoundingClientRect().left;
-                W.timeline().to("#shop .shop-horizontal .bg", {
-                    xPercent: -20
-                }).from("#shop .left_nav", {
-                    xPercent: -100
-                }, 0).from("#shop .shop-cover-bg", {
-                    xPercent: 100
-                }, 0).from("#shop .shop-cover-bg-inner > div", {
-                    xPercent: 50
-                }, 0).from("#shop .shop-cover-bg-inner .acc > img", {
-                    xPercent: 100
-                }, 0).to("#shop .bigger", {
-                    scale: .4
-                }).from(".shop-text-content", {
-                    autoAlpha: 0,
-                    y: 60,
-                    duration: .2
-                }, "-=0.2");
-                let s = W.timeline().from(".shop-horizontal", {
-                    xPercent: 100
-                }).from(".shop-horizontal .bg", {
-                    scale: 1.4
-                }, 0).from(".h-section:nth-child(2)", {
-                    xPercent: 50
-                }, "-=0.35").to(".shop-cover", {
-                    x: -o,
-                    duration: 3
-                });
+                W.timeline()
+                    .to("#shop .shop-horizontal .bg", { xPercent: -20 })
+                    .from("#shop .left_nav", { xPercent: -100 }, 0)
+                    .from("#shop .shop-cover-bg", { xPercent: 100 }, 0)
+                    .from("#shop .shop-cover-bg-inner > div", { xPercent: 50 }, 0)
+                    .from("#shop .shop-cover-bg-inner .acc > img", { xPercent: 100 }, 0)
+                    .to("#shop .bigger", { scale: .4 })
+                    .from(".shop-text-content", { autoAlpha: 0, y: 60, duration: .2 }, "-=0.2");
+
+                let s = W.timeline()
+                    .from(".shop-horizontal", { xPercent: 100 })
+                    .from(".shop-horizontal .bg", { scale: 1.4 }, 0)
+                    .from(".h-section:nth-child(2)", { xPercent: 50 }, "-=0.35")
+                    .to(".shop-cover", { x: -o, duration: 3 });
+                
                 $.create({
                     trigger: "#shop",
                     start: "top top",
@@ -6747,42 +6673,25 @@ function ec() {
                     onEnter: ()=>{}
                 })
             }
-            if (i || r) {
+            if (isTablet || isMobile) {
                 document.querySelector("#shop .last").getBoundingClientRect().top,
-                W.timeline().to("#shop .shop-horizontal .bg", {
-                    xPercent: -20
-                }).from("#shop .left_nav", {
-                    xPercent: -100
-                }, 0).from("#shop .shop-cover-bg", {
-                    xPercent: 100
-                }, 0).from("#shop .shop-cover-bg-inner > div", {
-                    xPercent: 50
-                }, 0).from("#shop .shop-cover-bg-inner .acc img", {
-                    xPercent: 100
-                }, 0).to("#shop .bigger", {
-                    scale: .65
-                }).to("#shop .bg", {
-                    height: "57vw"
-                }, "<").from(".shop-text-content", {
-                    autoAlpha: 0,
-                    y: 60,
-                    duration: .2
-                }, "-=0.2");
-                let o = W.timeline().from(".shop-horizontal", {
-                    xPercent: 100
-                }).from(".shop-horizontal .bg", {
-                    scale: 1.4
-                }, 0).from(".h-section:nth-child(2)", {
-                    yPercent: 150,
-                    onComplete: ()=>{}
-                }, "-=0.35").from(".h-section:nth-child(3)", {
-                    yPercent: 150
-                }, "<").to(".shop-cover", {
-                    y: -document.querySelector(".h-section").offsetHeight,
-                    duration: 3
-                }).to(".shop-text-content", {
-                    yPercent: -500
-                }, "<");
+                W.timeline()
+                    .to("#shop .shop-horizontal .bg", { xPercent: -20 })
+                    .from("#shop .left_nav", { xPercent: -100 }, 0)
+                    .from("#shop .shop-cover-bg", { xPercent: 100 }, 0)
+                    .from("#shop .shop-cover-bg-inner > div", { xPercent: 50 }, 0)
+                    .from("#shop .shop-cover-bg-inner .acc img", { xPercent: 100 }, 0)
+                    .to("#shop .bigger", { scale: .65 })
+                    .to("#shop .bg", { height: "57vw" }, "<")
+                    .from(".shop-text-content", { autoAlpha: 0, y: 60, duration: .2 }, "-=0.2");
+                
+                let o = W.timeline()
+                    .from(".shop-horizontal", { xPercent: 100 })
+                    .from(".shop-horizontal .bg", { scale: 1.4 }, 0)
+                    .from(".h-section:nth-child(2)", { yPercent: 150 }, "-=0.35")
+                    .from(".h-section:nth-child(3)", { yPercent: 150 }, "<")
+                    .to(".shop-cover", { y: -document.querySelector(".h-section").offsetHeight, duration: 3 })
+                    .to(".shop-text-content", { yPercent: -500 }, "<");
                 $.create({
                     trigger: "#shop",
                     start: "top top",
@@ -6795,35 +6704,22 @@ function ec() {
                 })
             }
         } else {
-            if (n) {
+            if (isDesktop) {
                 let o = document.querySelector("#shop .last").getBoundingClientRect().left
-                  , s = W.timeline().to("#shop .shop-horizontal .bg", {
-                    xPercent: -20
-                }).from("#shop .left_nav", {
-                    xPercent: -100
-                }, 0).from("#shop .shop-cover-bg", {
-                    xPercent: 100
-                }, 0).from("#shop .shop-cover-bg-inner > div", {
-                    xPercent: 50
-                }, 0).from("#shop .shop-cover-bg-inner .acc > img", {
-                    xPercent: 100
-                }, 0).to("#shop .bigger", {
-                    scale: .4
-                }).from(".shop-text-content", {
-                    autoAlpha: 0,
-                    y: 60,
-                    duration: .2
-                }, "-=0.2")
-                  , l = W.timeline().from(".shop-horizontal", {
-                    xPercent: 100
-                }).from(".shop-horizontal .bg", {
-                    scale: 1.4
-                }, 0).add(s).from(".h-section:nth-child(2)", {
-                    xPercent: 50
-                }, "-=0.35").to(".shop-cover", {
-                    x: -o,
-                    duration: 3
-                });
+                  , s = W.timeline()
+                    .to("#shop .shop-horizontal .bg", { xPercent: -20 })
+                    .from("#shop .left_nav", { xPercent: -100 }, 0)
+                    .from("#shop .shop-cover-bg", { xPercent: 100 }, 0)
+                    .from("#shop .shop-cover-bg-inner > div", { xPercent: 50 }, 0)
+                    .from("#shop .shop-cover-bg-inner .acc > img", { xPercent: 100 }, 0)
+                    .to("#shop .bigger", { scale: .4 })
+                    .from(".shop-text-content", { autoAlpha: 0, y: 60, duration: .2 }, "-=0.2")
+                  , l = W.timeline()
+                    .from(".shop-horizontal", { xPercent: 100 })
+                    .from(".shop-horizontal .bg", { scale: 1.4 }, 0)
+                    .add(s)
+                    .from(".h-section:nth-child(2)", { xPercent: 50 }, "-=0.35")
+                    .to(".shop-cover", { x: -o, duration: 3 });
                 $.create({
                     trigger: "#shop",
                     start: "top top",
@@ -6835,42 +6731,25 @@ function ec() {
                     onEnter: ()=>{}
                 })
             }
-            if (i || r) {
+            if (isTablet || isMobile) {
                 document.querySelector("#shop .last").getBoundingClientRect().top;
-                let o = W.timeline().to("#shop .shop-horizontal .bg", {
-                    xPercent: -20
-                }).from("#shop .left_nav", {
-                    xPercent: -100
-                }, 0).from("#shop .shop-cover-bg", {
-                    xPercent: 100
-                }, 0).from("#shop .shop-cover-bg-inner > div", {
-                    xPercent: 50
-                }, 0).from("#shop .shop-cover-bg-inner .acc img", {
-                    xPercent: 100
-                }, 0).to("#shop .bigger", {
-                    scale: .65
-                }).to("#shop .bg", {
-                    height: "57vw"
-                }, "<").from(".shop-text-content", {
-                    autoAlpha: 0,
-                    y: 60,
-                    duration: .2
-                }, "-=0.2")
-                  , s = W.timeline().from(".shop-horizontal", {
-                    xPercent: 100
-                }).from(".shop-horizontal .bg", {
-                    scale: 1.4
-                }, 0).add(o).from(".h-section:nth-child(2)", {
-                    yPercent: 150,
-                    onComplete: ()=>{}
-                }, "-=0.35").from(".h-section:nth-child(3)", {
-                    yPercent: 150
-                }, "<").to(".shop-cover", {
-                    y: -document.querySelector(".h-section").offsetHeight,
-                    duration: 3
-                }).to(".shop-text-content", {
-                    yPercent: -500
-                }, "<");
+                let o = W.timeline()
+                    .to("#shop .shop-horizontal .bg", { xPercent: -20 })
+                    .from("#shop .left_nav", { xPercent: -100 }, 0)
+                    .from("#shop .shop-cover-bg", { xPercent: 100 }, 0)
+                    .from("#shop .shop-cover-bg-inner > div", { xPercent: 50 }, 0)
+                    .from("#shop .shop-cover-bg-inner .acc img", { xPercent: 100 }, 0)
+                    .to("#shop .bigger", { scale: .65 })
+                    .to("#shop .bg", { height: "57vw" }, "<")
+                    .from(".shop-text-content", { autoAlpha: 0, y: 60, duration: .2 }, "-=0.2")
+                  , s = W.timeline()
+                    .from(".shop-horizontal", { xPercent: 100 })
+                    .from(".shop-horizontal .bg", { scale: 1.4 }, 0)
+                    .add(o)
+                    .from(".h-section:nth-child(2)", { yPercent: 150 }, "-=0.35")
+                    .from(".h-section:nth-child(3)", { yPercent: 150 }, "<")
+                    .to(".shop-cover", { y: -document.querySelector(".h-section").offsetHeight, duration: 3 })
+                    .to(".shop-text-content", { yPercent: -500 }, "<");
                 $.create({
                     trigger: "#shop",
                     start: "top top",
@@ -11474,49 +11353,30 @@ function Ao() {
     };
     return y
 }
+
+// portfolio
 function nc() {
     W.matchMedia().add(Pn, e=>{
-        let {isMobile: r, isTablet: i, isDesktop: n, reduceMotion: t} = e.conditions;
-        if (t) {
-            if (n) {
+        let {isMobile, isTablet, isDesktop, reduceMotion} = e.conditions;
+        if (reduceMotion) {
+            if (isDesktop) {
                 let o = document.querySelector("#portfolio .last").getBoundingClientRect().left
-                  , s = W.timeline().to(".portfolio-intro-image", {
-                    scale: .2
-                }).from(".portfolio-cover-center", {
-                    scale: .4
-                }, "-=0.3").from(".portfolio-cover-top", {
-                    duration: .2,
-                    opacity: 0,
-                    y: -50
-                }, "-=0.1").from(".portfolio-cover-bottom", {
-                    duration: .2,
-                    opacity: 0,
-                    y: 50
-                }, "<").from(".portfolio-cover-middle > svg:nth-child(1)", {
-                    duration: .2,
-                    opacity: 0,
-                    x: -50
-                }, "<").from(".portfolio-cover-middle > svg:nth-child(2)", {
-                    duration: .2,
-                    opacity: 0,
-                    x: 50
-                }, "<");
-                W.timeline().from(".portfolio-horizontal", {
-                    xPercent: 100
-                }).from(".portfolio-intro-image img", {
-                    scale: 1.4
-                }, 0).add(s).to("#portfolio .bigger", {
-                    scale: .46
-                }, "+=0.4").from(".p-section:nth-child(2) .portfolio-item", {
-                    xPercent: 50
-                }, "-=0.2").from(".portfolio-text-content", {
-                    autoAlpha: 0,
-                    y: 30
-                }, "-=0.1");
-                let l = W.timeline().to(".portfolio-cover", {
-                    duration: 3,
-                    x: -(o - document.querySelector("#portfolio .last").offsetWidth)
-                });
+                  , s = W.timeline()
+                    .to(".portfolio-intro-image", { scale: .2 })
+                    .from(".portfolio-cover-center", { scale: .4 }, "-=0.3")
+                    .from(".portfolio-cover-top", { duration: .2, opacity: 0, y: -50 }, "-=0.1")
+                    .from(".portfolio-cover-bottom", { duration: .2, opacity: 0, y: 50 }, "<")
+                    .from(".portfolio-cover-middle > svg:nth-child(1)", { duration: .2, opacity: 0, x: -50 }, "<")
+                    .from(".portfolio-cover-middle > svg:nth-child(2)", { duration: .2, opacity: 0, x: 50 }, "<");
+                W.timeline()
+                    .from(".portfolio-horizontal", { xPercent: 100 })
+                    .from(".portfolio-intro-image img", { scale: 1.4 }, 0)
+                    .add(s)
+                    .to("#portfolio .bigger", { scale: .46 }, "+=0.4")
+                    .from(".p-section:nth-child(2) .portfolio-item", { xPercent: 50 }, "-=0.2")
+                    .from(".portfolio-text-content", { autoAlpha: 0, y: 30 }, "-=0.1");
+                let l = W.timeline()
+                    .to(".portfolio-cover", { duration: 3, x: -(o - document.querySelector("#portfolio .last").offsetWidth) });
                 $.create({
                     trigger: "#portfolio",
                     start: "top top",
@@ -11539,50 +11399,26 @@ function nc() {
                     scrub: !0
                 })
             }
-            if (i || r) {
+            if (isTablet || isMobile) {
                 document.querySelector("#portfolio .last").getBoundingClientRect().left;
-                let o = W.timeline().to(".portfolio-intro-image", {
-                    scale: .2
-                }).from(".portfolio-cover-center", {
-                    scale: .4
-                }, "-=0.3").from(".portfolio-cover-top", {
-                    duration: .2,
-                    opacity: 0,
-                    y: -50
-                }, "-=0.1").from(".portfolio-cover-bottom", {
-                    duration: .2,
-                    opacity: 0,
-                    y: 50
-                }, "<").from(".portfolio-cover-middle > svg:nth-child(1)", {
-                    duration: .2,
-                    opacity: 0,
-                    x: -50
-                }, "<").from(".portfolio-cover-middle > svg:nth-child(2)", {
-                    duration: .2,
-                    opacity: 0,
-                    x: 50
-                }, "<");
-                W.timeline().from(".portfolio-horizontal", {
-                    xPercent: 100
-                }).from(".portfolio-intro-image img", {
-                    scale: 1.4
-                }, 0).add(o).to("#portfolio .bigger", {
-                    scale: .65,
-                    height: "60vw"
-                }, "+=0.4").from(".portfolio-text-content", {
-                    opacity: 0,
-                    duration: .1
-                }).from(".p-section:nth-child(2) .portfolio-item", {
-                    yPercent: 200
-                }, "-=0.2").from(".p-section:nth-child(3) .portfolio-item", {
-                    yPercent: 200
-                }, "<");
-                let s = W.timeline().to(".portfolio-text-content", {
-                    yPercent: -300
-                }).to(".portfolio-cover", {
-                    duration: 3,
-                    y: -document.querySelector("#portfolio .last").offsetHeight * 3
-                }, "<");
+                let o = W.timeline()
+                    .to(".portfolio-intro-image", { scale: .2 })
+                    .from(".portfolio-cover-center", { scale: .4 }, "-=0.3")
+                    .from(".portfolio-cover-top", { duration: .2, opacity: 0, y: -50 }, "-=0.1")
+                    .from(".portfolio-cover-bottom", { duration: .2, opacity: 0, y: 50 }, "<")
+                    .from(".portfolio-cover-middle > svg:nth-child(1)", { duration: .2, opacity: 0, x: -50 }, "<")
+                    .from(".portfolio-cover-middle > svg:nth-child(2)", { duration: .2, opacity: 0, x: 50 }, "<");
+                W.timeline()
+                    .from(".portfolio-horizontal", { xPercent: 100 })
+                    .from(".portfolio-intro-image img", { scale: 1.4 }, 0)
+                    .add(o)
+                    .to("#portfolio .bigger", { scale: .65, height: "60vw" }, "+=0.4")
+                    .from(".portfolio-text-content", { opacity: 0, duration: .1 })
+                    .from(".p-section:nth-child(2) .portfolio-item", { yPercent: 200 }, "-=0.2")
+                    .from(".p-section:nth-child(3) .portfolio-item", { yPercent: 200 }, "<");
+                let s = W.timeline()
+                    .to(".portfolio-text-content", { yPercent: -300 })
+                    .to(".portfolio-cover", { duration: 3, y: -document.querySelector("#portfolio .last").offsetHeight * 3 }, "<");
                 $.create({
                     trigger: "#portfolio",
                     start: "top top",
@@ -11597,7 +11433,7 @@ function nc() {
                 })
             }
         } else {
-            if (n) {
+            if (isDesktop) {
                 let o = document.querySelector("#portfolio .last").getBoundingClientRect().left
                   , s = W.timeline().to(".portfolio-intro-image", {
                     scale: .2
@@ -11657,49 +11493,25 @@ function nc() {
                     scrub: !0
                 })
             }
-            if (i || r) {
+            if (isTablet || isMobile) {
                 document.querySelector("#portfolio .last").getBoundingClientRect().left;
-                let o = W.timeline().to(".portfolio-intro-image", {
-                    scale: .2
-                }).from(".portfolio-cover-center", {
-                    scale: .4
-                }, "-=0.3").from(".portfolio-cover-top", {
-                    duration: .2,
-                    opacity: 0,
-                    y: -50
-                }, "-=0.1").from(".portfolio-cover-bottom", {
-                    duration: .2,
-                    opacity: 0,
-                    y: 50
-                }, "<").from(".portfolio-cover-middle > svg:nth-child(1)", {
-                    duration: .2,
-                    opacity: 0,
-                    x: -50
-                }, "<").from(".portfolio-cover-middle > svg:nth-child(2)", {
-                    duration: .2,
-                    opacity: 0,
-                    x: 50
-                }, "<")
-                  , s = W.timeline().from(".portfolio-horizontal", {
-                    xPercent: 100
-                }).from(".portfolio-intro-image img", {
-                    scale: 1.4
-                }, 0).add(o).to("#portfolio .bigger", {
-                    scale: .65,
-                    height: "60vw"
-                }, "+=0.4").from(".portfolio-text-content", {
-                    opacity: 0,
-                    duration: .1
-                }).from(".p-section:nth-child(2) .portfolio-item", {
-                    yPercent: 200
-                }, "-=0.2").from(".p-section:nth-child(3) .portfolio-item", {
-                    yPercent: 200
-                }, "<").to(".portfolio-text-content", {
-                    yPercent: -300
-                }).to(".portfolio-cover", {
-                    duration: 3,
-                    y: -document.querySelector("#portfolio .last").offsetHeight * 3
-                }, "<");
+                let o = W.timeline()
+                    .to(".portfolio-intro-image", { scale: .2 })
+                    .from(".portfolio-cover-center", { scale: .4 }, "-=0.3")
+                    .from(".portfolio-cover-top", { duration: .2, opacity: 0, y: -50 }, "-=0.1")
+                    .from(".portfolio-cover-bottom", { duration: .2, opacity: 0, y: 50 }, "<")
+                    .from(".portfolio-cover-middle > svg:nth-child(1)", { duration: .2, opacity: 0, x: -50 }, "<")
+                    .from(".portfolio-cover-middle > svg:nth-child(2)", { duration: .2, opacity: 0, x: 50 }, "<")
+                  , s = W.timeline()
+                    .from(".portfolio-horizontal", { xPercent: 100 })
+                    .from(".portfolio-intro-image img", { scale: 1.4 }, 0)
+                    .add(o)
+                    .to("#portfolio .bigger", { scale: .65, height: "60vw" }, "+=0.4")
+                    .from(".portfolio-text-content", { opacity: 0, duration: .1 })
+                    .from(".p-section:nth-child(2) .portfolio-item", { yPercent: 200 }, "-=0.2")
+                    .from(".p-section:nth-child(3) .portfolio-item", { yPercent: 200 }, "<")
+                    .to(".portfolio-text-content", { yPercent: -300 })
+                    .to(".portfolio-cover", { duration: 3, y: -document.querySelector("#portfolio .last").offsetHeight * 3 }, "<");
                 $.create({
                     trigger: "#portfolio",
                     start: "top top",
@@ -11709,16 +11521,13 @@ function nc() {
                     onLeave: ()=>{
                         Gt.isPaused = !0,
                         Gt.stack = Ao()
-                    }
-                    ,
+                    },
                     onEnterBack: ()=>{
                         Gt.isPaused = !1,
                         document.querySelectorAll("canvas").forEach(l=>{
                             l.remove()
-                        }
-                        )
-                    }
-                    ,
+                        })
+                    },
                     scrub: !0
                 })
             }
@@ -11727,38 +11536,25 @@ function nc() {
     ),
     window.addEventListener("resize", Lr(W.matchMediaRefresh))
 }
+
+// letters
 function rc() {
     W.matchMedia().add(Pn, e=>{
-        let {isMobile: r, isTablet: i, isDesktop: n, reduceMotion: t} = e.conditions;
-        if (t) {
-            W.set("#canvas", {
-                display: "none"
-            });
-            let o = W.timeline().from(".letters-screen", {
-                opacity: 0,
-                y: 50
-            }).to("#canvas", {
-                xPercent: 100
-            }).from("#awards", {
-                xPercent: -100
-            }, "<").to("#awards .bg", {
-                width: "100%"
-            })
-              , s = W.timeline().to(".reduce-text", {
-                autoAlpha: 1
-            }).from(".reduce-text > h3:nth-child(1)", {
-                autoAlpha: 0,
-                y: 30
-            }).from(".reduce-text > h3:nth-child(2)", {
-                autoAlpha: 0,
-                y: 30
-            }).from(".reduce-text > h3:nth-child(3)", {
-                autoAlpha: 0,
-                y: 30
-            }).from(".reduce-text > h3:nth-child(4)", {
-                autoAlpha: 0,
-                y: 30
-            }).add(o);
+        let {isMobile: r, isTablet: i, isDesktop: n, reduceMotion} = e.conditions;
+        if (reduceMotion) {
+            W.set("#canvas", { display: "none" });
+            let o = W.timeline()
+                .from(".letters-screen", { opacity: 0, y: 50 })
+                .to("#canvas", { xPercent: 100 })
+                .from("#awards", { xPercent: -100 }, "<")
+                .to("#awards .bg", { width: "100%" })
+              , s = W.timeline()
+                .to(".reduce-text", { autoAlpha: 1 })
+                .from(".reduce-text > h3:nth-child(1)", { autoAlpha: 0, y: 30 })
+                .from(".reduce-text > h3:nth-child(2)", { autoAlpha: 0, y: 30 })
+                .from(".reduce-text > h3:nth-child(3)", { autoAlpha: 0, y: 30 })
+                .from(".reduce-text > h3:nth-child(4)", { autoAlpha: 0, y: 30 })
+                .add(o);
             $.create({
                 trigger: "#letters",
                 start: "top top",
@@ -11768,19 +11564,14 @@ function rc() {
                 scrub: !0
             })
         } else {
-            W.set("#canvas", {
-                display: "block"
-            });
-            let o = W.timeline().from(".letters-screen", {
-                opacity: 0,
-                y: 50
-            }).to("#canvas", {
-                xPercent: 100
-            }).from("#awards", {
-                xPercent: -100
-            }, "<").to("#awards .bg", {
-                width: "100%"
-            });
+            W.set("#canvas", { display: "block" });
+
+            let o = W.timeline()
+                .from(".letters-screen", { opacity: 0, y: 50 })
+                .to("#canvas", { xPercent: 100 })
+                .from("#awards", { xPercent: -100 }, "<")
+                .to("#awards .bg", { width: "100%" });
+            
             $.create({
                 trigger: "#letters",
                 start: "top top",
@@ -11789,15 +11580,13 @@ function rc() {
                 pin: !0,
                 onEnter: ()=>{
                     sn.gravity.y = 2
-                }
-                ,
+                },
                 onUpdate: ({progress: s})=>{
                     s >= .3 ? (sn.gravity.y = 0,
                     sn.gravity.x = -5,
                     Gt.stack(mr)) : (sn.gravity.y = 2,
                     sn.gravity.x = 0)
-                }
-                ,
+                },
                 scrub: !0
             })
         }
@@ -11805,6 +11594,8 @@ function rc() {
     ),
     window.addEventListener("resize", Lr(W.matchMediaRefresh))
 }
+
+// elements
 function ic() {
     for (let e = 0; e < 5; e++) {
         const r = `
@@ -11830,66 +11621,36 @@ function ic() {
         }
         )
 }
+
+// elements
 function oc() {
     let g = W.matchMedia();
     ic(),
     g.add(Pn, e=>{
-        let {isMobile: r, isTablet: i, isDesktop: n, reduceMotion: t} = e.conditions;
-        if (t) {
-            let o = W.timeline({
-                defaults: {
-                    ease: "none"
-                }
-            }).to(".module-screen:nth-child(1)", {
-                yPercent: -100
-            }).to(".module-screen:nth-child(1) .module-screen__wrapper", {
-                yPercent: 100
-            }, "<").to(".module-screen:nth-child(2)", {
-                yPercent: -100
-            }).to(".module-screen:nth-child(2) .module-screen__wrapper", {
-                yPercent: 100
-            }, "<").to(".module-screen:nth-child(3)", {
-                yPercent: -100
-            }).to(".module-screen:nth-child(3) .module-screen__wrapper", {
-                yPercent: 100
-            }, "<").to(".module-screen:nth-child(4)", {
-                yPercent: -100
-            }).to(".module-screen:nth-child(4) .module-screen__wrapper", {
-                yPercent: 100
-            }, "<").to(".module-screen:nth-child(5)", {
-                yPercent: -100
-            }).to(".module-screen:nth-child(5) .module-screen__wrapper", {
-                yPercent: 100
-            }, "<")
-              , s = W.timeline().from(".elements-screen__bg", {
-                scaleX: 0,
-                ease: "none",
-                duration: .3
-            }).from(".module-screen__text-content", {
-                y: 30,
-                opacity: 0,
-                duration: .2
-            }).set(".module-screen", {
-                autoAlpha: 1
-            }).add(o, "<");
-            W.set(".elements-col,.elements-horizontal-row", {
-                display: "none"
-            });
+        let {isMobile: r, isTablet: i, isDesktop: n, reduceMotion} = e.conditions;
+        if (reduceMotion) {
+            let o = W.timeline({ defaults: { ease: "none" } })
+                .to(".module-screen:nth-child(1)", { yPercent: -100 })
+                .to(".module-screen:nth-child(1) .module-screen__wrapper", { yPercent: 100 }, "<")
+                .to(".module-screen:nth-child(2)", { yPercent: -100 })
+                .to(".module-screen:nth-child(2) .module-screen__wrapper", { yPercent: 100 }, "<")
+                .to(".module-screen:nth-child(3)", { yPercent: -100 })
+                .to(".module-screen:nth-child(3) .module-screen__wrapper", { yPercent: 100 }, "<")
+                .to(".module-screen:nth-child(4)", { yPercent: -100 })
+                .to(".module-screen:nth-child(4) .module-screen__wrapper", { yPercent: 100 }, "<")
+                .to(".module-screen:nth-child(5)", { yPercent: -100 })
+                .to(".module-screen:nth-child(5) .module-screen__wrapper", { yPercent: 100 }, "<")
+              , s = W.timeline()
+                .from(".elements-screen__bg", { scaleX: 0, ease: "none", duration: .3 })
+                .from(".module-screen__text-content", { y: 30, opacity: 0, duration: .2})
+                .set(".module-screen", { autoAlpha: 1 })
+                .add(o, "<");
+            W.set(".elements-col,.elements-horizontal-row", { display: "none" });
             let l = W.timeline();
-            l.from(".elements-vertical-text-holder", {
-                xPercent: 3,
-                opacity: 0,
-                duration: .2
-            }).to(".elements-vertical-text-holder", {
-                opacity: 0,
-                duration: .05
-            }, "+=1").from(".layout-text-holder", {
-                opacity: 0,
-                duration: .2
-            }).to(".layout-text-holder", {
-                opacity: 0,
-                duration: .05
-            }, "+=1").add(s),
+            l.from(".elements-vertical-text-holder", { xPercent: 3, opacity: 0, duration: .2 })
+                .to(".elements-vertical-text-holder", { opacity: 0, duration: .05 }, "+=1")
+                .from(".layout-text-holder", { opacity: 0, duration: .2 })
+                .to(".layout-text-holder", { opacity: 0, duration: .05 }, "+=1").add(s),
             $.create({
                 trigger: "#elements",
                 start: "top top",
@@ -11899,138 +11660,60 @@ function oc() {
                 scrub: !0
             })
         } else {
-            W.set(".elements-col", {
-                display: "block"
-            }),
-            W.set(".elements-horizontal-row", {
-                display: "flex"
-            });
-            let o = W.timeline().to(".-l, .-r", {
-                y: "-650vh",
-                duration: 2.5,
-                ease: "none"
-            })
-              , s = W.timeline().to(".-c", {
-                y: "650vh",
-                duration: 2.5,
-                ease: "none"
-            })
-              , l = W.timeline({
-                defaults: {
-                    ease: "none"
-                }
-            }).to(".module-screen:nth-child(1)", {
-                yPercent: -100
-            }).to(".module-screen:nth-child(1) .module-screen__wrapper", {
-                yPercent: 100
-            }, "<").to(".module-screen:nth-child(2)", {
-                yPercent: -100
-            }).to(".module-screen:nth-child(2) .module-screen__wrapper", {
-                yPercent: 100
-            }, "<").to(".module-screen:nth-child(3)", {
-                yPercent: -100
-            }).to(".module-screen:nth-child(3) .module-screen__wrapper", {
-                yPercent: 100
-            }, "<").to(".module-screen:nth-child(4)", {
-                yPercent: -100
-            }).to(".module-screen:nth-child(4) .module-screen__wrapper", {
-                yPercent: 100
-            }, "<").to(".module-screen:nth-child(5)", {
-                yPercent: -100
-            }).to(".module-screen:nth-child(5) .module-screen__wrapper", {
-                yPercent: 100
-            }, "<")
-              , f = W.timeline().from(".elements-screen__bg", {
-                scaleX: 0,
-                ease: "none",
-                duration: .3
-            }).from(".module-screen__text-content", {
-                y: 30,
-                opacity: 0,
-                duration: .2
-            }).set(".module-screen", {
-                autoAlpha: 1
-            }).add(s).add(o, "<").add(l, "<")
-              , u = W.timeline().to(".chars-row3 path", {
-                x: 0,
-                y: 0,
-                rotation: 0,
-                stagger: {
-                    amount: 1,
-                    from: 6
-                }
-            }).to(".chars-row2 path", {
-                x: 0,
-                y: 0,
-                rotation: 0,
-                stagger: {
-                    amount: 1,
-                    from: 6
-                }
-            }, .2).to(".chars-row4 path", {
-                x: 0,
-                y: 0,
-                rotation: 0,
-                stagger: {
-                    amount: 1,
-                    from: 6
-                }
-            }, .2).to(".chars-row1 path", {
-                x: 0,
-                y: 0,
-                rotation: 0,
-                stagger: {
-                    amount: 1,
-                    from: 6
-                }
-            }, .4).to(".chars-row5 path", {
-                x: 0,
-                y: 0,
-                rotation: 0,
-                stagger: {
-                    amount: 1,
-                    from: 6
-                }
-            }, .4)
-              , p = W.timeline({
-                defaults: {
-                    scale: 0
-                }
-            }).to(".chars-item1 svg", {}).to(".chars-item2 svg", {}, "-=0.3").to(".chars-item3 svg", {}, "-=0.3").to(".chars-item4 svg", {}, "-=0.3").to(".chars-item5 svg", {}, "-=0.3").to(".chars-item6 svg", {}, "-=0.3").to(".chars-item7 svg", {}, "-=0.3").to(".chars-item8 svg", {}, "-=0.3").to(".chars-item9 svg", {}, "-=0.3").to(".chars-item10 svg", {}, "-=0.3").to(".chars-item11 svg", {}, "-=0.3")
+            W.set(".elements-col", { display: "block" }),
+            W.set(".elements-horizontal-row", { display: "flex" });
+            let o = W.timeline()
+                .to(".-l, .-r", { y: "-650vh", duration: 2.5, ease: "none" })
+              , s = W.timeline()
+                .to(".-c", { y: "650vh", duration: 2.5, ease: "none" })
+              , l = W.timeline({ defaults: { ease: "none" } })
+                .to(".module-screen:nth-child(1)", { yPercent: -100 })
+                .to(".module-screen:nth-child(1) .module-screen__wrapper", { yPercent: 100 }, "<")
+                .to(".module-screen:nth-child(2)", { yPercent: -100 })
+                .to(".module-screen:nth-child(2) .module-screen__wrapper", { yPercent: 100 }, "<")
+                .to(".module-screen:nth-child(3)", { yPercent: -100 })
+                .to(".module-screen:nth-child(3) .module-screen__wrapper", { yPercent: 100 }, "<")
+                .to(".module-screen:nth-child(4)", { yPercent: -100 })
+                .to(".module-screen:nth-child(4) .module-screen__wrapper", { yPercent: 100 }, "<")
+                .to(".module-screen:nth-child(5)", { yPercent: -100 })
+                .to(".module-screen:nth-child(5) .module-screen__wrapper", { yPercent: 100 }, "<")
+              , f = W.timeline()
+                .from(".elements-screen__bg", { scaleX: 0, ease: "none", duration: .3 })
+                .from(".module-screen__text-content", { y: 30, opacity: 0, duration: .2 })
+                .set(".module-screen", { autoAlpha: 1 })
+                .add(s)
+                .add(o, "<")
+                .add(l, "<")
+              , u = W.timeline()
+                .to(".chars-row3 path", { x: 0, y: 0, rotation: 0, stagger: { amount: 1, from: 6 } })
+                .to(".chars-row2 path", { x: 0, y: 0, rotation: 0, stagger: { amount: 1, from: 6 } }, .2)
+                .to(".chars-row4 path", { x: 0, y: 0, rotation: 0, stagger: { amount: 1, from: 6 } }, .2)
+                .to(".chars-row1 path", { x: 0, y: 0, rotation: 0, stagger: { amount: 1, from: 6 } }, .4)
+                .to(".chars-row5 path", { x: 0, y: 0, rotation: 0, stagger: { amount: 1, from: 6 }}, .4)
+              , p = W.timeline({ defaults: { scale: 0 } })
+                .to(".chars-item1 svg", {})
+                .to(".chars-item2 svg", {}, "-=0.3")
+                .to(".chars-item3 svg", {}, "-=0.3")
+                .to(".chars-item4 svg", {}, "-=0.3")
+                .to(".chars-item5 svg", {}, "-=0.3")
+                .to(".chars-item6 svg", {}, "-=0.3")
+                .to(".chars-item7 svg", {}, "-=0.3")
+                .to(".chars-item8 svg", {}, "-=0.3")
+                .to(".chars-item9 svg", {}, "-=0.3")
+                .to(".chars-item10 svg", {}, "-=0.3")
+                .to(".chars-item11 svg", {}, "-=0.3")
               , c = W.timeline();
-            c.from(".elements-vertical-text-holder", {
-                xPercent: 3,
-                opacity: 0,
-                duration: .2
-            }).to(".elements-vertical-text-holder", {
-                yPercent: 3,
-                opacity: 0,
-                duration: .05
-            }).fromTo(".elements-col:nth-child(odd)", {
-                yPercent: -100
-            }, {
-                yPercent: 100
-            }, "<").fromTo(".elements-col:nth-child(even)", {
-                yPercent: 100
-            }, {
-                yPercent: -100
-            }, "<").from(".layout-text-holder", {
-                xPercent: 1,
-                opacity: 0,
-                duration: .2
-            }, "-=0.2").to(".layout-text-holder", {
-                yPercent: 1,
-                opacity: 0,
-                duration: .05
-            }).fromTo(".elements-horizontal-row:nth-child(odd)", {
-                xPercent: -100
-            }, {
-                xPercent: 100
-            }, "<").fromTo(".elements-horizontal-row:nth-child(even)", {
-                xPercent: 100
-            }, {
-                xPercent: -100
-            }, "<").add(f, "-=0.25").add(u).add(p),
+            c.from(".elements-vertical-text-holder", { xPercent: 3, opacity: 0, duration: .2 })
+                .to(".elements-vertical-text-holder", { yPercent: 3, opacity: 0, duration: .05 })
+                .fromTo(".elements-col:nth-child(odd)", { yPercent: -100 }, { yPercent: 100 }, "<")
+                .fromTo(".elements-col:nth-child(even)", { yPercent: 100 }, { yPercent: -100 }, "<")
+                .from(".layout-text-holder", { xPercent: 1, opacity: 0, duration: .2 }, "-=0.2")
+                .to(".layout-text-holder", { yPercent: 1, opacity: 0, duration: .05 })
+                .fromTo(".elements-horizontal-row:nth-child(odd)", { xPercent: -100 }, { xPercent: 100 }, "<")
+                .fromTo(".elements-horizontal-row:nth-child(even)", { xPercent: 100 }, { xPercent: -100 }, "<")
+                .add(f, "-=0.25")
+                .add(u)
+                .add(p),
             $.create({
                 trigger: "#elements",
                 start: "top top",
@@ -12044,33 +11727,19 @@ function oc() {
     ),
     window.addEventListener("resize", Lr(W.matchMediaRefresh))
 }
+
+// qode
 function sc() {
     W.matchMedia().add(Pn, e=>{
-        let {isMobile: r, isTablet: i, isDesktop: n, reduceMotion: t} = e.conditions;
-        if (t)
-            W.timeline().to("#text-path-0", {
-                attr: {
-                    d: "M 125.2 268.9 C 183.2 249.7 263.6 253 345.9 268.9"
-                }
-            }).to(".qode_tagline", {
-                transformOrigin: "50% 500%",
-                rotation: -180
-            }, "-=0.3").to(".qode_round_text svg", {
-                rotation: -300,
-                ease: "none"
-            }, "<").from(".qode_logo svg", {
-                yPercent: 100,
-                rotation: 360,
-                scale: .9,
-                duration: 1,
-                onComplete: ()=>{}
-            }, "<").to(".qode-text-holder", {
-                yPercent: 0,
-                opacity: 1
-            }).to("#line", {
-                strokeDashoffset: 0,
-                duration: 3
-            }),
+        let {isMobile: r, isTablet: i, isDesktop: n, reduceMotion} = e.conditions;
+        if (reduceMotion)
+            W.timeline()
+                .to("#text-path-0", { attr: { d: "M 125.2 268.9 C 183.2 249.7 263.6 253 345.9 268.9" } })
+                .to(".qode_tagline", { transformOrigin: "50% 500%", rotation: -180 }, "-=0.3")
+                .to(".qode_round_text svg", { rotation: -300, ease: "none" }, "<")
+                .from(".qode_logo svg", { yPercent: 100, rotation: 360, scale: .9, duration: 1 }, "<")
+                .to(".qode-text-holder", { yPercent: 0, opacity: 1 })
+                .to("#line", { strokeDashoffset: 0, duration: 3 }),
             $.create({
                 trigger: "#qode",
                 start: "top top",
@@ -12079,29 +11748,13 @@ function sc() {
                 scrub: !0
             });
         else {
-            let o = W.timeline().to("#text-path-0", {
-                attr: {
-                    d: "M 125.2 268.9 C 183.2 249.7 263.6 253 345.9 268.9"
-                }
-            }).to(".qode_tagline", {
-                transformOrigin: "50% 500%",
-                rotation: -180
-            }, "-=0.3").to(".qode_round_text svg", {
-                rotation: -300,
-                ease: "none"
-            }, "<").from(".qode_logo svg", {
-                yPercent: 100,
-                rotation: 360,
-                scale: .9,
-                duration: 1,
-                onComplete: ()=>{}
-            }, "<").to(".qode-text-holder", {
-                yPercent: 0,
-                opacity: 1
-            }).to("#line", {
-                strokeDashoffset: 0,
-                duration: 3
-            });
+            let o = W.timeline()
+                .to("#text-path-0", { attr: { d: "M 125.2 268.9 C 183.2 249.7 263.6 253 345.9 268.9" } })
+                .to(".qode_tagline", { transformOrigin: "50% 500%", rotation: -180 }, "-=0.3")
+                .to(".qode_round_text svg", { rotation: -300, ease: "none" }, "<")
+                .from(".qode_logo svg", { yPercent: 100, rotation: 360, scale: .9, duration: 1, }, "<")
+                .to(".qode-text-holder", { yPercent: 0, opacity: 1 })
+                .to("#line", { strokeDashoffset: 0, duration: 3 });
             $.create({
                 trigger: "#qode",
                 start: "top top",
@@ -12115,12 +11768,13 @@ function sc() {
     ),
     window.addEventListener("resize", Lr(W.matchMediaRefresh))
 }
+
 Zf();
-Qf();
-Jf();
-jf();
-ec();
-nc();
-rc();
-oc();
-sc();
+Qf();   // intro
+Jf();   // wall
+jf();   // demo
+ec();   // shop
+nc();   // portfolio
+rc();   // letters
+oc();   // elements
+sc();   // qode
